@@ -14,6 +14,10 @@
 		6B604353202DDDE700CB1FBB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B604352202DDDE700CB1FBB /* FirstViewController.swift */; };
 		6B604355202DE41800CB1FBB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B604354202DE41800CB1FBB /* SecondViewController.swift */; };
 		6B604357202DF79F00CB1FBB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B604356202DF79F00CB1FBB /* MainStoryboard.storyboard */; };
+		6B809BE7202ED88000418958 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B809BE6202ED88000418958 /* ThirdViewController.swift */; };
+		6BC2823E202F2E8B0001BB79 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2823D202F2E8B0001BB79 /* extensions.swift */; };
+		6BC28240202F2F410001BB79 /* EPSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2823F202F2F410001BB79 /* EPSignatureView.swift */; };
+		6BC28244202F31EC0001BB79 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC28243202F31EC0001BB79 /* DLRadioButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,12 @@
 		6B604352202DDDE700CB1FBB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		6B604354202DE41800CB1FBB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		6B604356202DF79F00CB1FBB /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6B809BE6202ED88000418958 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		6BC2823D202F2E8B0001BB79 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		6BC2823F202F2F410001BB79 /* EPSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPSignatureView.swift; sourceTree = "<group>"; };
+		6BC28241202F31EB0001BB79 /* A1STAFFING-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "A1STAFFING-Bridging-Header.h"; sourceTree = "<group>"; };
+		6BC28242202F31EC0001BB79 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		6BC28243202F31EC0001BB79 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,8 @@
 		6B60431D202DD8D700CB1FBB /* A1STAFFING */ = {
 			isa = PBXGroup;
 			children = (
+				6BC28242202F31EC0001BB79 /* DLRadioButton.h */,
+				6BC28243202F31EC0001BB79 /* DLRadioButton.m */,
 				6B60431E202DD8D700CB1FBB /* AppDelegate.swift */,
 				6B604325202DD8D700CB1FBB /* Assets.xcassets */,
 				6B604327202DD8D700CB1FBB /* LaunchScreen.storyboard */,
@@ -102,6 +114,10 @@
 				6B604352202DDDE700CB1FBB /* FirstViewController.swift */,
 				6B604354202DE41800CB1FBB /* SecondViewController.swift */,
 				6B604356202DF79F00CB1FBB /* MainStoryboard.storyboard */,
+				6B809BE6202ED88000418958 /* ThirdViewController.swift */,
+				6BC2823D202F2E8B0001BB79 /* extensions.swift */,
+				6BC2823F202F2F410001BB79 /* EPSignatureView.swift */,
+				6BC28241202F31EB0001BB79 /* A1STAFFING-Bridging-Header.h */,
 			);
 			path = A1STAFFING;
 			sourceTree = "<group>";
@@ -183,6 +199,7 @@
 				TargetAttributes = {
 					6B60431A202DD8D700CB1FBB = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					6B60432E202DD8D700CB1FBB = {
@@ -249,8 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC28240202F2F410001BB79 /* EPSignatureView.swift in Sources */,
+				6BC2823E202F2E8B0001BB79 /* extensions.swift in Sources */,
+				6BC28244202F31EC0001BB79 /* DLRadioButton.m in Sources */,
 				6B604355202DE41800CB1FBB /* SecondViewController.swift in Sources */,
 				6B604353202DDDE700CB1FBB /* FirstViewController.swift in Sources */,
+				6B809BE7202ED88000418958 /* ThirdViewController.swift in Sources */,
 				6B60431F202DD8D700CB1FBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,12 +429,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U8BCP3M92K;
 				INFOPLIST_FILE = A1STAFFING/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vmwebs.A1STAFFINGAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "A1STAFFING/A1STAFFING-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -423,12 +447,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U8BCP3M92K;
 				INFOPLIST_FILE = A1STAFFING/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vmwebs.A1STAFFINGAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "A1STAFFING/A1STAFFING-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

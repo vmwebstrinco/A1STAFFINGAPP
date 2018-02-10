@@ -1,14 +1,13 @@
 //
-//  SecondViewController.swift
+//  ThirdViewController.swift
 //  A1STAFFING
-//
-//  Created by Dinesh Kunanayagam on 2017-11-24.
+// Created by Dinesh Kunanayagam on 2017-11-24.
 //  Copyright © 2018 VMEWBS ENTERPRISE LTD. All rights reserved.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ThirdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,30 +24,29 @@ class SecondViewController: UIViewController {
         titlelabel.font = UIFont.systemFont(ofSize: 30)
         navigationItem.titleView = titlelabel
         
-        // Do any additional setup after loading the view.
+        
         let btn = UIButton(type: .custom) as UIButton
         btn.backgroundColor = .blue
-        btn.setTitle("Other Informations >", for: .normal)
+        btn.setTitle("Register Now", for: .normal)
         btn.frame = CGRect(x: 20, y: 888, width: 725, height: 50)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font =  UIFont.systemFont(ofSize: 30)
-        btn.addTarget(self, action: #selector(showThird), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(submitForm), for: .touchUpInside)
         self.view.addSubview(btn)
         
         let toplabel = UILabel(frame:CGRect(x:25,y:20,width : 725, height : 50))
-        toplabel.text = "CONTACT INFORMATIONS"
+        toplabel.text = "OTHER INFORMATIONS"
         toplabel.textAlignment = .left
         toplabel.backgroundColor = .white
         toplabel.textColor = .black
         toplabel.font = UIFont.systemFont(ofSize: 25)
-         self.view.addSubview(toplabel)
+        self.view.addSubview(toplabel)
+    }
+    
+    @IBAction func submitForm(_ sender: Any) {
         
     }
-    
-    @IBAction func showThird(_ sender: Any) {
-        show(ThirdViewController(), sender: self)
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
