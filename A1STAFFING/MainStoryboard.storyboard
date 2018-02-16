@@ -267,12 +267,12 @@
                         <outlet property="txt_first_name" destination="OCL-uP-fN2" id="s5e-Gz-WsZ"/>
                         <outlet property="txt_last_name" destination="CO8-of-xYU" id="dyt-5W-dYJ"/>
                         <outlet property="txt_middle_name" destination="fod-Zq-OqK" id="qzk-fd-ulT"/>
-                        <segue destination="del-8h-ZYX" kind="show" identifier="segtosecond" id="ruA-QV-aZI"/>
+                        <segue destination="del-8h-ZYX" kind="show" identifier="segtosecond" id="CRl-fO-8R2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eC0-5V-EEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.84375" y="35.7421875"/>
+            <point key="canvasLocation" x="199" y="-26"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="aLr-UG-V4b">
@@ -424,12 +424,12 @@
                         <outlet property="txt_main_phone" destination="8lh-PA-nXI" id="Hn9-aU-Bjc"/>
                         <outlet property="txt_mobile" destination="WCZ-mY-6Cf" id="92K-GQ-7Mg"/>
                         <outlet property="txt_social_insurance" destination="DUC-Ca-mbs" id="POz-hG-9RR"/>
-                        <segue destination="oeP-1w-X9J" kind="show" identifier="segtothird" id="FLn-MM-FeK"/>
+                        <segue destination="oeP-1w-X9J" kind="show" identifier="segtothird" id="AbC-yF-vBE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkB-nC-0XY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="36"/>
+            <point key="canvasLocation" x="896" y="-196"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="4Gw-Qq-hSc">
@@ -584,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPY-bt-6HV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="36"/>
+            <point key="canvasLocation" x="1593" y="236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ca1-WC-Mpo">
