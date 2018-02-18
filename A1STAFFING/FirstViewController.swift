@@ -95,17 +95,16 @@ class FirstViewController: UIViewController {
     
     // MARK: - show second function
     @IBAction func showsecond(_ sender: Any) {
-       // if(validateform() == 0){
+        if(validateform() == 0){
             //lbl_error_one.text="Please fill all required fields"
-            //let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
-            //alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            //self.present(alert, animated: true, completion: nil)
-       // }
-       // else if(validateform() == 1){
+            let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+       }
+       else if(validateform() == 1){
             //lbl_error_one.text="";
-            performSegue(withIdentifier: "seqtosecond", sender: self)
-        
-       // }
+            performSegue(withIdentifier: "seqtosecond", sender: self)        
+       }
     }
     
     //MARK: - perform segue

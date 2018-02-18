@@ -24,16 +24,16 @@ open class ThirdViewController: UIViewController {
     
     // MARK: - Variable declarations
     var f_title : String = ""
-    var f_first_name : String?
-    var f_middle_name : String?
-    var f_last_name : String?
+    var f_first_name : String = ""
+    var f_middle_name : String = "'"
+    var f_last_name : String = ""
     var f_gender : String = ""
     var f_dob : String = ""
-    var f_main_phone : String?
-    var f_mobile : String?
-    var f_main_email : String?
-    var f_address : String?
-    var f_social_insurance : String?
+    var f_main_phone : String = ""
+    var f_mobile : String = ""
+    var f_main_email : String = ""
+    var f_address : String = ""
+    var f_social_insurance : String = ""
     var f_category : String = ""
     var f_kmrange: String?
     var sig : String="";
@@ -119,9 +119,9 @@ open class ThirdViewController: UIViewController {
     @IBAction func submitForm(_ sender: Any) {
         if(validateform() == 0){
             //lbl_error_three.text="Please fill all required fields"
-            //let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
-            //alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            //self.present(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         else if(validateform() == 1){
             lbl_error_three.text="";
@@ -138,16 +138,16 @@ open class ThirdViewController: UIViewController {
             var dataString = "secretWord=44fdcv8jf3"
             
             dataString = dataString + "&title=\(f_title)"
-            dataString = dataString + "&first_name=\(f_first_name!)"
-            dataString = dataString + "&middle_name=\(f_middle_name!)"
-            dataString = dataString + "&last_name=\(f_last_name!)"
+            dataString = dataString + "&first_name=\(f_first_name)"
+            dataString = dataString + "&middle_name=\(f_middle_name)"
+            dataString = dataString + "&last_name=\(f_last_name)"
             dataString = dataString + "&gender=\(f_gender)"
             dataString = dataString + "&dob=\(f_dob)"
-            dataString = dataString + "&main_phone=\(f_main_phone!)"
-            dataString = dataString + "&mobile=\(f_mobile!)"
-            dataString = dataString + "&main_email=\(f_main_email!)"
-            dataString = dataString + "&address=\(f_address!)"
-            dataString = dataString + "&social_insurance=\(f_social_insurance!)"
+            dataString = dataString + "&main_phone=\(f_main_phone)"
+            dataString = dataString + "&mobile=\(f_mobile)"
+            dataString = dataString + "&main_email=\(f_main_email)"
+            dataString = dataString + "&address=\(f_address)"
+            dataString = dataString + "&social_insurance=\(f_social_insurance)"
             dataString = dataString + "&category=\(f_category)"
             dataString = dataString + "&kmrange=\(f_kmrange!)"
             dataString = dataString + "&stringnature=\(sig)"

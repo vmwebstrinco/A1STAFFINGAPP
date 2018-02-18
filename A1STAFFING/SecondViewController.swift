@@ -101,16 +101,16 @@ class SecondViewController: UIViewController {
     
     // MARK: - Third View Function
     @IBAction func showThird(_ sender: Any) {
-        //if(validateform() == 0){
+        if(validateform() == 0){
             //lbl_error_two.text="Please fill all required fields"
-          // let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
-           //alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            //self.present(alert, animated: true, completion: nil)
-        //}
-        //else if(validateform() == 1){
+           let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if(validateform() == 1){
             //lbl_error_two.text="";
             performSegue(withIdentifier: "segtothird", sender: self)
-       // }
+       }
     }
     
     //seque function
@@ -118,22 +118,20 @@ class SecondViewController: UIViewController {
         if segue.identifier == "segtothird"{
             let vc = segue.destination as! ThirdViewController
             vc.f_title = f_title
-            vc.f_first_name = f_first_name
-            vc.f_middle_name = f_middle_name
-            vc.f_last_name = f_last_name
+            vc.f_first_name = f_first_name!
+            vc.f_middle_name = f_middle_name!
+            vc.f_last_name = f_last_name!
             vc.f_gender = f_gender
             vc.f_dob = f_dob
-            vc.f_main_phone = f_main_phone
-            vc.f_mobile = f_mobile
-            vc.f_main_email = f_main_email
-            vc.f_address = f_address
-            vc.f_social_insurance = f_social_insurance
+            vc.f_main_phone = f_main_phone!
+            vc.f_mobile = f_mobile!
+            vc.f_main_email = f_main_email!
+            vc.f_address = f_address!
+            vc.f_social_insurance = f_social_insurance!
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
 }
