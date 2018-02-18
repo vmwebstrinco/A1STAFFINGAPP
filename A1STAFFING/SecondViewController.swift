@@ -24,7 +24,13 @@ class SecondViewController: UIViewController {
     var f_main_email : String?
     var f_address : String?
     var f_social_insurance : String?
-    var f_title : String?
+    var f_title : String = ""
+    var f_first_name : String?
+    var f_middle_name : String?
+    var f_last_name : String?
+    var f_gender : String = ""
+    var f_dob : String = ""
+    
     
      // MARK: - Onload function
     override func viewDidLoad() {
@@ -97,14 +103,32 @@ class SecondViewController: UIViewController {
     @IBAction func showThird(_ sender: Any) {
         //if(validateform() == 0){
             //lbl_error_two.text="Please fill all required fields"
-           let alert = UIAlertController(title: "Alert", message: f_title, preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+          // let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
+           //alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            //self.present(alert, animated: true, completion: nil)
         //}
         //else if(validateform() == 1){
             //lbl_error_two.text="";
             performSegue(withIdentifier: "segtothird", sender: self)
        // }
+    }
+    
+    //seque function
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segtothird"{
+            let vc = segue.destination as! ThirdViewController
+            vc.f_title = f_title
+            vc.f_first_name = f_first_name
+            vc.f_middle_name = f_middle_name
+            vc.f_last_name = f_last_name
+            vc.f_gender = f_gender
+            vc.f_dob = f_dob
+            vc.f_main_phone = f_main_phone
+            vc.f_mobile = f_mobile
+            vc.f_main_email = f_main_email
+            vc.f_address = f_address
+            vc.f_social_insurance = f_social_insurance
+        }
     }
     
     override func didReceiveMemoryWarning() {

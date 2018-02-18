@@ -110,7 +110,17 @@ class FirstViewController: UIViewController {
     
     //MARK: - perform segue
         
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "seqtosecond"{
+            let vc = segue.destination as! SecondViewController
+            vc.f_title = f_title
+            vc.f_first_name = f_first_name
+            vc.f_middle_name = f_middle_name
+            vc.f_last_name = f_last_name
+            vc.f_gender = f_gender
+            vc.f_dob = f_dob
+        }
+    }
     
     // MARK: - get title function
     @IBAction func get_title(_ sender: DLRadioButton) {
