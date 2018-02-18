@@ -192,6 +192,7 @@ open class ThirdViewController: UIViewController {
                 }
             })
             insertEntry.resume()
+            performSegue(withIdentifier: "segonetothird", sender: self)
         }
     }
     

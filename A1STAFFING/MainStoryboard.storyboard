@@ -580,6 +580,7 @@
                         <outlet property="txt_km_range" destination="9IE-oH-MVs" id="tUB-F2-H87"/>
                         <outlet property="work_type_full" destination="2Kj-iP-22z" id="HxR-xi-zEG"/>
                         <outlet property="work_type_part" destination="yYa-iO-Krl" id="Nj6-H9-J71"/>
+                        <segue destination="v1f-Px-tK9" kind="show" identifier="segonetothird" id="f4q-en-0hE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPY-bt-6HV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -608,4 +609,7 @@
     <resources>
         <image name="button_bg" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="f4q-en-0hE"/>
+    </inferredMetricsTieBreakers>
 </document>
