@@ -103,11 +103,15 @@ class FirstViewController: UIViewController {
        // }
        // else if(validateform() == 1){
             //lbl_error_one.text="";
-            performSegue(withIdentifier: "segtosecond", sender: self)
+            performSegue(withIdentifier: "seqtosecond", sender: self)
+        
        // }
     }
-   
-
+    
+    //MARK: - perform segue
+        
+    
+    
     // MARK: - get title function
     @IBAction func get_title(_ sender: DLRadioButton) {
         if(sender.tag == 1){

@@ -267,7 +267,7 @@
                         <outlet property="txt_first_name" destination="OCL-uP-fN2" id="s5e-Gz-WsZ"/>
                         <outlet property="txt_last_name" destination="CO8-of-xYU" id="dyt-5W-dYJ"/>
                         <outlet property="txt_middle_name" destination="fod-Zq-OqK" id="qzk-fd-ulT"/>
-                        <segue destination="del-8h-ZYX" kind="show" identifier="segtosecond" id="CRl-fO-8R2"/>
+                        <segue destination="del-8h-ZYX" kind="show" identifier="seqtosecond" id="Wvf-V3-9dI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eC0-5V-EEu" userLabel="First Responder" sceneMemberID="firstResponder"/>

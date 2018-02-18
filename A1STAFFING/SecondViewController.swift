@@ -24,6 +24,7 @@ class SecondViewController: UIViewController {
     var f_main_email : String?
     var f_address : String?
     var f_social_insurance : String?
+    var f_title : String?
     
      // MARK: - Onload function
     override func viewDidLoad() {
@@ -96,9 +97,9 @@ class SecondViewController: UIViewController {
     @IBAction func showThird(_ sender: Any) {
         //if(validateform() == 0){
             //lbl_error_two.text="Please fill all required fields"
-           // let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
-           // alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            //self.present(alert, animated: true, completion: nil)
+           let alert = UIAlertController(title: "Alert", message: f_title, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         //}
         //else if(validateform() == 1){
             //lbl_error_two.text="";
