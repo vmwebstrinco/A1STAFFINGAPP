@@ -7,10 +7,10 @@
 //
 
 import UIKit
-var insertid : Int = 0
 
 class MainViewController: UIViewController {
     // MARK: - Variable Declarations
+    var insertid : Int = 0
     
     //Mark: - struct
     struct cemp: Codable {
@@ -184,9 +184,7 @@ class MainViewController: UIViewController {
     
     // MARK: - show sgn function
     @IBAction func showsign(_ sender: Any) {
-         var inflag : Bool = true
         if(validateform() == 0){
-            inflag = false
             let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -220,34 +218,33 @@ class MainViewController: UIViewController {
             let insertEntry = URLSession.shared.uploadTask(with:request, from: dataD, completionHandler: { (data, response, error) in
                 
                 if error != nil {
-                    inflag =  false
-                    DispatchQueue.main.async
-                        {
-                            let alert = UIAlertController(title: "Please Try Again", message: "Looks like the connection to the server didn't work. Do you have Internet access?", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                        }
+                    DispatchQueue.main.async{
+                        let alert = UIAlertController(title: "Please Try Again", message: "Looks like the connection to the server didn't work. Do you have Internet access?", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
                 else
                 {
+                    //DispatchQueue.main.async{
                     guard let data = data else { return }
                     do {
                         let decoder = JSONDecoder()
                         let emp = try decoder.decode(cemp.self, from: data)
-                        insertid = emp.id
-                        print(insertid)
+                        self.insertid = emp.id
+                        print(self.insertid)
+                        
                         print("BREAK")
+                       
                         
                     } catch let err {
-                        inflag = false
                         print("Err", err)
                     }
-                    
+                    //}
                 }
             })
             insertEntry.resume()
-            
-            performSegue(withIdentifier: "seqtosign", sender: self)
+            self.performSegue(withIdentifier: "seqtosign", sender: self)
         }
     }
     
