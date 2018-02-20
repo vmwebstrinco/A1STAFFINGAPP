@@ -18,10 +18,11 @@ open class SignViewController: UIViewController {
     // MARK: - UI Items declaration
     @IBOutlet weak var bor_label: UILabel!
     @IBOutlet weak var signatureView: EPSignatureView!
-    
     @IBOutlet weak var lbl: UILabel!
+    
+    
     // MARK: - Variable declarations
-    var insertid : Int = 5
+    var insertid : Int = 0
     
     var f_title : String = ""
     var f_first_name : String = ""
@@ -46,13 +47,10 @@ open class SignViewController: UIViewController {
     // MARK: - Life cycle methods
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
         lbl.text = String(insertid)
-        print(insertid);       
         
         bor_label.layer.borderWidth = 0.5
         bor_label.layer.borderColor = UIColor.black.cgColor
-        
     }
     
     
@@ -85,6 +83,11 @@ open class SignViewController: UIViewController {
         signatureView.reposition()
     }
     
+    // MARK: - Updte signature
+    
+    @IBAction func updatesignature(_ sender: Any) {
+        
+    }
     
     // MARK: - SUbmit form function
     @IBAction func submitForm(_ sender: Any) {

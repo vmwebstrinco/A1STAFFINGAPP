@@ -190,7 +190,14 @@ class MainViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else if(validateform() == 1){
-            
+            self.performSegue(withIdentifier: "seqtosign", sender: self)
+        }
+    }
+    
+    
+    //MARK: - perform segue    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "seqtosign"{
             let inserviceUrl = "http://a1staffing.ca/app/services.php"
             let inurl = URL(string: inserviceUrl)
             
@@ -215,6 +222,9 @@ class MainViewController: UIViewController {
             
             let dataD = dataString.data(using: .utf8)
             
+            let group = DispatchGroup()
+            group.enter()
+            
             let insertEntry = URLSession.shared.uploadTask(with:request, from: dataD, completionHandler: { (data, response, error) in
                 
                 if error != nil {
@@ -232,30 +242,24 @@ class MainViewController: UIViewController {
                         let decoder = JSONDecoder()
                         let emp = try decoder.decode(cemp.self, from: data)
                         self.insertid = emp.id
-                        print(self.insertid)
-                        
-                        print("BREAK")
-                       
+                        print("1")
                         
                     } catch let err {
                         print("Err", err)
                     }
                     //}
+                    //print("2")
+                    //print(self.insertid)
+                    group.leave()
                 }
             })
             insertEntry.resume()
-            self.performSegue(withIdentifier: "seqtosign", sender: self)
-        }
-    }
-    
-    
-    //MARK: - perform segue    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seqtosign"{
+            
+            group.wait()
             let vc = segue.destination as! SignViewController
             vc.insertid = insertid
-            print(insertid)
-            
+           // print("3")
+            //print(insertid)
         }
     }
     
