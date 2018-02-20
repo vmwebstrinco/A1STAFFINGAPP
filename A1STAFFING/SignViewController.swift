@@ -15,28 +15,34 @@ import UIKit
 }
 
 open class SignViewController: UIViewController {
+    //Mark: - struct
+    struct gemp: Codable {
+        let first_name: String?
+        
+        private enum CodingKeys: String, CodingKey{
+            case first_name
+            
+        }
+        
+    }
+    
     // MARK: - UI Items declaration
-   
-    @IBOutlet weak var signatureView: EPSignatureView!
-    @IBOutlet weak var lbl: UILabel!    
     @IBOutlet weak var bor_label: UILabel!
+    @IBOutlet weak var details_view: UIView!
+    @IBOutlet weak var signatureView: EPSignatureView!
+    
+    @IBOutlet weak var lbl_name: UILabel!
+    @IBOutlet weak var lbl_gender: UILabel!
+    @IBOutlet weak var lbl_dob: UILabel!
+    @IBOutlet weak var lbl_mobile: UILabel!
+    @IBOutlet weak var lbl_email: UILabel!
+    @IBOutlet weak var lbl_address: UILabel!
+    @IBOutlet weak var lbl_sin: UILabel!
+    @IBOutlet weak var lbl_category: UILabel!
+    @IBOutlet weak var lbl_kmrange: UILabel!
     
     // MARK: - Variable declarations
-    var insertid : Int = 0
-    
-    var f_title : String = ""
-    var f_first_name : String = ""
-    var f_middle_name : String = "'"
-    var f_last_name : String = ""
-    var f_gender : String = ""
-    var f_dob : String = ""
-    var f_main_phone : String = ""
-    var f_mobile : String = ""
-    var f_main_email : String = ""
-    var f_address : String = ""
-    var f_social_insurance : String = ""
-    var f_category : String = ""
-    var f_kmrange: String?
+    var insertid : Int = 162
     var sig : String="";
     
     open var showsSaveSignatureOption: Bool = true
@@ -47,11 +53,15 @@ open class SignViewController: UIViewController {
     // MARK: - Life cycle methods
     override open func viewDidLoad() {
         super.viewDidLoad()
-        lbl.text = String(insertid)       
-              
+        
         bor_label.layer.borderWidth = 0.5
         bor_label.layer.borderColor = UIColor.black.cgColor
+        
+        details_view.layer.borderWidth = 0.5
+        details_view.layer.borderColor = UIColor.black.cgColor       
+        
     }
+    
     
     
     // MARK: - Initializers
@@ -85,61 +95,70 @@ open class SignViewController: UIViewController {
     
     // MARK: - Updte signature button
     @IBAction func updatesignature(_ sender: Any) {
-        if let signature = signatureView.getSignatureAsImage(){
-            sig = signatureView.converAsBase64()!
-            signatureDelegate?.epSignature!(self, didSign: signature, boundingRect: signatureView.getSignatureBoundsInCanvas())
-        }
-        
-        let inserviceUrl = "http://a1staffing.ca/app/services.php"
-        let inurl = URL(string: inserviceUrl)
-        
-        var request = URLRequest(url: inurl!)
-        request.httpMethod = "POST"
-        var dataString = "secretWord=vmdf#67-+34"
-        dataString = dataString + "&action=updatesign"
-        dataString = dataString + "&stringnature=\(sig)"
-        dataString = dataString + "&id=\(insertid)"
-        
-        let dataD = dataString.data(using: .utf8)
-        
-        let insertEntry = URLSession.shared.uploadTask(with:request, from: dataD, completionHandler: { (data, response, error) in
+        self.performSegue(withIdentifier: "sequetomain", sender: self)
+    }
+    
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sequetomain"{
             
-            if error != nil {
-                DispatchQueue.main.async
-                    {
-                        let alert = UIAlertController(title: "Please Try Again", message: "Looks like the connection to the server didn't work. Do you have Internet access?", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                }
+            if let signature = signatureView.getSignatureAsImage(){
+                sig = signatureView.converAsBase64()!
+                signatureDelegate?.epSignature!(self, didSign: signature, boundingRect: signatureView.getSignatureBoundsInCanvas())
             }
-            else
-            {
-                if let unwrappedData = data {
-                    
-                    let returnedData = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
-                    
-                    if returnedData == "1"
-                    {
-                        DispatchQueue.main.async
-                            {
-                                let alert = UIAlertController(title: "Success", message: "Successfully registered", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                        }
-                    }
-                    else
-                    {
-                        DispatchQueue.main.async
-                            {
-                                let alert = UIAlertController(title: "Error", message: "Please try again later", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                        }
+            
+            let inserviceUrl = "http://a1staffing.ca/app/services.php"
+            let inurl = URL(string: inserviceUrl)
+            
+            var request = URLRequest(url: inurl!)
+            request.httpMethod = "POST"
+            var dataString = "secretWord=12345b"
+            dataString = dataString + "&action=updatesign"
+            dataString = dataString + "&stringnature=\(sig)"
+            dataString = dataString + "&id=\(insertid)"
+            
+            let dataD = dataString.data(using: .utf8)
+            
+            let group = DispatchGroup()
+            group.enter()
+            
+            let insertEntry = URLSession.shared.uploadTask(with:request, from: dataD, completionHandler: { (data, response, error) in
+                if error != nil {
+                    DispatchQueue.main.async
+                        {
+                            let alert = UIAlertController(title: "Please Try Again", message: "Looks like the connection to the server didn't work. Do you have Internet access?", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
                     }
                 }
-            }
-        })
-        insertEntry.resume()
-        performSegue(withIdentifier: "sequetomain", sender: self)
+                else
+                {
+                    if let unwrappedData = data {
+                        
+                        let returnedData = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
+                        
+                        if returnedData == "1"
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    let alert = UIAlertController(title: "Success", message: "Successfully registered", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                            }
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    let alert = UIAlertController(title: "Error", message: "Please try again later", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                }
+            })
+            insertEntry.resume()
+        }
     }
 }
+

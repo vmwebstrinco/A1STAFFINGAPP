@@ -190,14 +190,14 @@ class MainViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else if(validateform() == 1){
-            self.performSegue(withIdentifier: "seqtosign", sender: self)
+            self.performSegue(withIdentifier: "seguetosign", sender: self)
         }
     }
     
     
     //MARK: - perform segue    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seqtosign"{
+        if segue.identifier == "seguetosign"{
             let inserviceUrl = "http://a1staffing.ca/app/services.php"
             let inurl = URL(string: inserviceUrl)
             
