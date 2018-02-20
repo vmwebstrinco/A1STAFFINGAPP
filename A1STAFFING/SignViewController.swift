@@ -1,6 +1,6 @@
 
 //
-//  ThirdViewController.swift
+//  SignViewController.swift
 //  A1STAFFING
 // Created by Dinesh Kunanayagam on 2017-11-24.
 //  Copyright © 2018 VMEWBS ENTERPRISE LTD. All rights reserved.
@@ -16,10 +16,10 @@ import UIKit
 
 open class SignViewController: UIViewController {
     // MARK: - UI Items declaration
-    @IBOutlet weak var bor_label: UILabel!
+   
     @IBOutlet weak var signatureView: EPSignatureView!
-    @IBOutlet weak var lbl: UILabel!
-    
+    @IBOutlet weak var lbl: UILabel!    
+    @IBOutlet weak var bor_label: UILabel!
     
     // MARK: - Variable declarations
     var insertid : Int = 0
@@ -47,8 +47,8 @@ open class SignViewController: UIViewController {
     // MARK: - Life cycle methods
     override open func viewDidLoad() {
         super.viewDidLoad()
-        lbl.text = String(insertid)
-        
+        lbl.text = String(insertid)       
+              
         bor_label.layer.borderWidth = 0.5
         bor_label.layer.borderColor = UIColor.black.cgColor
     }
@@ -83,40 +83,22 @@ open class SignViewController: UIViewController {
         signatureView.reposition()
     }
     
-    // MARK: - Updte signature
-    
+    // MARK: - Updte signature button
     @IBAction func updatesignature(_ sender: Any) {
-        
-    }
-    
-    // MARK: - SUbmit form function
-    @IBAction func submitForm(_ sender: Any) {
         if let signature = signatureView.getSignatureAsImage(){
             sig = signatureView.converAsBase64()!
             signatureDelegate?.epSignature!(self, didSign: signature, boundingRect: signatureView.getSignatureBoundsInCanvas())
         }
         
-        let inserviceUrl = "http://a1staffing.ca/insert.php"
+        let inserviceUrl = "http://a1staffing.ca/app/services.php"
         let inurl = URL(string: inserviceUrl)
         
         var request = URLRequest(url: inurl!)
         request.httpMethod = "POST"
-        var dataString = "secretWord=44fdcv8jf3"
-        
-        dataString = dataString + "&title=\(f_title)"
-        dataString = dataString + "&first_name=\(f_first_name)"
-        dataString = dataString + "&middle_name=\(f_middle_name)"
-        dataString = dataString + "&last_name=\(f_last_name)"
-        dataString = dataString + "&gender=\(f_gender)"
-        dataString = dataString + "&dob=\(f_dob)"
-        dataString = dataString + "&main_phone=\(f_main_phone)"
-        dataString = dataString + "&mobile=\(f_mobile)"
-        dataString = dataString + "&main_email=\(f_main_email)"
-        dataString = dataString + "&address=\(f_address)"
-        dataString = dataString + "&social_insurance=\(f_social_insurance)"
-        dataString = dataString + "&category=\(f_category)"
-        dataString = dataString + "&kmrange=\(f_kmrange!)"
+        var dataString = "secretWord=vmdf#67-+34"
+        dataString = dataString + "&action=updatesign"
         dataString = dataString + "&stringnature=\(sig)"
+        dataString = dataString + "&id=\(insertid)"
         
         let dataD = dataString.data(using: .utf8)
         
@@ -158,9 +140,6 @@ open class SignViewController: UIViewController {
             }
         })
         insertEntry.resume()
-        performSegue(withIdentifier: "sequetoone", sender: self)
+        performSegue(withIdentifier: "sequetomain", sender: self)
     }
-    
-    
-    
 }

@@ -605,14 +605,17 @@
                                                 <state key="normal" title="X" backgroundImage="button_bg">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btn_clear:" destination="7V8-Ck-hXA" eventType="touchUpInside" id="laT-6D-68P"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y45-mR-MXx" customClass="EPSignatureView" customModule="A1STAFFING" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="1561" width="723" height="200"/>
+                                                <rect key="frame" x="23" y="1561" width="721" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdr-vt-crP">
-                                                <rect key="frame" x="20" y="1560" width="725" height="202"/>
+                                                <rect key="frame" x="22" y="1560" width="723" height="202"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -646,12 +649,13 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.74526566270000005" green="0.86158818010000005" blue="0.94925731420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2000" id="exp-uD-jiB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.98586182310000003" green="1" blue="0.67990533890000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="OOF-lc-NsC" secondAttribute="bottom" id="T3d-o5-f9w"/>
                                     <constraint firstItem="OOF-lc-NsC" firstAttribute="leading" secondItem="n2a-ql-EVV" secondAttribute="leading" id="bSk-kt-ukD"/>
@@ -664,6 +668,7 @@
                         <constraints>
                             <constraint firstItem="8Oj-oK-OFj" firstAttribute="bottom" secondItem="n2a-ql-EVV" secondAttribute="bottom" id="CCP-fM-e3o"/>
                             <constraint firstItem="OOF-lc-NsC" firstAttribute="width" secondItem="hkR-hg-nvy" secondAttribute="width" id="J6g-pC-DJQ"/>
+                            <constraint firstItem="n2a-ql-EVV" firstAttribute="bottom" secondItem="8Oj-oK-OFj" secondAttribute="bottom" constant="400" id="WCT-rD-QhL"/>
                             <constraint firstItem="n2a-ql-EVV" firstAttribute="leading" secondItem="8Oj-oK-OFj" secondAttribute="leading" id="d1n-dF-DkV"/>
                             <constraint firstItem="8Oj-oK-OFj" firstAttribute="trailing" secondItem="n2a-ql-EVV" secondAttribute="trailing" id="fDg-av-IYe"/>
                             <constraint firstItem="n2a-ql-EVV" firstAttribute="top" secondItem="hkR-hg-nvy" secondAttribute="top" id="nQi-UN-9bt"/>
@@ -672,7 +677,9 @@
                     </view>
                     <size key="freeformSize" width="768" height="2000"/>
                     <connections>
+                        <outlet property="bor_label" destination="Hdr-vt-crP" id="xb1-9q-Kaz"/>
                         <outlet property="lbl" destination="2Xs-6a-cIQ" id="nd9-Mh-DHD"/>
+                        <outlet property="signatureView" destination="y45-mR-MXx" id="XQj-1Y-8I2"/>
                         <segue destination="hw9-gS-9eu" kind="show" identifier="seqtomain" id="Ybs-1C-lxj"/>
                     </connections>
                 </viewController>
