@@ -79,22 +79,37 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         personal_view.layer.borderWidth = 0.5
-        personal_view.layer.borderColor = UIColor.black.cgColor
+        personal_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
         
         contact_view.layer.borderWidth = 0.5
-        contact_view.layer.borderColor = UIColor.black.cgColor
+        contact_view.layer.borderColor = UIColor(red:0.87, green:0.87, blue:0.87, alpha:1.0).cgColor
         
         other_view.layer.borderWidth = 0.5
-        other_view.layer.borderColor = UIColor.black.cgColor
+        other_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
         
-        txt_first_name.setLeftPaddingPoints(10)
-        txt_first_name.setRightPaddingPoints(10)
+        txt_first_name.setLeftPaddingPoints(15)
+        txt_first_name.setRightPaddingPoints(15)
         
-        txt_middle_name.setLeftPaddingPoints(10)
-        txt_middle_name.setRightPaddingPoints(10)
+        txt_first_name.layer.shadowOpacity = 1.0;
+        txt_first_name.layer.shadowRadius = 0.0;
+        txt_first_name.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_first_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_last_name.setLeftPaddingPoints(10)
-        txt_last_name.setRightPaddingPoints(10)
+        txt_middle_name.setLeftPaddingPoints(15)
+        txt_middle_name.setRightPaddingPoints(15)
+        
+        txt_middle_name.layer.shadowOpacity = 1.0;
+        txt_middle_name.layer.shadowRadius = 0.0;
+        txt_middle_name.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_middle_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_last_name.setLeftPaddingPoints(15)
+        txt_last_name.setRightPaddingPoints(15)
+        
+        txt_last_name.layer.shadowOpacity = 1.0;
+        txt_last_name.layer.shadowRadius = 0.0;
+        txt_last_name.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_last_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
         let calendar: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
         calendar.timeZone = NSTimeZone(name: "UTC")! as TimeZone
@@ -107,25 +122,56 @@ class MainViewController: UIViewController {
         dob.datePickerMode = .date
         dob.date = defaultDate as Date
         
+        txt_main_phone.setLeftPaddingPoints(15)
+        txt_main_phone.setRightPaddingPoints(15)
         
-        txt_main_phone.setLeftPaddingPoints(10)
-        txt_main_phone.setRightPaddingPoints(10)
+        txt_main_phone.layer.shadowOpacity = 1.0;
+        txt_main_phone.layer.shadowRadius = 0.0;
+        txt_main_phone.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_main_phone.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_mobile.setLeftPaddingPoints(10)
-        txt_mobile.setRightPaddingPoints(10)            
+        txt_mobile.setLeftPaddingPoints(15)
+        txt_mobile.setRightPaddingPoints(15)
         
-        txt_email.setLeftPaddingPoints(10)
-        txt_email.setRightPaddingPoints(10)
+        txt_mobile.layer.shadowOpacity = 1.0;
+        txt_mobile.layer.shadowRadius = 0.0;
+        txt_mobile.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_mobile.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_social_insurance.setLeftPaddingPoints(10)
-        txt_social_insurance.setRightPaddingPoints(10)
+        txt_email.setLeftPaddingPoints(15)
+        txt_email.setRightPaddingPoints(15)
         
-        txt_address.setLeftPaddingPoints(10)
-        txt_address.setRightPaddingPoints(10)        
+        txt_email.layer.shadowOpacity = 1.0;
+        txt_email.layer.shadowRadius = 0.0;
+        txt_email.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_email.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_km_range.setLeftPaddingPoints(10)
-        txt_km_range.setRightPaddingPoints(10)
+        txt_social_insurance.setLeftPaddingPoints(15)
+        txt_social_insurance.setRightPaddingPoints(15)
+        
+        txt_social_insurance.layer.shadowOpacity = 1.0;
+        txt_social_insurance.layer.shadowRadius = 0.0;
+        txt_social_insurance.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_social_insurance.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_address.setLeftPaddingPoints(15)
+        txt_address.setRightPaddingPoints(15)
+        
+        txt_address.layer.shadowOpacity = 1.0;
+        txt_address.layer.shadowRadius = 0.0;
+        txt_address.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_address.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_km_range.setLeftPaddingPoints(15)
+        txt_km_range.setRightPaddingPoints(15)
+        
+        txt_km_range.layer.shadowOpacity = 1.0;
+        txt_km_range.layer.shadowRadius = 0.0;
+        txt_km_range.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_km_range.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
     }
+
 
     //MARKL - Validates form
     public func validateform() -> Int{

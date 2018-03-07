@@ -201,7 +201,7 @@ open class SignViewController: UIViewController {
                     {
                         DispatchQueue.main.async
                             {
-                                let alert = UIAlertController(title: "Success", message: "Successfully updated", preferredStyle: .alert)
+                                let alert = UIAlertController(title: "Registered Successfully", message: "Thank you for joining", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                                     self.performSegue(withIdentifier: "sequetomain", sender: self)
                                 }))
