@@ -53,7 +53,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var work_type_part: DLRadioButton!    
     @IBOutlet weak var txt_km_range: UITextField!
     
-    
     //1
     var f_title : String = ""
     var f_first_name : String?
@@ -116,7 +115,7 @@ class MainViewController: UIViewController {
         let components: NSDateComponents = NSDateComponents()
         components.year = 1995
         components.month = 5
-        components.day = 21
+        components.day = 20
         let defaultDate: NSDate = calendar.date(from: components as DateComponents)! as NSDate
         
         dob.datePickerMode = .date
@@ -220,8 +219,11 @@ class MainViewController: UIViewController {
             f_kmrange = ""
         }
         
+        if(f_dob == "1995-05-20"){
+            f_dob="";
+        }
         
-        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_gender != "" && f_dob != "" && f_main_phone! != "" && f_address! != "" && f_kmrange! != "" && f_category != ""){
+        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != "" && f_kmrange! != "" && f_category != ""){
             return 1
         }else{
             return 0
