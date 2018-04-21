@@ -224,8 +224,6 @@ class MainViewController: UIViewController {
         let valid: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
         valid.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         valid_till.datePickerMode = .date
-
-        
     }
 
 
@@ -266,12 +264,37 @@ class MainViewController: UIViewController {
             f_address = ""
         }
         
+        f_unit = txt_unit.text
+        if(f_unit == nil){
+            f_unit = ""
+        }
+        
+        f_city = txt_city.text
+        if(f_city == nil){
+            f_city = ""
+        }
+        
+        f_postalcode = txt_postal_code.text
+        if(f_postalcode == nil){
+            f_postalcode = ""
+        }
+        
+        f_work_permit_number = txt_work_permit_number.text
+        if(f_work_permit_number == nil){
+            f_work_permit_number = ""
+        }
+        
         f_social_insurance = txt_social_insurance.text
         if(f_social_insurance == nil){
             f_social_insurance = ""
         }
         
-        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != "" ){
+        f_hear_from = txt_hear_from.text
+        if(f_hear_from == nil){
+            f_hear_from = ""
+        }
+        
+        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != ""){
             return 1
         }else{
             return 0
@@ -312,7 +335,15 @@ class MainViewController: UIViewController {
             dataString = dataString + "&mobile=\(f_mobile!)"
             dataString = dataString + "&main_email=\(f_main_email!)"
             dataString = dataString + "&address=\(f_address!)"
+            dataString = dataString + "&unit=\(f_unit!)"
+            dataString = dataString + "&city=\(f_city!)"
+            dataString = dataString + "&postalcode=\(f_postalcode!)"
+            dataString = dataString + "&own_car=\(f_own_car!)"
             dataString = dataString + "&social_insurance=\(f_social_insurance!)"
+            dataString = dataString + "&work_permit_number=\(f_work_permit_number!)"
+            dataString = dataString + "&valid_till=\(f_valid_until!)"
+            dataString = dataString + "&legal_right=\(f_legal_right!)"
+            dataString = dataString + "&hear_from=\(f_hear_from!)"
             
             
             let dataD = dataString.data(using: .utf8)
