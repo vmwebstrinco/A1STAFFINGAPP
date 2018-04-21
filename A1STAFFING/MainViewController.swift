@@ -383,6 +383,14 @@ class MainViewController: UIViewController {
         f_dob=strDate
     }
     
+    // MARK: - get valid till function
+    @IBAction func get_valid_till(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let strDate = dateFormatter.string(from: valid_till.date)
+        f_valid_until=strDate
+    }
+    
     // MARK: - get own car function
     @IBAction func get_own_car(_ sender: DLRadioButton) {
         if(sender.tag == 1){
