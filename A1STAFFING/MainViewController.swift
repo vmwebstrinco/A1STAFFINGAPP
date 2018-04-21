@@ -221,7 +221,10 @@ class MainViewController: UIViewController {
         txt_hear_from.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_hear_from.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        
+        let valid: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        valid.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        valid_till.datePickerMode = .date
+
         
     }
 
