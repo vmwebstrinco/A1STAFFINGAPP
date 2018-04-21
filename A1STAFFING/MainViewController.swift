@@ -44,16 +44,28 @@ class MainViewController: UIViewController {
     // MARK: - contact fomr Declarations
     @IBOutlet weak var txt_main_phone: UITextField!
     @IBOutlet weak var txt_mobile: UITextField!
-    @IBOutlet weak var txt_email: UITextField!
+    @IBOutlet weak var txt_email: UITextField!    
+    @IBOutlet weak var txt_address: UITextField!    
+    @IBOutlet weak var txt_unit: UITextField!
+    @IBOutlet weak var txt_city: UITextField!
+    @IBOutlet weak var txt_postal_code: UITextField!
+    
+    // MARK: - other form Declarations    
+    
     @IBOutlet weak var txt_social_insurance: UITextField!
-    @IBOutlet weak var txt_address: UITextField!
+    @IBOutlet weak var txt_work_permit_number: UITextField!
+    @IBOutlet weak var txt_hear_from: UITextField!
     
-    // MARK: - other fomr Declarations
-    @IBOutlet weak var work_type_full: DLRadioButton!
-    @IBOutlet weak var work_type_part: DLRadioButton!    
-    @IBOutlet weak var txt_km_range: UITextField!
+    @IBOutlet weak var valid_till: UIDatePicker!
     
-    //1
+    @IBOutlet weak var yes_btn_own_car: DLRadioButton!
+    @IBOutlet weak var no_btn_own_car: DLRadioButton!
+    
+    @IBOutlet weak var yes_btn_legal_right: DLRadioButton!
+    @IBOutlet weak var no_btn_legal_right: DLRadioButton!
+    
+    //MARK: - Personal Variable Declaration
+    
     var f_title : String = ""
     var f_first_name : String?
     var f_middle_name : String?
@@ -61,16 +73,25 @@ class MainViewController: UIViewController {
     var f_gender : String = ""
     var f_dob : String = ""
     
-    //2
+    //MARK: - Contact Variable Declaration
+    
     var f_main_phone : String?
     var f_mobile : String?
     var f_main_email : String?
     var f_address : String?
-    var f_social_insurance : String?
+    var f_unit : String?
+    var f_city : String?
+    var f_postalcode : String?
     
-    //3
-    var f_category : String = ""
-    var f_kmrange: String?
+    //MARK: - Other Variable Declaration
+    
+    var f_own_car : String?
+    var f_social_insurance : String?
+    var f_work_permit_number : String?
+    var f_valid_until : String?
+    var f_legal_right : String?
+    var f_hear_from : String?
+
     
     
     //MARK: - ON load
@@ -85,6 +106,8 @@ class MainViewController: UIViewController {
         
         other_view.layer.borderWidth = 0.5
         other_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
+        
+        //MARK: - Personal view Declaration
         
         txt_first_name.setLeftPaddingPoints(15)
         txt_first_name.setRightPaddingPoints(15)
@@ -112,14 +135,9 @@ class MainViewController: UIViewController {
         
         let calendar: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
         calendar.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        let components: NSDateComponents = NSDateComponents()
-        components.year = 1995
-        components.month = 5
-        components.day = 20
-        let defaultDate: NSDate = calendar.date(from: components as DateComponents)! as NSDate
-        
         dob.datePickerMode = .date
-        dob.date = defaultDate as Date
+        
+        //MARK: - Contact view Declaration
         
         txt_main_phone.setLeftPaddingPoints(15)
         txt_main_phone.setRightPaddingPoints(15)
@@ -145,14 +163,6 @@ class MainViewController: UIViewController {
         txt_email.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_email.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_social_insurance.setLeftPaddingPoints(15)
-        txt_social_insurance.setRightPaddingPoints(15)
-        
-        txt_social_insurance.layer.shadowOpacity = 1.0;
-        txt_social_insurance.layer.shadowRadius = 0.0;
-        txt_social_insurance.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
-        txt_social_insurance.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
         txt_address.setLeftPaddingPoints(15)
         txt_address.setRightPaddingPoints(15)
         
@@ -161,13 +171,57 @@ class MainViewController: UIViewController {
         txt_address.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_address.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_km_range.setLeftPaddingPoints(15)
-        txt_km_range.setRightPaddingPoints(15)
+        txt_unit.setLeftPaddingPoints(15)
+        txt_unit.setRightPaddingPoints(15)
         
-        txt_km_range.layer.shadowOpacity = 1.0;
-        txt_km_range.layer.shadowRadius = 0.0;
-        txt_km_range.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
-        txt_km_range.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        txt_unit.layer.shadowOpacity = 1.0;
+        txt_unit.layer.shadowRadius = 0.0;
+        txt_unit.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_unit.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_city.setLeftPaddingPoints(15)
+        txt_city.setRightPaddingPoints(15)
+        
+        txt_city.layer.shadowOpacity = 1.0;
+        txt_city.layer.shadowRadius = 0.0;
+        txt_city.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_city.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_postal_code.setLeftPaddingPoints(15)
+        txt_postal_code.setRightPaddingPoints(15)
+        
+        txt_postal_code.layer.shadowOpacity = 1.0;
+        txt_postal_code.layer.shadowRadius = 0.0;
+        txt_postal_code.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_postal_code.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        //MARK: - Other view Declaration
+        
+        txt_social_insurance.setLeftPaddingPoints(15)
+        txt_social_insurance.setRightPaddingPoints(15)
+        
+        txt_social_insurance.layer.shadowOpacity = 1.0;
+        txt_social_insurance.layer.shadowRadius = 0.0;
+        txt_social_insurance.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_social_insurance.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_work_permit_number.setLeftPaddingPoints(15)
+        txt_work_permit_number.setRightPaddingPoints(15)
+        
+        txt_work_permit_number.layer.shadowOpacity = 1.0;
+        txt_work_permit_number.layer.shadowRadius = 0.0;
+        txt_work_permit_number.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_work_permit_number.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_hear_from.setLeftPaddingPoints(15)
+        txt_hear_from.setRightPaddingPoints(15)
+        
+        txt_hear_from.layer.shadowOpacity = 1.0;
+        txt_hear_from.layer.shadowRadius = 0.0;
+        txt_hear_from.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_hear_from.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        
         
     }
 
@@ -214,16 +268,7 @@ class MainViewController: UIViewController {
             f_social_insurance = ""
         }
         
-        f_kmrange = txt_km_range.text
-        if(f_kmrange == nil){
-            f_kmrange = ""
-        }
-        
-        if(f_dob == "1995-05-20"){
-            f_dob="";
-        }
-        
-        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != "" && f_kmrange! != "" && f_category != ""){
+        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != "" ){
             return 1
         }else{
             return 0
@@ -265,8 +310,7 @@ class MainViewController: UIViewController {
             dataString = dataString + "&main_email=\(f_main_email!)"
             dataString = dataString + "&address=\(f_address!)"
             dataString = dataString + "&social_insurance=\(f_social_insurance!)"
-            dataString = dataString + "&category=\(f_category)"
-            dataString = dataString + "&kmrange=\(f_kmrange!)"
+            
             
             let dataD = dataString.data(using: .utf8)
             
@@ -338,13 +382,5 @@ class MainViewController: UIViewController {
         let strDate = dateFormatter.string(from: dob.date)
         f_dob=strDate
     }
-    
-    // MARK: - Get category function
-    @IBAction func get_category(_ sender: DLRadioButton) {
-        if(sender.tag == 1){
-            f_category = "Full Time"
-        }else if(sender.tag == 2){
-            f_category = "Part Time"
-        }
-    }
+   
 }
