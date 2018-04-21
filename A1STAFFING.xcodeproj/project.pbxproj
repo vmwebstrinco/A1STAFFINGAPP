@@ -12,6 +12,7 @@
 		6B604329202DD8D700CB1FBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B604327202DD8D700CB1FBB /* LaunchScreen.storyboard */; };
 		6B60433F202DD8D700CB1FBB /* A1STAFFINGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B60433E202DD8D700CB1FBB /* A1STAFFINGUITests.swift */; };
 		6B604357202DF79F00CB1FBB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B604356202DF79F00CB1FBB /* MainStoryboard.storyboard */; };
+		6B9ACBB8208B614600C04C24 /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9ACBB7208B614600C04C24 /* WorkViewController.swift */; };
 		6BC2823E202F2E8B0001BB79 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2823D202F2E8B0001BB79 /* extensions.swift */; };
 		6BC28240202F2F410001BB79 /* EPSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2823F202F2F410001BB79 /* EPSignatureView.swift */; };
 		6BC28244202F31EC0001BB79 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC28243202F31EC0001BB79 /* DLRadioButton.m */; };
@@ -47,6 +48,7 @@
 		6B60433E202DD8D700CB1FBB /* A1STAFFINGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A1STAFFINGUITests.swift; sourceTree = "<group>"; };
 		6B604340202DD8D700CB1FBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B604356202DF79F00CB1FBB /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6B9ACBB7208B614600C04C24 /* WorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewController.swift; sourceTree = "<group>"; };
 		6BC2823D202F2E8B0001BB79 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		6BC2823F202F2F410001BB79 /* EPSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPSignatureView.swift; sourceTree = "<group>"; };
 		6BC28241202F31EB0001BB79 /* A1STAFFING-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "A1STAFFING-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				6B604356202DF79F00CB1FBB /* MainStoryboard.storyboard */,
 				6BDE4589203A94E000FEFBCA /* MainViewController.swift */,
+				6B9ACBB7208B614600C04C24 /* WorkViewController.swift */,
 				6BDE458B203AC6F700FEFBCA /* SignViewController.swift */,
 				6BC2823D202F2E8B0001BB79 /* extensions.swift */,
 				6BC2823F202F2F410001BB79 /* EPSignatureView.swift */,
@@ -268,6 +271,7 @@
 				6BC2823E202F2E8B0001BB79 /* extensions.swift in Sources */,
 				6BC28244202F31EC0001BB79 /* DLRadioButton.m in Sources */,
 				6B60431F202DD8D700CB1FBB /* AppDelegate.swift in Sources */,
+				6B9ACBB8208B614600C04C24 /* WorkViewController.swift in Sources */,
 				6BDE458A203A94E000FEFBCA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

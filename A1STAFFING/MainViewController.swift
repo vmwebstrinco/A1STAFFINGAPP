@@ -309,7 +309,7 @@ class MainViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else if(validateform() == 1){
-            self.performSegue(withIdentifier: "seguetosign", sender: self)
+            self.performSegue(withIdentifier: "segue_to_work_from_main", sender: self)
         }
     }
     
@@ -362,30 +362,24 @@ class MainViewController: UIViewController {
                 }
                 else
                 {
-                    //DispatchQueue.main.async{
                     guard let data = data else { return }
                     do {
                         let decoder = JSONDecoder()
                         let emp = try decoder.decode(cemp.self, from: data)
                         self.insertid = emp.id
-                        print("1")
                         
                     } catch let err {
                         print("Err", err)
                     }
-                    //}
-                    //print("2")
-                    //print(self.insertid)
+                    
                     group.leave()
                 }
             })
             insertEntry.resume()
             
             group.wait()
-            let vc = segue.destination as! SignViewController
+            let vc = segue.destination as! WorkViewController
             vc.insertid = insertid
-           // print("3")
-            //print(insertid)
         }
     }
     
