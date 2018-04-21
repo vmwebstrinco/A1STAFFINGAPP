@@ -382,5 +382,23 @@ class MainViewController: UIViewController {
         let strDate = dateFormatter.string(from: dob.date)
         f_dob=strDate
     }
+    
+    // MARK: - get own car function
+    @IBAction func get_own_car(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_own_car = "YES"
+        }else if(sender.tag == 2){
+            f_own_car = "NO"
+        }
+    }
+    
+    // MARK: - get legal rights function
+    @IBAction func get_legal_rights(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_legal_right = "YES"
+        }else if(sender.tag == 2){
+            f_legal_right = "NO"
+        }
+    }
    
 }
