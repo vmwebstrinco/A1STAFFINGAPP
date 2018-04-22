@@ -960,6 +960,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="QVQ-rV-nQo"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO2-Lc-2yg">
                                                         <rect key="frame" x="160" y="147" width="10" height="30"/>
@@ -986,6 +989,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="c1V-7P-yRK"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPs-UQ-5gU" customClass="DLRadioButton">
                                                         <rect key="frame" x="50" y="1334" width="100" height="30"/>
@@ -1050,6 +1056,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="YDQ-oS-ZWo"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fb-x7-BVd" customClass="DLRadioButton">
                                                         <rect key="frame" x="226" y="1334" width="100" height="30"/>
@@ -1232,6 +1241,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="fRa-Wy-kat"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvN-HN-rjn" customClass="DLRadioButton">
                                                         <rect key="frame" x="34" y="1050" width="200" height="30"/>
@@ -1251,6 +1263,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="HTt-hX-Asl"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="KM Range*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AiN-eb-keg">
                                                         <rect key="frame" x="50" y="210" width="668" height="70"/>
@@ -1429,6 +1444,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="SVl-6X-FjN"/>
                                                             <outletCollection property="otherButtons" destination="d14-2f-XtN" id="RWy-dW-IOo"/>
                                                             <outletCollection property="otherButtons" destination="luC-9T-IWj" id="qEG-bK-JZZ"/>
                                                             <outletCollection property="otherButtons" destination="r5L-wb-aoI" id="CqZ-yI-BDJ"/>
@@ -1458,6 +1474,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="1HN-iU-u75"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please check areas you are experienced in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-7O-oYI">
                                                         <rect key="frame" x="50" y="899" width="600" height="30"/>
@@ -1484,6 +1503,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="iTb-TP-Vxd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iet-wm-rnA" customClass="DLRadioButton">
                                                         <rect key="frame" x="351" y="330" width="100" height="30"/>
@@ -1613,6 +1635,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="SHW-O0-8gC"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please check off any safety certificates you currently posses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80f-OP-NUa">
                                                         <rect key="frame" x="50" y="1276" width="600" height="30"/>
@@ -1639,6 +1664,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_areas_exp:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="596-2O-s6D"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Major Intersection" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-Cs-l8b">
                                                         <rect key="frame" x="50" y="584" width="668" height="70"/>
