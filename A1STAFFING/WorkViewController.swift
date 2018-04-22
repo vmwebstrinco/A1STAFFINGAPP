@@ -408,5 +408,13 @@ class WorkViewController: UIViewController {
             f_category = "Part Time"
         }
     }
+    
+    // MARK: - Get Days function
+    @IBAction func get_days(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_days = "YES"
+        }
+    }
+    
 
 }
