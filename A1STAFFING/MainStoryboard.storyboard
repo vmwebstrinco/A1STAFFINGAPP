@@ -931,6 +931,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="fmv-EK-9UC"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What shifts can you work?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFW-el-gAA">
                                                         <rect key="frame" x="50" y="330" width="300" height="30"/>
@@ -1184,6 +1187,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="HZL-ss-1oa"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NO4-Jv-qJ4" customClass="DLRadioButton">
                                                         <rect key="frame" x="350" y="510" width="100" height="30"/>
@@ -1343,6 +1349,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="dJB-Cm-HhJ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5u-oq-mZ3" customClass="DLRadioButton">
                                                         <rect key="frame" x="42" y="1152" width="150" height="30"/>
@@ -1362,6 +1371,15 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="hbA-7z-B3N"/>
+                                                            <outletCollection property="otherButtons" destination="zX2-LZ-is1" id="DSM-Bj-BOU"/>
+                                                            <outletCollection property="otherButtons" destination="e8g-hl-zhq" id="rTc-jZ-Np0"/>
+                                                            <outletCollection property="otherButtons" destination="kzX-xa-gLi" id="jCJ-IC-l3Z"/>
+                                                            <outletCollection property="otherButtons" destination="EtG-r3-5O9" id="eRZ-NT-PdJ"/>
+                                                            <outletCollection property="otherButtons" destination="Irh-wO-jjX" id="FSA-JJ-b9z"/>
+                                                            <outletCollection property="otherButtons" destination="vPr-YV-UNO" id="eer-XI-JqW"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can you work weekends?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYM-lD-og9">
                                                         <rect key="frame" x="50" y="390" width="300" height="30"/>
@@ -1410,6 +1428,17 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="otherButtons" destination="d14-2f-XtN" id="RWy-dW-IOo"/>
+                                                            <outletCollection property="otherButtons" destination="luC-9T-IWj" id="qEG-bK-JZZ"/>
+                                                            <outletCollection property="otherButtons" destination="r5L-wb-aoI" id="CqZ-yI-BDJ"/>
+                                                            <outletCollection property="otherButtons" destination="yEr-ZF-NJB" id="r0c-3Q-PKY"/>
+                                                            <outletCollection property="otherButtons" destination="XYN-eH-l1s" id="L3v-W1-pqr"/>
+                                                            <outletCollection property="otherButtons" destination="VhV-M9-G7q" id="a3J-YE-rwF"/>
+                                                            <outletCollection property="otherButtons" destination="HVc-v4-fcI" id="QdX-zf-Rp9"/>
+                                                            <outletCollection property="otherButtons" destination="yvN-HN-rjn" id="FLC-QM-V4O"/>
+                                                            <outletCollection property="otherButtons" destination="3jk-uH-XF8" id="kyO-dc-rCF"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5L-wb-aoI" customClass="DLRadioButton">
                                                         <rect key="frame" x="583" y="948" width="150" height="30"/>
@@ -1518,6 +1547,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="ajw-Z9-r78"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqe-2b-gHQ" customClass="DLRadioButton">
                                                         <rect key="frame" x="351" y="150" width="150" height="30"/>
@@ -1559,6 +1591,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="NFc-du-IiC"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d14-2f-XtN" customClass="DLRadioButton">
                                                         <rect key="frame" x="210" y="948" width="150" height="30"/>
@@ -1806,6 +1841,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="1Tq-94-F7h"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2173,6 +2211,8 @@
                     </view>
                     <size key="freeformSize" width="768" height="3600"/>
                     <connections>
+                        <outlet property="btn_areas" destination="NxL-pI-B2l" id="nho-KZ-Nde"/>
+                        <outlet property="btn_day" destination="J5u-oq-mZ3" id="v4t-iS-fvs"/>
                         <outlet property="previous_view" destination="RtO-6Q-cTp" id="Lks-jb-xQt"/>
                         <outlet property="txt_agency_name" destination="HHA-4x-Ea3" id="oUV-r4-s4f"/>
                         <outlet property="txt_any_other_emp" destination="A3z-Zu-Arf" id="pG3-i7-gfu"/>

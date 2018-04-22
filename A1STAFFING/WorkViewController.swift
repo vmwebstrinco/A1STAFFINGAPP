@@ -24,6 +24,9 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var txt_major_intersection: UITextField!
     @IBOutlet weak var txt_other_certificates: UITextField!
     
+    @IBOutlet weak var btn_day: DLRadioButton!
+    
+    @IBOutlet weak var btn_areas: DLRadioButton!
     
     // MARK: - Previous form Declarations
     
@@ -97,6 +100,9 @@ class WorkViewController: UIViewController {
         super.viewDidLoad()
         
         //MARK: - View Declaration
+        
+        btn_day.isMultipleSelectionEnabled = true
+        btn_areas.isMultipleSelectionEnabled = true
         
         work_view.layer.borderWidth = 0.5
         work_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
@@ -542,6 +548,101 @@ class WorkViewController: UIViewController {
             f_temp_service = "YES"
         }else if(sender.tag == 2){
             f_temp_service = "NO"
+        }
+    }
+    
+    // MARK: - Get days function
+    @IBAction func get_days_available(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "MON"
+        }else if(sender.tag == 2){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "TUES"
+        }else if(sender.tag == 3){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "WED"
+        }else if(sender.tag == 4){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "THURS"
+        }else if(sender.tag == 5){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "FRI"
+        }else if(sender.tag == 6){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "SAT"
+        }else if(sender.tag == 7){
+            if(f_days_avail != ""){
+                f_days_avail+=",";
+            }
+            f_days_avail += "SUN"
+        }
+    }
+    
+    // MARK: - Get areas function
+    @IBAction func get_areas_exp(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "WAREHOUSE"
+        }else if(sender.tag == 2){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_days_avail += "SHIP"
+        }else if(sender.tag == 3){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "FORKLIFT"
+        }else if(sender.tag == 4){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "ASSEMBLY"
+        }else if(sender.tag == 5){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "INVENTORY"
+        }else if(sender.tag == 6){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "MACHINEOPERTAION"
+        }else if(sender.tag == 7){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "HEAVYLIFTING"
+        }else if(sender.tag == 8){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "PACKING"
+        }else if(sender.tag == 9){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "ORDERPICKING"
+        }else if(sender.tag == 10){
+            if(f_areas_exp != ""){
+                f_areas_exp+=",";
+            }
+            f_areas_exp += "WELDING"
         }
     }
     
