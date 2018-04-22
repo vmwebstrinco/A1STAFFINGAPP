@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var contact_view: UIView!
     @IBOutlet weak var other_view: UIView!
     
-    // MARK: - Personal fomr Declarations
+    // MARK: - Personal form Declarations
     @IBOutlet weak var txt_first_name: UITextField!
     @IBOutlet weak var txt_middle_name: UITextField!
     @IBOutlet weak var txt_last_name: UITextField!
@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var dob: UIDatePicker!
     
-    // MARK: - contact fomr Declarations
+    // MARK: - contact form Declarations
     @IBOutlet weak var txt_main_phone: UITextField!
     @IBOutlet weak var txt_mobile: UITextField!
     @IBOutlet weak var txt_email: UITextField!    
