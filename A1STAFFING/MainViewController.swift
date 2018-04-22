@@ -85,11 +85,11 @@ class MainViewController: UIViewController {
     
     //MARK: - Other Variable Declaration
     
-    var f_own_car : String?
+    var f_own_car : String = ""
     var f_social_insurance : String?
     var f_work_permit_number : String?
-    var f_valid_until : String?
-    var f_legal_right : String?
+    var f_valid_until : String = ""
+    var f_legal_right : String = ""
     var f_hear_from : String?
 
     
@@ -316,7 +316,7 @@ class MainViewController: UIViewController {
     
     //MARK: - perform segue    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seguetosign"{
+        if segue.identifier == "segue_to_work_from_main"{
             let inserviceUrl = "http://a1staffing.ca/app/services.php"
             let inurl = URL(string: inserviceUrl)
             
@@ -338,11 +338,11 @@ class MainViewController: UIViewController {
             dataString = dataString + "&unit=\(f_unit!)"
             dataString = dataString + "&city=\(f_city!)"
             dataString = dataString + "&postalcode=\(f_postalcode!)"
-            dataString = dataString + "&own_car=\(f_own_car!)"
+            dataString = dataString + "&own_car=\(f_own_car)"
             dataString = dataString + "&social_insurance=\(f_social_insurance!)"
             dataString = dataString + "&work_permit_number=\(f_work_permit_number!)"
-            dataString = dataString + "&valid_till=\(f_valid_until!)"
-            dataString = dataString + "&legal_right=\(f_legal_right!)"
+            dataString = dataString + "&valid_till=\(f_valid_until)"
+            dataString = dataString + "&legal_right=\(f_legal_right)"
             dataString = dataString + "&hear_from=\(f_hear_from!)"
             
             
