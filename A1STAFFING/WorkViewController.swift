@@ -219,6 +219,14 @@ class WorkViewController: UIViewController {
         txt_list_jobs.layer.shadowRadius = 0.0;
         txt_list_jobs.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_list_jobs.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        let valid1: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        valid1.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        work_from.datePickerMode = .date
+        
+        let valid2: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        valid2.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        work_to.datePickerMode = .date
     }
     
     
@@ -416,5 +424,140 @@ class WorkViewController: UIViewController {
         }
     }
     
-
+    // MARK: - Get Afternoon function
+    @IBAction func get_afternoon(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_afternoon = "YES"
+        }
+    }
+    
+    // MARK: - Get nights function
+    @IBAction func get_nights(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_nights = "YES"
+        }
+    }
+    
+    // MARK: - Get weekends function
+    @IBAction func get_weekends(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_weekends = "YES"
+        }else if(sender.tag == 2){
+            f_weekends = "NO"
+        }
+    }
+    
+    // MARK: - Get overtime function
+    @IBAction func get_overtime(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_overtime = "YES"
+        }else if(sender.tag == 2){
+            f_overtime = "NO"
+        }
+    }
+    
+    // MARK: - Get twelve function
+    @IBAction func get_twelve(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_twelve_shift = "YES"
+        }else if(sender.tag == 2){
+            f_twelve_shift = "NO"
+        }
+    }
+    
+    
+    // MARK: - Get steel function
+    @IBAction func get_steel(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_steel_toed = "YES"
+        }else if(sender.tag == 2){
+            f_steel_toed = "NO"
+        }
+    }
+    
+    // MARK: - Get english speak function
+    @IBAction func get_englishspeak(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_english_speak = "YES"
+        }
+    }
+    
+    
+    // MARK: - Get read function
+    @IBAction func get_read(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_english_read = "YES"
+        }
+    }
+    
+    // MARK: - Get write function
+    @IBAction func get_write(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_english_write = "YES"
+        }
+    }
+    
+    
+    // MARK: - Get understand function
+    @IBAction func get_understand(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_english_understand = "YES"
+        }
+    }
+    
+    // MARK: - Get whmis function
+    @IBAction func get_whmis(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_whmis_cer = "YES"
+        }
+    }
+    
+    
+    // MARK: - Get hs function
+    @IBAction func get_hs(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_hs_cer = "YES"
+        }
+    }
+    
+    // MARK: - Get st function
+    @IBAction func get_st(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_st_cer = "YES"
+        }
+    }    
+    
+    // MARK: - Get criminal function
+    @IBAction func get_criminal(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_criminal_pardon = "YES"
+        }else if(sender.tag == 2){
+            f_criminal_pardon = "NO"
+        }
+    }
+    
+    // MARK: - Get temp service function
+    @IBAction func get_tempservice(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_temp_service = "YES"
+        }else if(sender.tag == 2){
+            f_temp_service = "NO"
+        }
+    }
+    
+    // MARK: - get from function
+    @IBAction func get_from(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let strDate = dateFormatter.string(from: work_from.date)
+        f_pre1_from=strDate
+    }
+    
+    // MARK: - get to function
+    @IBAction func get_to(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let strDate = dateFormatter.string(from: work_to.date)
+        f_pre1_to=strDate
+    }
 }

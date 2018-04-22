@@ -1002,6 +1002,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_whmis:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="JpR-g2-09C"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIQ-P1-Jpf" customClass="DLRadioButton">
                                                         <rect key="frame" x="350" y="450" width="100" height="30"/>
@@ -1022,6 +1025,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_overtime:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="yBo-5Q-cZ3"/>
                                                             <outletCollection property="otherButtons" destination="Gnw-7z-NpN" id="otE-op-aNq"/>
                                                         </connections>
                                                     </button>
@@ -1044,7 +1048,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fb-x7-BVd" customClass="DLRadioButton">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fb-x7-BVd" customClass="DLRadioButton">
                                                         <rect key="frame" x="226" y="1334" width="100" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1062,6 +1066,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_hs:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="Jbr-jh-FqH"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Work Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVY-Px-R35">
                                                         <rect key="frame" x="50" y="150" width="150" height="30"/>
@@ -1088,6 +1095,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_twelve:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="ThG-Qj-F87"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Work Informations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-TH-ug7">
                                                         <rect key="frame" x="50" y="50" width="400" height="50"/>
@@ -1115,6 +1125,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_weekends:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="Wk9-8t-6Y4"/>
                                                             <outletCollection property="otherButtons" destination="6fL-iR-tXN" id="6qt-Qy-z0Z"/>
                                                         </connections>
                                                     </button>
@@ -1193,6 +1204,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_twelve:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="qhM-Ms-Ebu"/>
                                                             <outletCollection property="otherButtons" destination="7cZ-zE-K96" id="L3K-1P-MYx"/>
                                                         </connections>
                                                     </button>
@@ -1266,6 +1278,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_overtime:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="XSb-7s-AIO"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgc-8L-nqQ" customClass="DLRadioButton">
                                                         <rect key="frame" x="417" y="332" width="200" height="30"/>
@@ -1285,6 +1300,9 @@
                                                                 <color key="value" red="0.0039215686269999999" green="0.094117647060000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_afternoon:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="hqV-89-2fV"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can you work overtime?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUS-Fc-uI7">
                                                         <rect key="frame" x="50" y="450" width="300" height="30"/>
@@ -1370,6 +1388,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_weekends:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="ETC-jV-xw2"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-pI-B2l" customClass="DLRadioButton">
                                                         <rect key="frame" x="50" y="948" width="150" height="30"/>
@@ -1454,11 +1475,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <outletCollection property="otherButtons" destination="vgc-8L-nqQ" id="q1Y-Nc-W7x"/>
-                                                            <outletCollection property="otherButtons" destination="T5o-TX-amO" id="BAL-8L-gSu"/>
+                                                            <action selector="get_days:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="owi-KQ-20J"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-qL-HOI" customClass="DLRadioButton">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-qL-HOI" customClass="DLRadioButton">
                                                         <rect key="frame" x="410" y="1334" width="150" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1476,6 +1496,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_st:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="Zto-TY-ILc"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irh-wO-jjX" customClass="DLRadioButton">
                                                         <rect key="frame" x="192" y="1206" width="150" height="30"/>
@@ -1615,6 +1638,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_steel:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="cog-TX-EsA"/>
                                                             <outletCollection property="otherButtons" destination="CXV-Na-TPd" id="5l2-3U-VuN"/>
                                                         </connections>
                                                     </button>
@@ -1643,6 +1667,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_steel:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="AK9-3X-AVl"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STd-V0-OLa" customClass="DLRadioButton">
                                                         <rect key="frame" x="50" y="839" width="100" height="30"/>
@@ -1663,7 +1690,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <outletCollection property="otherButtons" destination="f87-nr-G1T" id="ORO-GP-Lyb"/>
+                                                            <action selector="get_englishspeak:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="boA-1e-wPb"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uh-v6-wlF">
@@ -1691,6 +1718,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_read:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="zY8-4Y-4rK"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7r-9U-seb" customClass="DLRadioButton">
                                                         <rect key="frame" x="283" y="839" width="100" height="30"/>
@@ -1711,7 +1741,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <outletCollection property="otherButtons" destination="u2u-Ms-a2G" id="ayE-Wa-IVw"/>
+                                                            <action selector="get_write:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="gCR-qM-dUs"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2u-Ms-a2G" customClass="DLRadioButton">
@@ -1732,6 +1762,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_understand:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="tQg-dY-LRh"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5o-TX-amO" customClass="DLRadioButton">
                                                         <rect key="frame" x="583" y="330" width="100" height="30"/>
@@ -1751,6 +1784,9 @@
                                                                 <color key="value" red="0.0039215686269999999" green="0.094117647060000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_nights:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="mWj-bw-Kzd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtG-r3-5O9" customClass="DLRadioButton">
                                                         <rect key="frame" x="34" y="1206" width="150" height="30"/>
@@ -1798,6 +1834,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_criminal:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="S5n-EU-zbt"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reason For Leaving" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HdZ-7v-iZ5">
                                                         <rect key="frame" x="50" y="834" width="668" height="70"/>
@@ -1896,6 +1935,9 @@
                                                         <date key="date" timeIntervalSinceReferenceDate="539973222.706761">
                                                             <!--2018-02-10 16:33:42 +0000-->
                                                         </date>
+                                                        <connections>
+                                                            <action selector="get_to:" destination="xCH-Ne-Nta" eventType="valueChanged" id="aKz-HW-ZwJ"/>
+                                                        </connections>
                                                     </datePicker>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telephone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jpv-T4-n2d">
                                                         <rect key="frame" x="50" y="258" width="668" height="70"/>
@@ -1958,6 +2000,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_criminal:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="0vy-EW-6KZ"/>
                                                             <outletCollection property="otherButtons" destination="pdj-ue-Qz4" id="1jR-7b-ftw"/>
                                                         </connections>
                                                     </button>
@@ -1980,6 +2023,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="get_tempservice:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="IRh-tJ-MSV"/>
                                                             <outletCollection property="otherButtons" destination="y08-OT-PZl" id="zFS-d3-0Ym"/>
                                                         </connections>
                                                     </button>
@@ -2043,6 +2087,9 @@
                                                         <date key="date" timeIntervalSinceReferenceDate="539973222.706761">
                                                             <!--2018-02-10 16:33:42 +0000-->
                                                         </date>
+                                                        <connections>
+                                                            <action selector="get_from:" destination="xCH-Ne-Nta" eventType="valueChanged" id="BwR-6O-qxt"/>
+                                                        </connections>
                                                     </datePicker>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y08-OT-PZl" customClass="DLRadioButton">
                                                         <rect key="frame" x="178" y="1466" width="150" height="30"/>
@@ -2062,6 +2109,9 @@
                                                                 <real key="value" value="28"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="get_tempservice:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="oDa-OS-LQQ"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Supervisor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VYp-5i-9Et">
                                                         <rect key="frame" x="50" y="944" width="668" height="70"/>
