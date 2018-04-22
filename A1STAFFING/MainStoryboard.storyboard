@@ -1040,20 +1040,6 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emergency Contact #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5zw-Fg-wdF">
-                                                        <rect key="frame" x="408" y="1054" width="310" height="70"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <viewLayoutGuide key="safeArea" id="4cy-JN-jhE"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Do you have any other form of employment?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3z-Zu-Arf">
                                                         <rect key="frame" x="50" y="1327" width="668" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1159,8 +1145,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emergency Contact #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyy-m0-b1i">
-                                                        <rect key="frame" x="50" y="1054" width="310" height="70"/>
+                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="In case of emergenccy notify" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyy-m0-b1i">
+                                                        <rect key="frame" x="50" y="1054" width="668" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2140,8 +2126,7 @@
                         <outlet property="previous_view" destination="RtO-6Q-cTp" id="Lks-jb-xQt"/>
                         <outlet property="txt_agency_name" destination="HHA-4x-Ea3" id="oUV-r4-s4f"/>
                         <outlet property="txt_any_other_emp" destination="A3z-Zu-Arf" id="pG3-i7-gfu"/>
-                        <outlet property="txt_emergency_2" destination="5zw-Fg-wdF" id="tzz-TC-n1S"/>
-                        <outlet property="txt_emergency_number" destination="dyy-m0-b1i" id="ADD-ud-W8h"/>
+                        <outlet property="txt_emergency_number" destination="dyy-m0-b1i" id="wVY-D9-DDy"/>
                         <outlet property="txt_km_range" destination="AiN-eb-keg" id="mI9-Wb-cqx"/>
                         <outlet property="txt_last_employer" destination="myY-Q0-v7m" id="kTF-fO-TWl"/>
                         <outlet property="txt_list_jobs" destination="H7L-nR-fNS" id="5a1-Nl-QYH"/>

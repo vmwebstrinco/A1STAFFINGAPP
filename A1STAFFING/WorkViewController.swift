@@ -39,7 +39,6 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var txt_reason_for_leaving: UITextField!
     @IBOutlet weak var txt_supervisor: UITextField!
     @IBOutlet weak var txt_emergency_number: UITextField!
-    @IBOutlet weak var txt_emergency_2: UITextField!
     @IBOutlet weak var txt_any_other_emp: UITextField!
     @IBOutlet weak var txt_agency_name: UITextField!
     @IBOutlet weak var txt_list_jobs: UITextField!
@@ -51,13 +50,46 @@ class WorkViewController: UIViewController {
     var f_category : String = ""
     var f_kmrange: String?
     
+    var f_days: String = ""
+    var f_afternoon: String = ""
+    var f_nights: String = ""
+    var f_weekends: String = ""
+    var f_overtime: String = ""
+    var f_twelve_shift: String = ""
     
+    var f_major_intersection: String?
+    var f_steel_toed : String = ""
+    var f_english_speak : String = ""
+    var f_english_read : String = ""
+    var f_english_write : String = ""
+    var f_english_understand : String = ""
+    var f_areas_exp : String = ""
+    var f_days_avail : String = ""
     
+    var f_whmis_cer : String = ""
+    var f_hs_cer : String = ""
+    var f_st_cer : String = ""
+    var f_other_cer: String?
     
     // MARK: - Previous Variable Declarations
     
-   
-    
+    var f_pre1_name: String?
+    var f_pre1_tel: String?
+    var f_pre1_address: String?
+    var f_pre1_position: String?
+    var f_pre1_salary: String?
+    var f_pre1_from: String = ""
+    var f_pre1_to: String = ""
+    var f_pre1_reason: String?
+    var f_pre1_supervisor: String?
+
+    var f_emergency_notify: String?
+    var f_criminal_pardon : String = ""
+    var f_other_form: String?
+    var f_temp_service : String = ""
+    var f_name_of_agency: String?
+    var f_jobs_sent: String?
+       
     
     //MARKL - View onload function
     
@@ -81,7 +113,6 @@ class WorkViewController: UIViewController {
         txt_km_range.layer.shadowRadius = 0.0;
         txt_km_range.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_km_range.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
         
         txt_major_intersection.setLeftPaddingPoints(15)
         txt_major_intersection.setRightPaddingPoints(15)
@@ -165,14 +196,6 @@ class WorkViewController: UIViewController {
         txt_emergency_number.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_emergency_number.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
-        txt_emergency_2.setLeftPaddingPoints(15)
-        txt_emergency_2.setRightPaddingPoints(15)
-        
-        txt_emergency_2.layer.shadowOpacity = 1.0;
-        txt_emergency_2.layer.shadowRadius = 0.0;
-        txt_emergency_2.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
-        txt_emergency_2.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
         txt_any_other_emp.setLeftPaddingPoints(15)
         txt_any_other_emp.setRightPaddingPoints(15)
         
@@ -196,7 +219,6 @@ class WorkViewController: UIViewController {
         txt_list_jobs.layer.shadowRadius = 0.0;
         txt_list_jobs.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_list_jobs.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-
     }
     
     
@@ -205,6 +227,78 @@ class WorkViewController: UIViewController {
         f_kmrange = txt_km_range.text
         if(f_kmrange == nil){
             f_kmrange = ""
+        }
+        
+        f_major_intersection = txt_major_intersection.text
+        if(f_major_intersection == nil){
+            f_major_intersection = ""
+        }
+        
+        f_other_cer = txt_other_certificates.text
+        if(f_other_cer == nil){
+            f_other_cer = ""
+        }
+        
+        f_pre1_name = txt_last_employer.text
+        if(f_pre1_name == nil){
+            f_pre1_name = ""
+        }
+        
+        f_pre1_tel = txt_previous_telephone.text
+        if(f_pre1_tel == nil){
+            f_pre1_tel = ""
+        }
+        
+        
+        f_pre1_address = txt_previous_address.text
+        if(f_pre1_address == nil){
+            f_pre1_address = ""
+        }
+        
+        
+        f_pre1_position = txt_position_held.text
+        if(f_pre1_position == nil){
+            f_pre1_position = ""
+        }
+        
+        f_pre1_salary = txt_salary.text
+        if(f_pre1_salary == nil){
+            f_pre1_salary = ""
+        }
+        
+        f_pre1_reason = txt_reason_for_leaving.text
+        if(f_pre1_reason == nil){
+            f_pre1_reason = ""
+        }
+        
+        f_pre1_salary = txt_salary.text
+        if(f_pre1_salary == nil){
+            f_pre1_salary = ""
+        }
+        
+        f_pre1_supervisor = txt_supervisor.text
+        if(f_pre1_supervisor == nil){
+            f_pre1_supervisor = ""
+        }
+        
+        f_emergency_notify = txt_emergency_number.text
+        if(f_emergency_notify == nil){
+            f_emergency_notify = ""
+        }
+        
+        f_other_form = txt_any_other_emp.text
+        if(f_other_form == nil){
+            f_other_form = ""
+        }
+        
+        f_name_of_agency = txt_agency_name.text
+        if(f_name_of_agency == nil){
+            f_name_of_agency = ""
+        }
+        
+        f_jobs_sent = txt_list_jobs.text
+        if(f_jobs_sent == nil){
+            f_jobs_sent = ""
         }
         
         
@@ -243,6 +337,39 @@ class WorkViewController: UIViewController {
             dataString = dataString + "&insertid=\(insertid)"
             dataString = dataString + "&category=\(f_category)"
             dataString = dataString + "&kmrange=\(f_kmrange!)"
+            dataString = dataString + "&days=\(f_days)"
+            dataString = dataString + "&afternoon=\(f_afternoon)"
+            dataString = dataString + "&nights=\(f_nights)"
+            dataString = dataString + "&weekends=\(f_weekends)"
+            dataString = dataString + "&overtime=\(f_overtime)"
+            dataString = dataString + "&twelve_shift=\(f_twelve_shift)"
+            dataString = dataString + "&major_intersection=\(f_major_intersection!)"
+            dataString = dataString + "&steel_toed=\(f_steel_toed)"
+            dataString = dataString + "&english_speak=\(f_english_speak)"
+            dataString = dataString + "&english_read=\(f_english_read)"
+            dataString = dataString + "&english_write=\(f_english_write)"
+            dataString = dataString + "&english_understand=\(f_english_understand)"
+            dataString = dataString + "&areas_exp=\(f_areas_exp)"
+            dataString = dataString + "&days_avail=\(f_days_avail)"
+            dataString = dataString + "&whmis_cer=\(f_whmis_cer)"
+            dataString = dataString + "&hs_cer=\(f_hs_cer)"
+            dataString = dataString + "&st_cer=\(f_st_cer)"
+            dataString = dataString + "&other_cer=\(f_other_cer!)"
+            dataString = dataString + "&pre1_name=\(f_pre1_name!)"
+            dataString = dataString + "&pre1_tel=\(f_pre1_tel!)"
+            dataString = dataString + "&pre1_address=\(f_pre1_address!)"
+            dataString = dataString + "&pre1_position=\(f_pre1_position!)"
+            dataString = dataString + "&pre1_salary=\(f_pre1_salary!)"
+            dataString = dataString + "&pre1_from=\(f_pre1_from)"
+            dataString = dataString + "&pre1_to=\(f_pre1_to)"
+            dataString = dataString + "&pre1_reason=\(f_pre1_reason!)"
+            dataString = dataString + "&pre1_supervisor=\(f_pre1_supervisor!)"
+            dataString = dataString + "&emergency_notify=\(f_emergency_notify!)"
+            dataString = dataString + "&criminal_pardon=\(f_criminal_pardon)"
+            dataString = dataString + "&other_form=\(f_other_form!)"
+            dataString = dataString + "&temp_service=\(f_temp_service)"
+            dataString = dataString + "&name_of_agency=\(f_name_of_agency!)"
+            dataString = dataString + "&jobs_sent=\(f_jobs_sent!)"
             
             let dataD = dataString.data(using: .utf8)
             
