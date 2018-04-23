@@ -2,7 +2,7 @@
 //  MainViewController.swift
 //  A1STAFFING
 //
-//  Created by Kalakchika Sivarasa on 2018-02-18.
+//  Created by Kalakcika Sivarasa on 2018-02-18.
 //  Copyright © 2018 VMEWBS ENTERPRISE LTD. All rights reserved.
 //
 

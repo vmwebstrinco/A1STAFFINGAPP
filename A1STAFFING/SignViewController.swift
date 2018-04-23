@@ -2,7 +2,7 @@
 //
 //  SignViewController.swift
 //  A1STAFFING
-// Created by Dinesh Kunanayagam on 2017-11-24.
+// Created by Kalakcika Dinesh on 2017-11-24.
 //  Copyright © 2018 VMEWBS ENTERPRISE LTD. All rights reserved.
 //
 
@@ -203,7 +203,7 @@ open class SignViewController: UIViewController {
                             {
                                 let alert = UIAlertController(title: "Registered Successfully", message: "Thank you for joining", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-                                    self.performSegue(withIdentifier: "sequetomain", sender: self)
+                                    self.performSegue(withIdentifier: "segue_to_view_from_sign", sender: self)
                                 }))
                                 self.present(alert, animated: true, completion: nil)
                         }
