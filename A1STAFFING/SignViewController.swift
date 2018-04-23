@@ -30,6 +30,39 @@ open class SignViewController: UIViewController {
         let social_insurance: String
         let category: String
         let kmrange: String
+        let days: String
+        let afternoon: String
+        let nights: String
+        let weekends: String
+        let overtime: String
+        let twelve_shift: String
+        let major_intersection: String
+        let steel_toed: String
+        let english_speak: String
+        let english_read: String
+        let english_write: String
+        let english_understand: String
+        let areas_exp: String
+        let days_avail: String
+        let whmis_cer: String
+        let hs_cer: String
+        let st_cer: String
+        let other_cer: String
+        let pre1_name: String
+        let pre1_tel: String
+        let pre1_address: String
+        let pre1_position: String
+        let pre1_salary: String
+        let pre1_from: String
+        let pre1_to: String
+        let pre1_reason: String
+        let pre1_supervisor: String
+        let emergency_notify: String
+        let criminal_pardon: String
+        let other_form: String
+        let temp_service: String
+        let name_of_agency: String
+        let jobs_sent: String
         
         private enum CodingKeys: String, CodingKey{
             case title
@@ -45,8 +78,40 @@ open class SignViewController: UIViewController {
             case social_insurance
             case category
             case kmrange
+            case days
+            case afternoon
+            case nights
+            case weekends
+            case overtime
+            case twelve_shift
+            case major_intersection
+            case steel_toed
+            case english_speak
+            case english_read
+            case english_write
+            case english_understand
+            case areas_exp
+            case days_avail
+            case whmis_cer
+            case hs_cer
+            case st_cer
+            case other_cer
+            case pre1_name
+            case pre1_tel
+            case pre1_address
+            case pre1_position
+            case pre1_salary
+            case pre1_from
+            case pre1_to
+            case pre1_reason
+            case pre1_supervisor
+            case emergency_notify
+            case criminal_pardon
+            case other_form
+            case temp_service
+            case name_of_agency
+            case jobs_sent
         }
-        
     }
     
     // MARK: - UI Items declaration
@@ -63,6 +128,34 @@ open class SignViewController: UIViewController {
     @IBOutlet weak var lbl_sin: UILabel!
     @IBOutlet weak var lbl_category: UILabel!
     @IBOutlet weak var lbl_kmrange: UILabel!
+    
+    @IBOutlet weak var lbl_shifts: UILabel!
+    @IBOutlet weak var lbl_weekends: UILabel!
+    @IBOutlet weak var lbl_overtime: UILabel!
+    @IBOutlet weak var lbl_twelve_shift: UILabel!
+    @IBOutlet weak var lbl_major_intersection: UILabel!
+    @IBOutlet weak var lbl_steel_toed: UILabel!
+    @IBOutlet weak var lbl_english: UILabel!
+    @IBOutlet weak var lbl_areas_exp: UILabel!
+    @IBOutlet weak var lbl_days_availe: UILabel!
+    @IBOutlet weak var lbl_cer: UILabel!
+    @IBOutlet weak var lbl_other_cer: UILabel!
+    
+    @IBOutlet weak var lbl_pre1_name: UILabel!
+    @IBOutlet weak var lbl_pre1_tel: UILabel!
+    @IBOutlet weak var lbl_pre1_address: UILabel!
+    @IBOutlet weak var lbl_pre1_position: UILabel!
+    @IBOutlet weak var lbl_pre1_salary: UILabel!
+    @IBOutlet weak var lbl_pre1_from: UILabel!
+    @IBOutlet weak var lbl_pre1_to: UILabel!
+    @IBOutlet weak var lbl_pre1_reason: UILabel!
+    @IBOutlet weak var lbl_pre1_supervisor: UILabel!
+    @IBOutlet weak var lbl_emergency_notify: UILabel!
+    @IBOutlet weak var lbl_criminal_pardon: UILabel!
+    @IBOutlet weak var lbl_other_form: UILabel!
+    @IBOutlet weak var lbl_temp_service: UILabel!
+    @IBOutlet weak var lbl_name_of_agency: UILabel!
+    @IBOutlet weak var lbl_jobs_sent: UILabel!
     
     // MARK: - Variable declarations
     var insertid : Int = 162
@@ -109,11 +202,89 @@ open class SignViewController: UIViewController {
                 do {
                     let decoder = JSONDecoder()
                     let emp = try decoder.decode(gemp.self, from: data)
-                    var mobile : String = emp.mobile
+                    
+                    let mobile : String = emp.mobile
                     var phone : String = emp.main_phone
                     if(mobile != ""){
                         phone += " / " + mobile
                     }
+                    
+                    var shifts : String = ""
+                    let days : String = emp.days
+                    if(days == "YES"){
+                        if(shifts != ""){
+                            shifts += ", "
+                        }
+                        shifts += "Days"
+                    }
+                    let afternoon : String = emp.afternoon
+                    if(afternoon == "YES"){
+                        if(shifts != ""){
+                            shifts += ", "
+                        }
+                        shifts += "Afternoon"
+                    }
+                    let nights : String = emp.nights
+                    if(nights == "YES"){
+                        if(shifts != ""){
+                            shifts += ", "
+                        }
+                        shifts += "Nights"
+                    }
+                    
+                    var english : String = ""
+                    let english_speak : String = emp.english_speak
+                    if(english_speak == "YES"){
+                        if(english != ""){
+                            english += ", "
+                        }
+                        english += "Speak"
+                    }
+                    let english_read : String = emp.english_read
+                    if(english_read == "YES"){
+                        if(english != ""){
+                            english += ", "
+                        }
+                        english += "Read"
+                    }
+                    let english_write : String = emp.english_write
+                    if(english_write == "YES"){
+                        if(english != ""){
+                            english += ", "
+                        }
+                        english += "Write"
+                    }
+                    let english_understand : String = emp.english_understand
+                    if(english_understand == "YES"){
+                        if(english != ""){
+                            english += ", "
+                        }
+                        english += "Understand"
+                    }
+                    
+                    var cer : String = ""
+                    let whmis_cer : String = emp.whmis_cer
+                    if(whmis_cer == "YES"){
+                        if(cer != ""){
+                            cer += ", "
+                        }
+                        cer += "Speak"
+                    }
+                    let hs_cer : String = emp.hs_cer
+                    if(hs_cer == "YES"){
+                        if(cer != ""){
+                            cer += ", "
+                        }
+                        cer += "Read"
+                    }
+                    let st_cer : String = emp.st_cer
+                    if(st_cer == "YES"){
+                        if(cer != ""){
+                            cer += ", "
+                        }
+                        cer += "Write"
+                    }
+                    
                     self.lbl_name.text = emp.title+" "+emp.first_name+" "+emp.middle_name+" "+emp.last_name
                     self.lbl_gender.text = emp.gender
                     self.lbl_dob.text = emp.dob
@@ -123,6 +294,35 @@ open class SignViewController: UIViewController {
                     self.lbl_sin.text = emp.social_insurance
                     self.lbl_category.text = emp.category
                     self.lbl_kmrange.text = emp.kmrange
+                    
+                    self.lbl_shifts.text = shifts
+                    self.lbl_weekends.text = emp.weekends
+                    self.lbl_overtime.text = emp.overtime
+                    self.lbl_twelve_shift.text = emp.twelve_shift
+                    self.lbl_major_intersection.text = emp.major_intersection
+                    self.lbl_steel_toed.text = emp.steel_toed
+                    self.lbl_english.text = english
+                    self.lbl_areas_exp.text = emp.areas_exp
+                    self.lbl_days_availe.text = emp.days_avail
+                    self.lbl_cer.text = cer
+                    self.lbl_other_cer.text = emp.other_cer
+                    
+                    self.lbl_pre1_name.text = emp.pre1_name
+                    self.lbl_pre1_tel.text = emp.pre1_tel
+                    self.lbl_pre1_address.text = emp.pre1_address
+                    self.lbl_pre1_position.text = emp.pre1_position
+                    self.lbl_pre1_salary.text = emp.pre1_salary
+                    self.lbl_pre1_from.text = emp.pre1_from
+                    self.lbl_pre1_to.text = emp.pre1_to
+                    self.lbl_pre1_reason.text = emp.pre1_reason
+                    self.lbl_pre1_supervisor.text = emp.pre1_supervisor
+                    self.lbl_emergency_notify.text = emp.emergency_notify
+                    
+                    self.lbl_criminal_pardon.text = emp.criminal_pardon
+                    self.lbl_other_form.text = emp.other_form
+                    self.lbl_temp_service.text = emp.temp_service
+                    self.lbl_name_of_agency.text = emp.name_of_agency
+                    self.lbl_jobs_sent.text = emp.jobs_sent
                 } catch let err {
                     print("Err", err)
                 }

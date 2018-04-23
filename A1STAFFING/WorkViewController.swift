@@ -643,11 +643,7 @@ class WorkViewController: UIViewController {
                 f_areas_exp+=",";
             }
             f_areas_exp += "WELDING"
-        }
-        
-        let alert = UIAlertController(title: "AREAS", message: f_areas_exp, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        }       
     }
     
     // MARK: - get from function
