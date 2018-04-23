@@ -2128,30 +2128,6 @@ I also certify that I have read and understood the Terms and Conditions and real
                                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1s-e7-wlP">
-                                                        <rect key="frame" x="707" y="10" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.050233238530000002" green="0.28105489719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="X" backgroundImage="button_bg">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btn_clear:" destination="Qdi-zR-zLq" eventType="touchUpInside" id="Un6-aC-pwu"/>
-                                                        </connections>
-                                                    </button>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndr-mM-3Qg" customClass="EPSignatureView" customModule="A1STAFFING" customModuleProvider="target">
-                                                        <rect key="frame" x="19" y="94" width="728" height="200"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf4-1H-NN1">
-                                                        <rect key="frame" x="19" y="93" width="730" height="202"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6e-Pm-Up1">
                                                         <rect key="frame" x="19" y="320" width="725" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2855,7 +2831,6 @@ I also certify that I have read and understood the Terms and Conditions and real
                     </view>
                     <size key="freeformSize" width="768" height="3100"/>
                     <connections>
-                        <outlet property="bor_label" destination="kf4-1H-NN1" id="fSo-ki-Ym7"/>
                         <outlet property="details_view" destination="mAY-gA-2Wu" id="B3v-cC-0Ak"/>
                         <outlet property="lbl_address" destination="21W-df-y07" id="FOQ-hB-fP6"/>
                         <outlet property="lbl_areas_exp" destination="i2O-D6-crc" id="Lds-16-A5F"/>
@@ -2896,7 +2871,6 @@ I also certify that I have read and understood the Terms and Conditions and real
                         <outlet property="lbl_twelve_shift" destination="paA-Jb-kkG" id="OhN-19-c0Q"/>
                         <outlet property="lbl_weekends" destination="lKy-sg-vjC" id="knH-C7-yht"/>
                         <outlet property="lbl_work_permit_number" destination="y48-49-Vxh" id="SoD-Pb-oxE"/>
-                        <outlet property="signatureView" destination="ndr-mM-3Qg" id="GOR-s3-hac"/>
                         <segue destination="xCH-Ne-Nta" kind="show" identifier="segue_to_work_from_sign" id="NJ8-FQ-we5"/>
                         <segue destination="mWj-zL-nkP" kind="show" identifier="segue_to_view_from_sign" id="obq-re-KiQ"/>
                     </connections>
@@ -3525,6 +3499,92 @@ I also certify that I have read and understood the Terms and Conditions and real
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qdk-8K-JXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="427" y="-1644"/>
+        </scene>
+        <!--Sign View Controller-->
+        <scene sceneID="AF9-Ql-Nqa">
+            <objects>
+                <viewController id="4kK-h6-Vcw" customClass="SignViewController" customModule="A1STAFFING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ce3-4q-Tzc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdP-31-XYj">
+                                <rect key="frame" x="720" y="660" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.050233238530000002" green="0.28105489719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="X" backgroundImage="button_bg">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_clear:" destination="4kK-h6-Vcw" eventType="touchUpInside" id="uYM-tu-aCb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVa-86-ZnT">
+                                <rect key="frame" x="20" y="935" width="725" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.094117647060000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Register Now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="updatesignature:" destination="4kK-h6-Vcw" eventType="touchUpInside" id="LIk-uK-2xa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yts-J2-nyg">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.094117647060000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Registration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-aV-PYf">
+                                <rect key="frame" x="350" y="75" width="400" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7J-If-muT">
+                                <rect key="frame" x="19" y="710" width="730" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-J3-mIj" customClass="EPSignatureView" customModule="A1STAFFING" customModuleProvider="target">
+                                <rect key="frame" x="20" y="711" width="728" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo Inner Pages" translatesAutoresizingMaskIntoConstraints="NO" id="92p-hL-i04">
+                                <rect key="frame" x="32" y="32" width="280" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvI-VK-b3g">
+                                <rect key="frame" x="19" y="650" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">I hereby certify that, to the best of my knowledge and belief, the statements made by me on this application are correct (this information may be used to obtain a Fidelity Bond).
+I certify that I am applying for Me position of general labourer and have read your overview of this position.
+I also certify that I have read and understood the Terms and Conditions and realize that failure to comply could result in my dismissal </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yQE-nQ-VPB"/>
+                    </view>
+                    <connections>
+                        <outlet property="bor_label" destination="G7J-If-muT" id="6FK-7D-mFm"/>
+                        <outlet property="signatureView" destination="3Nn-J3-mIj" id="VuP-DD-sY6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4k-1d-JOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2784" y="-3570"/>
         </scene>
     </scenes>
     <resources>
