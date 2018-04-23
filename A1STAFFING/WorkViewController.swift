@@ -12,6 +12,83 @@ class WorkViewController: UIViewController {
     // MARK: - Variable Declarations
     var insertid : Int = 0
     
+    //Mark: - struct emp
+    struct gemp: Codable {       
+        let category: String
+        let kmrange: String
+        let days: String
+        let afternoon: String
+        let nights: String
+        let weekends: String
+        let overtime: String
+        let twelve_shift: String
+        let major_intersection: String
+        let steel_toed: String
+        let english_speak: String
+        let english_read: String
+        let english_write: String
+        let english_understand: String
+        let areas_exp: String
+        let days_avail: String
+        let whmis_cer: String
+        let hs_cer: String
+        let st_cer: String
+        let other_cer: String
+        let pre1_name: String
+        let pre1_tel: String
+        let pre1_address: String
+        let pre1_position: String
+        let pre1_salary: String
+        let pre1_from: String
+        let pre1_to: String
+        let pre1_reason: String
+        let pre1_supervisor: String
+        let emergency_notify: String
+        let criminal_pardon: String
+        let other_form: String
+        let temp_service: String
+        let name_of_agency: String
+        let jobs_sent: String
+        
+        private enum CodingKeys: String, CodingKey{
+            case category
+            case kmrange
+            case days
+            case afternoon
+            case nights
+            case weekends
+            case overtime
+            case twelve_shift
+            case major_intersection
+            case steel_toed
+            case english_speak
+            case english_read
+            case english_write
+            case english_understand
+            case areas_exp
+            case days_avail
+            case whmis_cer
+            case hs_cer
+            case st_cer
+            case other_cer
+            case pre1_name
+            case pre1_tel
+            case pre1_address
+            case pre1_position
+            case pre1_salary
+            case pre1_from
+            case pre1_to
+            case pre1_reason
+            case pre1_supervisor
+            case emergency_notify
+            case criminal_pardon
+            case other_form
+            case temp_service
+            case name_of_agency
+            case jobs_sent
+        }
+    }
+    
     
     // MARK: - VIEW Declarations
     @IBOutlet weak var work_view: UIView!
@@ -24,8 +101,61 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var txt_major_intersection: UITextField!
     @IBOutlet weak var txt_other_certificates: UITextField!
     
-    @IBOutlet weak var btn_day: DLRadioButton!
+    @IBOutlet weak var btn_full_time: DLRadioButton!
+    @IBOutlet weak var btn_part_time: DLRadioButton!
     
+    @IBOutlet weak var btn_days: DLRadioButton!
+    @IBOutlet weak var btn_afternoon: DLRadioButton!
+    @IBOutlet weak var btn_nights: DLRadioButton!
+    
+    @IBOutlet weak var btn_week_yes: DLRadioButton!
+    @IBOutlet weak var btn_week_no: DLRadioButton!
+    
+    @IBOutlet weak var btn_over_yes: DLRadioButton!
+    @IBOutlet weak var btn_over_no: DLRadioButton!
+    
+    @IBOutlet weak var btn_twelve_yes: DLRadioButton!
+    @IBOutlet weak var btn_twelve_no: DLRadioButton!
+    
+    @IBOutlet weak var btn_steel_yes: DLRadioButton!
+    @IBOutlet weak var btn_steel_no: DLRadioButton!
+    
+    @IBOutlet weak var btn_english_speak: DLRadioButton!
+    @IBOutlet weak var btn_english_read: DLRadioButton!
+    @IBOutlet weak var btn_english_write: DLRadioButton!
+    @IBOutlet weak var btn_english_understand: DLRadioButton!
+    
+    @IBOutlet weak var btn_warehouse: DLRadioButton!
+    @IBOutlet weak var btn_ship: DLRadioButton!
+    @IBOutlet weak var btn_forklif: DLRadioButton!
+    @IBOutlet weak var btn_assembly: DLRadioButton!
+    @IBOutlet weak var btn_inventory: DLRadioButton!
+    @IBOutlet weak var btn_machine: DLRadioButton!
+    @IBOutlet weak var btn_heavy: DLRadioButton!
+    @IBOutlet weak var btn_packing: DLRadioButton!
+    @IBOutlet weak var btn_order: DLRadioButton!
+    @IBOutlet weak var btn_welding: DLRadioButton!
+    
+    @IBOutlet weak var btn_monday: DLRadioButton!
+    @IBOutlet weak var btn_tuesday: DLRadioButton!
+    @IBOutlet weak var btn_wednesday: DLRadioButton!
+    @IBOutlet weak var btn_thursday: DLRadioButton!
+    @IBOutlet weak var btn_friday: DLRadioButton!
+    @IBOutlet weak var btn_saturday: DLRadioButton!
+    @IBOutlet weak var btn_sunday: DLRadioButton!
+    
+    @IBOutlet weak var btn_whms: DLRadioButton!
+    @IBOutlet weak var btn_h2s: DLRadioButton!
+    @IBOutlet weak var btn_stjohns: DLRadioButton!
+    
+    
+    @IBOutlet weak var btn_criminal_yes: DLRadioButton!
+    @IBOutlet weak var btn_criminal_no: DLRadioButton!
+    
+    @IBOutlet weak var btn_temp_yes: DLRadioButton!
+    @IBOutlet weak var btn_temp_no: DLRadioButton!    
+    
+    @IBOutlet weak var btn_day: DLRadioButton!
     @IBOutlet weak var btn_areas: DLRadioButton!
     
     // MARK: - Previous form Declarations
@@ -45,9 +175,7 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var txt_any_other_emp: UITextField!
     @IBOutlet weak var txt_agency_name: UITextField!
     @IBOutlet weak var txt_list_jobs: UITextField!
-    
-   
-    
+       
     // MARK: - Work Variable Declarations
     
     var f_category : String = ""
@@ -97,7 +225,235 @@ class WorkViewController: UIViewController {
     //MARKL - View onload function
     
     override func viewDidLoad() {
+        let inserviceUrl = "http://a1staffing.ca/app/services.php"
+        let inurl = URL(string: inserviceUrl)
+        
+        var request = URLRequest(url: inurl!)
+        request.httpMethod = "POST"
+        var dataString = "secretWord=345gt6768"
+        dataString = dataString + "&action=getdata"
+        dataString = dataString + "&id=\(insertid)"
+        
+        let dataD = dataString.data(using: .utf8)
+        
+        let group = DispatchGroup()
+        group.enter()
+        let insertEntry = URLSession.shared.uploadTask(with:request, from: dataD, completionHandler: { (data, response, error) in
+            if error != nil {
+                DispatchQueue.main.async{
+                    let alert = UIAlertController(title: "Please Try Again", message: "Looks like the connection to the server didn't work. Do you have Internet access?", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            else
+            {
+                guard let data = data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let emp = try decoder.decode(gemp.self, from: data)
+                    
+                    self.txt_km_range.text = emp.kmrange
+                    self.txt_major_intersection.text = emp.major_intersection
+                    self.txt_other_certificates.text = emp.other_cer
+                    
+                    self.txt_last_employer.text = emp.pre1_name
+                    self.txt_previous_telephone.text = emp.pre1_tel
+                    self.txt_previous_address.text = emp.pre1_address
+                    self.txt_position_held.text = emp.pre1_position
+                    self.txt_salary.text = emp.pre1_salary
+                    self.txt_reason_for_leaving.text = emp.pre1_reason
+                    self.txt_supervisor.text = emp.pre1_supervisor
+                    self.txt_emergency_number.text = emp.emergency_notify
+                    self.txt_any_other_emp.text = emp.other_form
+                    self.txt_agency_name.text = emp.name_of_agency
+                    self.txt_list_jobs.text = emp.jobs_sent
+                    
+                    let category : String = emp.category
+                    self.f_category=emp.category
+                    if(category == "Full Time"){
+                        self.btn_full_time.isSelected = true
+                    }else if(category == "Part Time"){
+                        self.btn_part_time.isSelected = true
+                    }
+                    
+                    
+                    let days : String = emp.days
+                    self.f_days=emp.days
+                    if(days == "YES"){
+                        self.btn_days.isSelected = true
+                    }
+                    
+                    let afternoon : String = emp.afternoon
+                    self.f_afternoon=emp.afternoon
+                    if(afternoon == "YES"){
+                        self.btn_afternoon.isSelected = true
+                    }
+                    
+                    let nights : String = emp.nights
+                    self.f_nights=emp.nights
+                    if(nights == "YES"){
+                        self.btn_nights.isSelected = true
+                    }
+                    
+                    let weekends : String = emp.weekends
+                    self.f_weekends=emp.weekends
+                    if(weekends == "YES"){
+                        self.btn_week_yes.isSelected = true
+                    }else if(weekends == "NO"){
+                        self.btn_week_no.isSelected = true
+                    }
+                    
+                    let overtime : String = emp.overtime
+                    self.f_overtime=emp.overtime
+                    if(overtime == "YES"){
+                        self.btn_over_yes.isSelected = true
+                    }else if(overtime == "NO"){
+                        self.btn_over_no.isSelected = true
+                    }
+                    
+                    let twelve_shift : String = emp.twelve_shift
+                    self.f_twelve_shift=emp.twelve_shift
+                    if(twelve_shift == "YES"){
+                        self.btn_twelve_yes.isSelected = true
+                    }else if(twelve_shift == "NO"){
+                        self.btn_twelve_no.isSelected = true
+                    }
+                    
+                    let steel_toed : String = emp.steel_toed
+                    self.f_steel_toed=emp.steel_toed
+                    if(steel_toed == "YES"){
+                        self.btn_steel_yes.isSelected = true
+                    }
+                    
+                    let english_speak : String = emp.english_speak
+                    self.f_english_speak=emp.english_speak
+                    if(english_speak == "YES"){
+                        self.btn_english_speak.isSelected = true
+                    }
+                    
+                    let english_read : String = emp.english_read
+                    self.f_english_read=emp.english_read
+                    if(english_read == "YES"){
+                        self.btn_english_read.isSelected = true
+                    }
+                    
+                    let english_write : String = emp.english_write
+                    self.f_english_write=emp.english_write
+                    if(english_write == "YES"){
+                        self.btn_english_write.isSelected = true
+                    }
+                    
+                    let english_understand : String = emp.english_understand
+                    self.f_english_understand=emp.english_understand
+                    if(english_understand == "YES"){
+                        self.btn_english_understand.isSelected = true
+                    }
+                    
+                    let whmis_cer : String = emp.whmis_cer
+                    self.f_whmis_cer=emp.whmis_cer
+                    if(whmis_cer == "YES"){
+                        self.btn_whms.isSelected = true
+                    }
+                    
+                    let hs_cer : String = emp.hs_cer
+                    self.f_hs_cer=emp.hs_cer
+                    if(hs_cer == "YES"){
+                        self.btn_h2s.isSelected = true
+                    }
+                    
+                    let st_cer : String = emp.st_cer
+                    self.f_st_cer=emp.st_cer
+                    if(st_cer == "YES"){
+                        self.btn_stjohns.isSelected = true
+                    }
+                    
+                    let criminal_pardon : String = emp.criminal_pardon
+                    self.f_criminal_pardon=emp.criminal_pardon
+                    if(criminal_pardon == "YES"){
+                        self.btn_criminal_yes.isSelected = true
+                    }else if(criminal_pardon == "NO"){
+                        self.btn_criminal_no.isSelected = true
+                    }
+                    
+                    let temp_service : String = emp.temp_service
+                    self.f_temp_service=emp.temp_service
+                    if(temp_service == "YES"){
+                        self.btn_temp_yes.isSelected = true
+                    }
+                    
+                    
+                    let areas_exp : String = emp.areas_exp
+                    self.f_areas_exp=emp.areas_exp
+                    if(areas_exp != ""){
+                        let areasarr = areas_exp.components(separatedBy: ",")
+                        for area in areasarr {
+                            if area == "WAREHOUSE" {
+                                self.btn_warehouse.isSelected = true
+                            }else if area == "SHIP" {
+                                self.btn_ship.isSelected = true
+                            }else if area == "FORKLIFT" {
+                                self.btn_forklif.isSelected = true
+                            }else if area == "ASSEMBLY" {
+                                self.btn_assembly.isSelected = true
+                            }else if area == "INVENTORY" {
+                                self.btn_inventory.isSelected = true
+                            }else if area == "MACHINEOPERTAION" {
+                                self.btn_machine.isSelected = true
+                            }else if area == "HEAVYLIFTING" {
+                                self.btn_heavy.isSelected = true
+                            }else if area == "PACKING" {
+                                self.btn_packing.isSelected = true
+                            }else if area == "ORDERPICKING" {
+                                self.btn_order.isSelected = true
+                            }else if area == "WELDING" {
+                                self.btn_welding.isSelected = true
+                            }
+                        }
+                    }
+                    
+                    let days_avail : String = emp.days_avail
+                    self.f_days_avail=emp.days_avail
+                    if(days_avail != ""){
+                        let days_availarr = days_avail.components(separatedBy: ",")
+                        for day in days_availarr {
+                            if day == "MON" {
+                                self.btn_monday.isSelected = true
+                            }else if day == "TUES" {
+                                self.btn_tuesday.isSelected = true
+                            }else if day == "WED" {
+                                self.btn_wednesday.isSelected = true
+                            }else if day == "THURS" {
+                                self.btn_thursday.isSelected = true
+                            }else if day == "FRI" {
+                                self.btn_friday.isSelected = true
+                            }else if day == "SAT" {
+                                self.btn_saturday.isSelected = true
+                            }else if day == "SUN" {
+                                self.btn_sunday.isSelected = true
+                            }
+                        }
+                    }
+                    
+                    
+                } catch let err {
+                    print("Err", err)
+                }
+                group.leave()
+            }
+        })
+        insertEntry.resume()
+        group.wait()
+        
         super.viewDidLoad()
+        
+        let valid1: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        valid1.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        work_from.datePickerMode = .date
+        
+        let valid2: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        valid2.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        work_to.datePickerMode = .date
         
         //MARK: - View Declaration
         
@@ -225,14 +581,6 @@ class WorkViewController: UIViewController {
         txt_list_jobs.layer.shadowRadius = 0.0;
         txt_list_jobs.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_list_jobs.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
-        let valid1: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        valid1.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        work_from.datePickerMode = .date
-        
-        let valid2: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        valid2.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        work_to.datePickerMode = .date
     }
     
     

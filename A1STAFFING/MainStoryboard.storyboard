@@ -653,7 +653,6 @@
         <!--Work View Controller-->
         <scene sceneID="2h6-qI-XAI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ubq-in-zmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xCH-Ne-Nta" customClass="WorkViewController" customModule="A1STAFFING" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="PhK-D5-Dtd">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="3600"/>
@@ -2022,8 +2021,49 @@
                     </view>
                     <size key="freeformSize" width="768" height="3600"/>
                     <connections>
+                        <outlet property="btn_afternoon" destination="vgc-8L-nqQ" id="D4n-3e-8cx"/>
                         <outlet property="btn_areas" destination="NxL-pI-B2l" id="nho-KZ-Nde"/>
+                        <outlet property="btn_assembly" destination="r5L-wb-aoI" id="GsW-3d-LNJ"/>
+                        <outlet property="btn_criminal_no" destination="pdj-ue-Qz4" id="y01-yL-Qo2"/>
+                        <outlet property="btn_criminal_yes" destination="I8X-pk-tqj" id="ckH-8F-zRj"/>
                         <outlet property="btn_day" destination="J5u-oq-mZ3" id="v4t-iS-fvs"/>
+                        <outlet property="btn_days" destination="iet-wm-rnA" id="GQ0-TS-S3w"/>
+                        <outlet property="btn_english_read" destination="f87-nr-G1T" id="gQa-05-YXh"/>
+                        <outlet property="btn_english_speak" destination="STd-V0-OLa" id="hrS-lX-c8L"/>
+                        <outlet property="btn_english_understand" destination="u2u-Ms-a2G" id="tAO-hk-D9j"/>
+                        <outlet property="btn_english_write" destination="y7r-9U-seb" id="rJu-fG-LB7"/>
+                        <outlet property="btn_forklif" destination="luC-9T-IWj" id="iKb-Pg-Zme"/>
+                        <outlet property="btn_friday" destination="EtG-r3-5O9" id="pvv-Q3-mZV"/>
+                        <outlet property="btn_full_time" destination="lDx-0Z-cri" id="p9k-qi-Xxj"/>
+                        <outlet property="btn_h2s" destination="6fb-x7-BVd" id="SjZ-xT-mIX"/>
+                        <outlet property="btn_heavy" destination="VhV-M9-G7q" id="2ub-jo-j94"/>
+                        <outlet property="btn_inventory" destination="yEr-ZF-NJB" id="FqL-s1-SPG"/>
+                        <outlet property="btn_machine" destination="XYN-eH-l1s" id="Dh6-wx-wKz"/>
+                        <outlet property="btn_monday" destination="J5u-oq-mZ3" id="cKQ-so-CP1"/>
+                        <outlet property="btn_nights" destination="T5o-TX-amO" id="55X-zr-my2"/>
+                        <outlet property="btn_order" destination="yvN-HN-rjn" id="ITD-e6-mqS"/>
+                        <outlet property="btn_over_no" destination="Gnw-7z-NpN" id="hhR-fk-9Ig"/>
+                        <outlet property="btn_over_yes" destination="iIQ-P1-Jpf" id="6VQ-n3-idf"/>
+                        <outlet property="btn_packing" destination="HVc-v4-fcI" id="Nnd-xA-BA8"/>
+                        <outlet property="btn_part_time" destination="Iqe-2b-gHQ" id="lO5-Fx-6Bl"/>
+                        <outlet property="btn_saturday" destination="Irh-wO-jjX" id="0pT-QU-v8S"/>
+                        <outlet property="btn_ship" destination="d14-2f-XtN" id="gg4-wK-77P"/>
+                        <outlet property="btn_steel_no" destination="CXV-Na-TPd" id="Agf-7I-fxN"/>
+                        <outlet property="btn_steel_yes" destination="jMn-VK-xTB" id="8Ui-Pz-zsb"/>
+                        <outlet property="btn_stjohns" destination="bmi-qL-HOI" id="jME-xn-4h3"/>
+                        <outlet property="btn_sunday" destination="vPr-YV-UNO" id="fhJ-4O-c41"/>
+                        <outlet property="btn_temp_no" destination="y08-OT-PZl" id="KA8-zC-ofW"/>
+                        <outlet property="btn_temp_yes" destination="bvR-XC-8Iv" id="DFB-fk-QIG"/>
+                        <outlet property="btn_thursday" destination="kzX-xa-gLi" id="C2m-uH-yUR"/>
+                        <outlet property="btn_tuesday" destination="zX2-LZ-is1" id="vea-8j-Ksc"/>
+                        <outlet property="btn_twelve_no" destination="7cZ-zE-K96" id="mHL-0N-YUB"/>
+                        <outlet property="btn_twelve_yes" destination="NO4-Jv-qJ4" id="SnL-e9-ewP"/>
+                        <outlet property="btn_warehouse" destination="NxL-pI-B2l" id="HxG-wZ-KLw"/>
+                        <outlet property="btn_wednesday" destination="e8g-hl-zhq" id="nMJ-Nn-oj0"/>
+                        <outlet property="btn_week_no" destination="6fL-iR-tXN" id="1eB-5s-Ldi"/>
+                        <outlet property="btn_week_yes" destination="cyh-oI-t6o" id="ngK-ZD-JWB"/>
+                        <outlet property="btn_welding" destination="3jk-uH-XF8" id="F13-JM-XLB"/>
+                        <outlet property="btn_whms" destination="hPs-UQ-5gU" id="gc7-6G-LGK"/>
                         <outlet property="previous_view" destination="RtO-6Q-cTp" id="Lks-jb-xQt"/>
                         <outlet property="txt_agency_name" destination="HHA-4x-Ea3" id="oUV-r4-s4f"/>
                         <outlet property="txt_any_other_emp" destination="A3z-Zu-Arf" id="pG3-i7-gfu"/>
@@ -2046,6 +2086,7 @@
                         <segue destination="Qdi-zR-zLq" kind="show" identifier="segue_to_sign_from_work" id="CkO-yW-daG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubq-in-zmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1163" y="-3181"/>
         </scene>
@@ -2148,6 +2189,9 @@ I also certify that I have read and understood the Terms and Conditions and real
                                                         <state key="normal" title="Edit">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="showworkedit:" destination="Qdi-zR-zLq" eventType="touchUpInside" id="l0h-Vs-xX2"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yp8-0d-T30">
                                                         <rect key="frame" x="25" y="1195" width="150" height="30"/>
@@ -2720,7 +2764,7 @@ I also certify that I have read and understood the Terms and Conditions and real
                                                         <rect key="frame" x="8" y="2225" width="748" height="260"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <mutableString key="text">1. You are a Al STAFFING SOLUTIONS INC. employee. and will be sent to other companies to do work. Available to you are both temporary and full-time positions.I acknowledge that my relationship with Al STAFFING SOLUTIONS INC. is entered into as an elect to work arrangement and that I have the right to decline work without penalty.
+                                                        <string key="text">1. You are a Al STAFFING SOLUTIONS INC. employee. and will be sent to other companies to do work. Available to you are both temporary and full-time positions.I acknowledge that my relationship with Al STAFFING SOLUTIONS INC. is entered into as an elect to work arrangement and that I have the right to decline work without penalty.
 2. Your working hours will be recorded on a Al STAFFING SOLUTIONS INC. time sheet at the work place. This time sheet is YOUR responsibility and must be completed and brought to this office at the end of each week. If you cannot do so, please contact our office no later than Monday morning. This will prevent waiting an extra week for your pay.
 3. Pay cheques are issued from this office and are available each week on Thursday. Our office hours are from 7:00 a.m. to 5:00 p.m. Monday to Friday.
 4. Should the company that you are working at wish to hire you on directly, they can do so only after you have worked there for a contracted period of 8 weeks unless otherwise stated.
@@ -2730,7 +2774,7 @@ I also certify that I have read and understood the Terms and Conditions and real
 8. No alcohol or drugs will be tolerated before or while you are on the job.
 9. In case of accident, you MUST call our office as soon as possible. Follow this up by coming into our office within 24 hours to fill out an accident report.
 10. I certify that I have read and understand Al STAFFING SOLUTIONS INC. health and safety policy.
-11. I Certify that I have viewed the Training Video and have a general knowledge of WHMIS and its importance in the workplace.</mutableString>
+11. I Certify that I have viewed the Training Video and have a general knowledge of WHMIS and its importance in the workplace.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
@@ -2821,8 +2865,10 @@ I also certify that I have read and understood the Terms and Conditions and real
                         <outlet property="lbl_emergency_notify" destination="Re5-1Q-fnb" id="BpM-gP-UvO"/>
                         <outlet property="lbl_english" destination="j2j-XU-rD7" id="xfL-OV-Hjo"/>
                         <outlet property="lbl_gender" destination="fng-6d-d5J" id="kEL-bd-hLO"/>
+                        <outlet property="lbl_hear_from" destination="cua-Hh-dZY" id="Nck-kr-i0l"/>
                         <outlet property="lbl_jobs_sent" destination="ZFF-7d-2hy" id="XEY-qv-I7e"/>
                         <outlet property="lbl_kmrange" destination="lm3-xm-GD3" id="ym2-PQ-j1i"/>
+                        <outlet property="lbl_legal_right" destination="xM6-GD-cmS" id="VkY-bB-vph"/>
                         <outlet property="lbl_major_intersection" destination="MzA-dl-x0k" id="6i3-ft-T72"/>
                         <outlet property="lbl_mobile" destination="jRX-V0-MYC" id="AZ9-sC-LCi"/>
                         <outlet property="lbl_name" destination="nPb-xk-LTB" id="0x1-qS-Lcf"/>
@@ -2830,6 +2876,7 @@ I also certify that I have read and understood the Terms and Conditions and real
                         <outlet property="lbl_other_cer" destination="f6b-dt-nMx" id="TZF-p5-Stx"/>
                         <outlet property="lbl_other_form" destination="cc8-rF-T1Q" id="hj3-NY-xx0"/>
                         <outlet property="lbl_overtime" destination="zfw-pL-hUb" id="1tc-gf-JwQ"/>
+                        <outlet property="lbl_own_car" destination="t1z-kN-EjS" id="pM4-Ia-b7S"/>
                         <outlet property="lbl_pre1_address" destination="bDv-yj-2Po" id="IFw-gA-8zn"/>
                         <outlet property="lbl_pre1_from" destination="BSh-Hl-Geo" id="TMj-4Y-cAM"/>
                         <outlet property="lbl_pre1_name" destination="ean-ah-mz6" id="tJc-3V-5sj"/>
@@ -2845,6 +2892,7 @@ I also certify that I have read and understood the Terms and Conditions and real
                         <outlet property="lbl_temp_service" destination="5MC-1O-H1d" id="jAe-Hf-hpf"/>
                         <outlet property="lbl_twelve_shift" destination="paA-Jb-kkG" id="OhN-19-c0Q"/>
                         <outlet property="lbl_weekends" destination="lKy-sg-vjC" id="knH-C7-yht"/>
+                        <outlet property="lbl_work_permit_number" destination="y48-49-Vxh" id="SoD-Pb-oxE"/>
                         <outlet property="signatureView" destination="ndr-mM-3Qg" id="GOR-s3-hac"/>
                         <segue destination="xCH-Ne-Nta" kind="show" identifier="segue_to_work_from_sign" id="NJ8-FQ-we5"/>
                         <segue destination="mWj-zL-nkP" kind="show" identifier="segue_to_view_from_sign" id="obq-re-KiQ"/>
@@ -2875,6 +2923,7 @@ I also certify that I have read and understood the Terms and Conditions and real
         <image name="button_bg" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CkO-yW-daG"/>
         <segue reference="NJ8-FQ-we5"/>
         <segue reference="nrs-Zh-Eq0"/>
         <segue reference="obq-re-KiQ"/>

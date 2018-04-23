@@ -15,7 +15,17 @@ import UIKit
 }
 
 open class SignViewController: UIViewController {
-    //Mark: - struct
+    //Mark: - struct id
+    struct cemp: Codable {
+        let id: Int
+        
+        private enum CodingKeys: String, CodingKey{
+            case id
+        }
+        
+    }
+    
+    //Mark: - struct emp
     struct gemp: Codable {
         let title: String
         let first_name: String
@@ -28,6 +38,11 @@ open class SignViewController: UIViewController {
         let main_email: String
         let address: String
         let social_insurance: String
+        let own_car: String
+        let work_permit_number: String
+        let valid_till: String
+        let legal_right: String
+        let hear_from: String
         let category: String
         let kmrange: String
         let days: String
@@ -76,6 +91,11 @@ open class SignViewController: UIViewController {
             case main_email
             case address
             case social_insurance
+            case own_car
+            case work_permit_number
+            case valid_till
+            case legal_right
+            case hear_from            
             case category
             case kmrange
             case days
@@ -126,9 +146,13 @@ open class SignViewController: UIViewController {
     @IBOutlet weak var lbl_email: UILabel!
     @IBOutlet weak var lbl_address: UILabel!
     @IBOutlet weak var lbl_sin: UILabel!
+    @IBOutlet weak var lbl_own_car : UILabel!
+    @IBOutlet weak var lbl_work_permit_number : UILabel!
+    @IBOutlet weak var lbl_legal_right : UILabel!
+    @IBOutlet weak var lbl_hear_from : UILabel!
+    
     @IBOutlet weak var lbl_category: UILabel!
     @IBOutlet weak var lbl_kmrange: UILabel!
-    
     @IBOutlet weak var lbl_shifts: UILabel!
     @IBOutlet weak var lbl_weekends: UILabel!
     @IBOutlet weak var lbl_overtime: UILabel!
@@ -208,6 +232,12 @@ open class SignViewController: UIViewController {
                     if(mobile != ""){
                         phone += " / " + mobile
                     }
+                    
+                    var work_permit_number : String = emp.work_permit_number
+                    let valid_till : String = emp.valid_till
+                    if(valid_till != ""){
+                        work_permit_number += " / " + valid_till
+                    }                    
                     
                     var shifts : String = ""
                     let days : String = emp.days
@@ -294,6 +324,11 @@ open class SignViewController: UIViewController {
                     self.lbl_sin.text = emp.social_insurance
                     self.lbl_category.text = emp.category
                     self.lbl_kmrange.text = emp.kmrange
+                    
+                    self.lbl_own_car.text = emp.own_car
+                    self.lbl_legal_right.text = emp.legal_right
+                    self.lbl_hear_from.text = emp.hear_from
+                    self.lbl_work_permit_number.text = work_permit_number
                     
                     self.lbl_shifts.text = shifts
                     self.lbl_weekends.text = emp.weekends
@@ -421,5 +456,19 @@ open class SignViewController: UIViewController {
             }
         })
         insertEntry.resume()
+    }
+    
+    // MARK: - go back to edit function
+    @IBAction func showworkedit(_ sender: Any) {       
+        self.performSegue(withIdentifier: "segue_to_work_from_sign", sender: self)
+        
+    }
+    
+    //MARK: - perform segue
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_to_work_from_sign"{
+            let vc = segue.destination as! WorkViewController               
+            vc.insertid = insertid
+        }
     }
 }
