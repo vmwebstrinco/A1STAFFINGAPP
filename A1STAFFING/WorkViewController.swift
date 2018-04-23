@@ -685,6 +685,11 @@ class WorkViewController: UIViewController {
         }
     }
     
+    // MARK: - go back to main function
+    @IBAction func showmainedit(_ sender: Any) {
+        self.performSegue(withIdentifier: "segue_to_mainedit_from_work", sender: self)
+        
+    }
     
     //MARK: - perform segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -757,6 +762,10 @@ class WorkViewController: UIViewController {
             
             group.wait()
             let vc = segue.destination as! SignViewController
+            vc.insertid = insertid
+        }
+        else if segue.identifier == "segue_to_mainedit_from_work"{
+            let vc = segue.destination as! MainEditViewController
             vc.insertid = insertid
         }
     }
@@ -1010,4 +1019,5 @@ class WorkViewController: UIViewController {
         let strDate = dateFormatter.string(from: work_to.date)
         f_pre1_to=strDate
     }
+    
 }
