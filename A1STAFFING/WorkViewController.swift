@@ -225,6 +225,9 @@ class WorkViewController: UIViewController {
     //MARKL - View onload function
     
     override func viewDidLoad() {
+        btn_day.isMultipleSelectionEnabled = true
+        btn_areas.isMultipleSelectionEnabled = true
+        
         let inserviceUrl = "http://a1staffing.ca/app/services.php"
         let inurl = URL(string: inserviceUrl)
         
@@ -457,9 +460,7 @@ class WorkViewController: UIViewController {
         
         //MARK: - View Declaration
         
-        btn_day.isMultipleSelectionEnabled = true
-        btn_areas.isMultipleSelectionEnabled = true
-        
+       
         work_view.layer.borderWidth = 0.5
         work_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
         
