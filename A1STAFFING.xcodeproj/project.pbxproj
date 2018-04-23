@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B464922208E49CD00D1F2FD /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B464921208E49CD00D1F2FD /* SignatureViewController.swift */; };
 		6B60431F202DD8D700CB1FBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B60431E202DD8D700CB1FBB /* AppDelegate.swift */; };
 		6B604326202DD8D700CB1FBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B604325202DD8D700CB1FBB /* Assets.xcassets */; };
 		6B604329202DD8D700CB1FBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B604327202DD8D700CB1FBB /* LaunchScreen.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B464921208E49CD00D1F2FD /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		6B60431B202DD8D700CB1FBB /* A1STAFFING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A1STAFFING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B60431E202DD8D700CB1FBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B604325202DD8D700CB1FBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				6B9ACBB7208B614600C04C24 /* WorkViewController.swift */,
 				6BDE458B203AC6F700FEFBCA /* SignViewController.swift */,
 				6B7DC6F8208E26DD007B24E9 /* MainEditViewController.swift */,
+				6B464921208E49CD00D1F2FD /* SignatureViewController.swift */,
 				6BC2823D202F2E8B0001BB79 /* extensions.swift */,
 				6BC2823F202F2F410001BB79 /* EPSignatureView.swift */,
 				6BC28241202F31EB0001BB79 /* A1STAFFING-Bridging-Header.h */,
@@ -272,6 +275,7 @@
 				6BDE458C203AC6F700FEFBCA /* SignViewController.swift in Sources */,
 				6B7DC6F9208E26DD007B24E9 /* MainEditViewController.swift in Sources */,
 				6BC28240202F2F410001BB79 /* EPSignatureView.swift in Sources */,
+				6B464922208E49CD00D1F2FD /* SignatureViewController.swift in Sources */,
 				6BC2823E202F2E8B0001BB79 /* extensions.swift in Sources */,
 				6BC28244202F31EC0001BB79 /* DLRadioButton.m in Sources */,
 				6B60431F202DD8D700CB1FBB /* AppDelegate.swift in Sources */,
