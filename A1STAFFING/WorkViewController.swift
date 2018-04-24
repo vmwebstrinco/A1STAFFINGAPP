@@ -327,6 +327,8 @@ class WorkViewController: UIViewController {
                     self.f_steel_toed=emp.steel_toed
                     if(steel_toed == "YES"){
                         self.btn_steel_yes.isSelected = true
+                    }else  if(steel_toed == "NO"){
+                        self.btn_steel_no.isSelected = true
                     }
                     
                     let english_speak : String = emp.english_speak
@@ -383,6 +385,8 @@ class WorkViewController: UIViewController {
                     self.f_temp_service=emp.temp_service
                     if(temp_service == "YES"){
                         self.btn_temp_yes.isSelected = true
+                    }else if(temp_service == "NO"){
+                        self.btn_temp_no.isSelected = true
                     }
                     
                     
