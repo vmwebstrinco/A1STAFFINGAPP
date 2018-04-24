@@ -94,6 +94,7 @@ class MainEditViewController: UIViewController {
     @IBOutlet weak var yes_btn_legal_right: DLRadioButton!
     @IBOutlet weak var no_btn_legal_right: DLRadioButton!
     
+    
     //MARK: - Personal Variable Declaration
     
     var f_title : String = ""
@@ -217,6 +218,9 @@ class MainEditViewController: UIViewController {
                     self.txt_hear_from.text = emp.hear_from
                     self.f_hear_from=emp.hear_from
                     
+                    self.f_dob=emp.dob
+                    self.f_valid_until=emp.valid_till
+                    
                 } catch let err {
                     print("Err", err)
                 }
@@ -226,6 +230,32 @@ class MainEditViewController: UIViewController {
         insertEntry.resume()
         group.wait()
         super.viewDidLoad()
+        
+        let c_dob: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        c_dob.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        if(f_dob != ""){
+            let dob_arr = f_dob.components(separatedBy: "-")
+            let components1: NSDateComponents = NSDateComponents()
+            components1.year = Int(dob_arr[0])!
+            components1.month = Int(dob_arr[1])!
+            components1.day = Int(dob_arr[2])!
+            let defaultDate1: NSDate = c_dob.date(from: components1 as DateComponents)! as NSDate
+            dob.date = defaultDate1 as Date
+        }
+        dob.datePickerMode = .date
+        
+        let c_valid_till: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        c_valid_till.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        if(f_valid_until != ""){
+            let valid_arr = f_valid_until.components(separatedBy: "-")
+            let components2: NSDateComponents = NSDateComponents()
+            components2.year = Int(valid_arr[0])!
+            components2.month = Int(valid_arr[1])!
+            components2.day = Int(valid_arr[2])!
+            let defaultDate2: NSDate = c_valid_till.date(from: components2 as DateComponents)! as NSDate
+            valid_till.date = defaultDate2 as Date
+        }
+        valid_till.datePickerMode = .date
         
         personal_view.layer.borderWidth = 0.5
         personal_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
@@ -261,11 +291,7 @@ class MainEditViewController: UIViewController {
         txt_last_name.layer.shadowRadius = 0.0;
         txt_last_name.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_last_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
-        let calendar: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        calendar.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        dob.datePickerMode = .date
-        
+    
         //MARK: - Contact view Declaration
         
         txt_main_phone.setLeftPaddingPoints(15)
@@ -348,11 +374,7 @@ class MainEditViewController: UIViewController {
         txt_hear_from.layer.shadowOpacity = 1.0;
         txt_hear_from.layer.shadowRadius = 0.0;
         txt_hear_from.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
-        txt_hear_from.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
-        let valid: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        valid.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        valid_till.datePickerMode = .date
+        txt_hear_from.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);        
     }
     
     

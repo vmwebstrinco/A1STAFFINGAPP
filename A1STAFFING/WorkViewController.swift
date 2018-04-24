@@ -220,6 +220,11 @@ class WorkViewController: UIViewController {
     var f_temp_service : String = ""
     var f_name_of_agency: String?
     var f_jobs_sent: String?
+    
+    //
+    
+    var s_work_till : String = ""
+    var s_work_from : String = ""
        
     
     //MARKL - View onload function
@@ -442,6 +447,8 @@ class WorkViewController: UIViewController {
                         }
                     }
                     
+                    self.f_pre1_to=emp.pre1_to
+                    self.f_pre1_from=emp.pre1_from
                     
                 } catch let err {
                     print("Err", err)
@@ -454,14 +461,31 @@ class WorkViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let valid1: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        valid1.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        let c_work_from: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        c_work_from.timeZone = NSTimeZone(name: "UTC")! as TimeZone        
+        if(f_pre1_from != ""){
+            let work_from_arr = f_pre1_from.components(separatedBy: "-")
+            let components1: NSDateComponents = NSDateComponents()
+            components1.year = Int(work_from_arr[0])!
+            components1.month = Int(work_from_arr[1])!
+            components1.day = Int(work_from_arr[2])!
+            let defaultDate: NSDate = c_work_from.date(from: components1 as DateComponents)! as NSDate
+            work_from.date = defaultDate as Date
+        }
         work_from.datePickerMode = .date
-        
-        let valid2: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        valid2.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+       
+        let c_work_till: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
+        c_work_till.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        if(f_pre1_to != ""){
+            let work_till_arr = f_pre1_to.components(separatedBy: "-")
+            let components2: NSDateComponents = NSDateComponents()
+            components2.year = Int(work_till_arr[0])!
+            components2.month = Int(work_till_arr[1])!
+            components2.day = Int(work_till_arr[2])!
+            let defaultDate: NSDate = c_work_till.date(from: components2 as DateComponents)! as NSDate
+            work_to.date = defaultDate as Date
+        }
         work_to.datePickerMode = .date
-        
         //MARK: - View Declaration
         
        
