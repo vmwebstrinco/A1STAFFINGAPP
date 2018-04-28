@@ -35,7 +35,6 @@ open class SignViewController: UIViewController {
         let weekends: String
         let overtime: String
         let twelve_shift: String
-        let major_intersection: String
         let steel_toed: String
         let english_speak: String
         let english_read: String
@@ -88,7 +87,6 @@ open class SignViewController: UIViewController {
             case weekends
             case overtime
             case twelve_shift
-            case major_intersection
             case steel_toed
             case english_speak
             case english_read
@@ -139,7 +137,6 @@ open class SignViewController: UIViewController {
     @IBOutlet weak var lbl_weekends: UILabel!
     @IBOutlet weak var lbl_overtime: UILabel!
     @IBOutlet weak var lbl_twelve_shift: UILabel!
-    @IBOutlet weak var lbl_major_intersection: UILabel!
     @IBOutlet weak var lbl_steel_toed: UILabel!
     @IBOutlet weak var lbl_english: UILabel!
     @IBOutlet weak var lbl_areas_exp: UILabel!
@@ -307,7 +304,6 @@ open class SignViewController: UIViewController {
                     self.lbl_weekends.text = emp.weekends
                     self.lbl_overtime.text = emp.overtime
                     self.lbl_twelve_shift.text = emp.twelve_shift
-                    self.lbl_major_intersection.text = emp.major_intersection
                     self.lbl_steel_toed.text = emp.steel_toed
                     self.lbl_english.text = english
                     self.lbl_areas_exp.text = emp.areas_exp

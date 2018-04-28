@@ -22,7 +22,6 @@ class WorkViewController: UIViewController {
         let weekends: String
         let overtime: String
         let twelve_shift: String
-        let major_intersection: String
         let steel_toed: String
         let english_speak: String
         let english_read: String
@@ -59,7 +58,6 @@ class WorkViewController: UIViewController {
             case weekends
             case overtime
             case twelve_shift
-            case major_intersection
             case steel_toed
             case english_speak
             case english_read
@@ -98,7 +96,6 @@ class WorkViewController: UIViewController {
     // MARK: - Work form Declarations
     
     @IBOutlet weak var txt_km_range: UITextField!
-    @IBOutlet weak var txt_major_intersection: UITextField!
     @IBOutlet weak var txt_other_certificates: UITextField!
     
     @IBOutlet weak var btn_full_time: DLRadioButton!
@@ -158,6 +155,10 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var btn_day: DLRadioButton!
     @IBOutlet weak var btn_areas: DLRadioButton!
     
+    @IBOutlet weak var btn_shifts_del: DLRadioButton!    
+    @IBOutlet weak var btn_english_del: DLRadioButton!
+    @IBOutlet weak var btn_cer_del: DLRadioButton!
+    
     // MARK: - Previous form Declarations
     
     @IBOutlet weak var txt_last_employer: UITextField!
@@ -188,7 +189,6 @@ class WorkViewController: UIViewController {
     var f_overtime: String = ""
     var f_twelve_shift: String = ""
     
-    var f_major_intersection: String?
     var f_steel_toed : String = ""
     var f_english_speak : String = ""
     var f_english_read : String = ""
@@ -232,6 +232,9 @@ class WorkViewController: UIViewController {
     override func viewDidLoad() {
         btn_day.isMultipleSelectionEnabled = true
         btn_areas.isMultipleSelectionEnabled = true
+        btn_shifts_del.isMultipleSelectionEnabled = true
+        btn_english_del.isMultipleSelectionEnabled = true
+        btn_cer_del.isMultipleSelectionEnabled = true
         
         let inserviceUrl = "http://a1staffing.ca/app/services.php"
         let inurl = URL(string: inserviceUrl)
@@ -262,7 +265,6 @@ class WorkViewController: UIViewController {
                     let emp = try decoder.decode(gemp.self, from: data)
                     
                     self.txt_km_range.text = emp.kmrange
-                    self.txt_major_intersection.text = emp.major_intersection
                     self.txt_other_certificates.text = emp.other_cer
                     
                     self.txt_last_employer.text = emp.pre1_name
@@ -486,11 +488,7 @@ class WorkViewController: UIViewController {
             work_to.date = defaultDate as Date
         }
         work_to.datePickerMode = .date
-        //MARK: - View Declaration
-        
-       
-        work_view.layer.borderWidth = 0.5
-        work_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
+        //MARK: - View Declaration          
         
         previous_view.layer.borderWidth = 0.5
         previous_view.layer.borderColor = UIColor(red:0.87, green:0.87, blue:0.87, alpha:1.0).cgColor
@@ -504,15 +502,6 @@ class WorkViewController: UIViewController {
         txt_km_range.layer.shadowRadius = 0.0;
         txt_km_range.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_km_range.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
-        txt_major_intersection.setLeftPaddingPoints(15)
-        txt_major_intersection.setRightPaddingPoints(15)
-        
-        txt_major_intersection.layer.shadowOpacity = 1.0;
-        txt_major_intersection.layer.shadowRadius = 0.0;
-        txt_major_intersection.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
-        txt_major_intersection.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
-        
         
         txt_other_certificates.setLeftPaddingPoints(15)
         txt_other_certificates.setRightPaddingPoints(15)
@@ -618,13 +607,8 @@ class WorkViewController: UIViewController {
         f_kmrange = txt_km_range.text
         if(f_kmrange == nil){
             f_kmrange = ""
-        }
-        
-        f_major_intersection = txt_major_intersection.text
-        if(f_major_intersection == nil){
-            f_major_intersection = ""
-        }
-        
+        }        
+      
         f_other_cer = txt_other_certificates.text
         if(f_other_cer == nil){
             f_other_cer = ""
@@ -739,7 +723,6 @@ class WorkViewController: UIViewController {
             dataString = dataString + "&weekends=\(f_weekends)"
             dataString = dataString + "&overtime=\(f_overtime)"
             dataString = dataString + "&twelve_shift=\(f_twelve_shift)"
-            dataString = dataString + "&major_intersection=\(f_major_intersection!)"
             dataString = dataString + "&steel_toed=\(f_steel_toed)"
             dataString = dataString + "&english_speak=\(f_english_speak)"
             dataString = dataString + "&english_read=\(f_english_read)"
