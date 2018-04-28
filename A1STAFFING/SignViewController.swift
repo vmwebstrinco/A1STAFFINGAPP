@@ -51,11 +51,11 @@ open class SignViewController: UIViewController {
         let pre1_address: String
         let pre1_position: String
         let pre1_salary: String
-        let pre1_from: String
-        let pre1_to: String
+        let pre1_duration: String
         let pre1_reason: String
         let pre1_supervisor: String
-        let emergency_notify: String
+        let emergency_name: String
+        let emergency_phone: String
         let criminal_pardon: String
         let other_form: String
         let temp_service: String
@@ -103,11 +103,11 @@ open class SignViewController: UIViewController {
             case pre1_address
             case pre1_position
             case pre1_salary
-            case pre1_from
-            case pre1_to
+            case pre1_duration
             case pre1_reason
             case pre1_supervisor
-            case emergency_notify
+            case emergency_name
+            case emergency_phone
             case criminal_pardon
             case other_form
             case temp_service
@@ -149,10 +149,9 @@ open class SignViewController: UIViewController {
     @IBOutlet weak var lbl_pre1_address: UILabel!
     @IBOutlet weak var lbl_pre1_position: UILabel!
     @IBOutlet weak var lbl_pre1_salary: UILabel!
-    @IBOutlet weak var lbl_pre1_from: UILabel!
-    @IBOutlet weak var lbl_pre1_to: UILabel!
     @IBOutlet weak var lbl_pre1_reason: UILabel!
     @IBOutlet weak var lbl_pre1_supervisor: UILabel!
+    @IBOutlet weak var lbl_pre1_experience: UILabel!
     @IBOutlet weak var lbl_emergency_notify: UILabel!
     @IBOutlet weak var lbl_criminal_pardon: UILabel!
     @IBOutlet weak var lbl_other_form: UILabel!
@@ -285,6 +284,12 @@ open class SignViewController: UIViewController {
                         cer += "Write"
                     }
                     
+                    var emed : String = emp.emergency_name
+                    var empphone : String = emp.emergency_phone
+                    if(empphone != ""){
+                        emed += " / " + empphone
+                    }
+                    
                     self.lbl_name.text = emp.title+" "+emp.first_name+" "+emp.middle_name+" "+emp.last_name
                     self.lbl_gender.text = emp.gender
                     self.lbl_dob.text = emp.dob
@@ -316,11 +321,10 @@ open class SignViewController: UIViewController {
                     self.lbl_pre1_address.text = emp.pre1_address
                     self.lbl_pre1_position.text = emp.pre1_position
                     self.lbl_pre1_salary.text = emp.pre1_salary
-                    self.lbl_pre1_from.text = emp.pre1_from
-                    self.lbl_pre1_to.text = emp.pre1_to
+                    self.lbl_pre1_experience.text = emp.pre1_duration
                     self.lbl_pre1_reason.text = emp.pre1_reason
                     self.lbl_pre1_supervisor.text = emp.pre1_supervisor
-                    self.lbl_emergency_notify.text = emp.emergency_notify
+                    self.lbl_emergency_notify.text = emed
                     
                     self.lbl_criminal_pardon.text = emp.criminal_pardon
                     self.lbl_other_form.text = emp.other_form

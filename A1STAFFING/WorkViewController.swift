@@ -38,11 +38,11 @@ class WorkViewController: UIViewController {
         let pre1_address: String
         let pre1_position: String
         let pre1_salary: String
-        let pre1_from: String
-        let pre1_to: String
+        let pre1_duration: String
         let pre1_reason: String
         let pre1_supervisor: String
-        let emergency_notify: String
+        let emergency_name: String
+        let emergency_phone: String
         let criminal_pardon: String
         let other_form: String
         let temp_service: String
@@ -74,11 +74,11 @@ class WorkViewController: UIViewController {
             case pre1_address
             case pre1_position
             case pre1_salary
-            case pre1_from
-            case pre1_to
+            case pre1_duration
             case pre1_reason
             case pre1_supervisor
-            case emergency_notify
+            case emergency_name
+            case emergency_phone
             case criminal_pardon
             case other_form
             case temp_service
@@ -95,7 +95,11 @@ class WorkViewController: UIViewController {
     
     // MARK: - Work form Declarations
     
-    @IBOutlet weak var txt_km_range: UITextField!
+    @IBOutlet weak var btn_km_30: DLRadioButton!
+    @IBOutlet weak var btn_km_40: DLRadioButton!
+    @IBOutlet weak var btn_km_50: DLRadioButton!
+    @IBOutlet weak var btn_km_60: DLRadioButton!
+    
     @IBOutlet weak var txt_other_certificates: UITextField!
     
     @IBOutlet weak var btn_full_time: DLRadioButton!
@@ -140,11 +144,11 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var btn_friday: DLRadioButton!
     @IBOutlet weak var btn_saturday: DLRadioButton!
     @IBOutlet weak var btn_sunday: DLRadioButton!
+    @IBOutlet weak var btn_all_days: DLRadioButton!
     
     @IBOutlet weak var btn_whms: DLRadioButton!
     @IBOutlet weak var btn_h2s: DLRadioButton!
     @IBOutlet weak var btn_stjohns: DLRadioButton!
-    
     
     @IBOutlet weak var btn_criminal_yes: DLRadioButton!
     @IBOutlet weak var btn_criminal_no: DLRadioButton!
@@ -166,9 +170,7 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var txt_previous_address: UITextField!
     @IBOutlet weak var txt_position_held: UITextField!
     @IBOutlet weak var txt_salary: UITextField!
-    
-    @IBOutlet weak var work_from: UIDatePicker!
-    @IBOutlet weak var work_to: UIDatePicker!        
+    @IBOutlet weak var txt_pre1_duration : UITextField!
     
     @IBOutlet weak var txt_reason_for_leaving: UITextField!
     @IBOutlet weak var txt_supervisor: UITextField!
@@ -176,11 +178,12 @@ class WorkViewController: UIViewController {
     @IBOutlet weak var txt_any_other_emp: UITextField!
     @IBOutlet weak var txt_agency_name: UITextField!
     @IBOutlet weak var txt_list_jobs: UITextField!
+    @IBOutlet weak var txt_emergency_name : UITextField!
        
     // MARK: - Work Variable Declarations
     
     var f_category : String = ""
-    var f_kmrange: String?
+    var f_kmrange : String = ""
     
     var f_days: String = ""
     var f_afternoon: String = ""
@@ -209,12 +212,12 @@ class WorkViewController: UIViewController {
     var f_pre1_address: String?
     var f_pre1_position: String?
     var f_pre1_salary: String?
-    var f_pre1_from: String = ""
-    var f_pre1_to: String = ""
     var f_pre1_reason: String?
     var f_pre1_supervisor: String?
+    var f_pre1_duration: String?
 
-    var f_emergency_notify: String?
+    var f_emergency_name: String?
+    var f_emergency_phone: String?
     var f_criminal_pardon : String = ""
     var f_other_form: String?
     var f_temp_service : String = ""
@@ -264,9 +267,8 @@ class WorkViewController: UIViewController {
                     let decoder = JSONDecoder()
                     let emp = try decoder.decode(gemp.self, from: data)
                     
-                    self.txt_km_range.text = emp.kmrange
                     self.txt_other_certificates.text = emp.other_cer
-                    
+                    self.txt_pre1_duration.text = emp.pre1_duration
                     self.txt_last_employer.text = emp.pre1_name
                     self.txt_previous_telephone.text = emp.pre1_tel
                     self.txt_previous_address.text = emp.pre1_address
@@ -274,7 +276,8 @@ class WorkViewController: UIViewController {
                     self.txt_salary.text = emp.pre1_salary
                     self.txt_reason_for_leaving.text = emp.pre1_reason
                     self.txt_supervisor.text = emp.pre1_supervisor
-                    self.txt_emergency_number.text = emp.emergency_notify
+                    self.txt_emergency_name.text = emp.emergency_name
+                    self.txt_emergency_number.text = emp.emergency_phone
                     self.txt_any_other_emp.text = emp.other_form
                     self.txt_agency_name.text = emp.name_of_agency
                     self.txt_list_jobs.text = emp.jobs_sent
@@ -287,6 +290,17 @@ class WorkViewController: UIViewController {
                         self.btn_part_time.isSelected = true
                     }
                     
+                    let kmrng : String = emp.kmrange
+                    self.f_kmrange=emp.kmrange
+                    if(kmrng == "30"){
+                        self.btn_km_30.isSelected = true
+                    }else if(kmrng == "40"){
+                        self.btn_km_40.isSelected = true
+                    }else if(kmrng == "50"){
+                        self.btn_km_50.isSelected = true
+                    }else if(kmrng == "60"){
+                        self.btn_km_60.isSelected = true
+                    }
                     
                     let days : String = emp.days
                     self.f_days=emp.days
@@ -449,8 +463,6 @@ class WorkViewController: UIViewController {
                         }
                     }
                     
-                    self.f_pre1_to=emp.pre1_to
-                    self.f_pre1_from=emp.pre1_from
                     
                 } catch let err {
                     print("Err", err)
@@ -463,45 +475,15 @@ class WorkViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let c_work_from: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        c_work_from.timeZone = NSTimeZone(name: "UTC")! as TimeZone        
-        if(f_pre1_from != ""){
-            let work_from_arr = f_pre1_from.components(separatedBy: "-")
-            let components1: NSDateComponents = NSDateComponents()
-            components1.year = Int(work_from_arr[0])!
-            components1.month = Int(work_from_arr[1])!
-            components1.day = Int(work_from_arr[2])!
-            let defaultDate: NSDate = c_work_from.date(from: components1 as DateComponents)! as NSDate
-            work_from.date = defaultDate as Date
-        }
-        work_from.datePickerMode = .date
-       
-        let c_work_till: NSCalendar = NSCalendar(calendarIdentifier:  .gregorian)!
-        c_work_till.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        if(f_pre1_to != ""){
-            let work_till_arr = f_pre1_to.components(separatedBy: "-")
-            let components2: NSDateComponents = NSDateComponents()
-            components2.year = Int(work_till_arr[0])!
-            components2.month = Int(work_till_arr[1])!
-            components2.day = Int(work_till_arr[2])!
-            let defaultDate: NSDate = c_work_till.date(from: components2 as DateComponents)! as NSDate
-            work_to.date = defaultDate as Date
-        }
-        work_to.datePickerMode = .date
-        //MARK: - View Declaration          
+        //MARK: - View Declaration
+        
+        work_view.layer.borderWidth = 0.5
+        work_view.layer.borderColor = UIColor(red:0.87, green:0.87, blue:0.87, alpha:1.0).cgColor
         
         previous_view.layer.borderWidth = 0.5
         previous_view.layer.borderColor = UIColor(red:0.87, green:0.87, blue:0.87, alpha:1.0).cgColor
        
         //MARK: - Personal view Declaration
-        
-        txt_km_range.setLeftPaddingPoints(15)
-        txt_km_range.setRightPaddingPoints(15)
-        
-        txt_km_range.layer.shadowOpacity = 1.0;
-        txt_km_range.layer.shadowRadius = 0.0;
-        txt_km_range.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
-        txt_km_range.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
         txt_other_certificates.setLeftPaddingPoints(15)
         txt_other_certificates.setRightPaddingPoints(15)
@@ -576,6 +558,14 @@ class WorkViewController: UIViewController {
         txt_emergency_number.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_emergency_number.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
         
+        txt_emergency_name.setLeftPaddingPoints(15)
+        txt_emergency_name.setRightPaddingPoints(15)
+        
+        txt_emergency_name.layer.shadowOpacity = 1.0;
+        txt_emergency_name.layer.shadowRadius = 0.0;
+        txt_emergency_name.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_emergency_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
         txt_any_other_emp.setLeftPaddingPoints(15)
         txt_any_other_emp.setRightPaddingPoints(15)
         
@@ -599,16 +589,19 @@ class WorkViewController: UIViewController {
         txt_list_jobs.layer.shadowRadius = 0.0;
         txt_list_jobs.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
         txt_list_jobs.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+        
+        txt_pre1_duration.setLeftPaddingPoints(15)
+        txt_pre1_duration.setRightPaddingPoints(15)
+        
+        txt_pre1_duration.layer.shadowOpacity = 1.0;
+        txt_pre1_duration.layer.shadowRadius = 0.0;
+        txt_pre1_duration.layer.shadowColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0).cgColor;
+        txt_pre1_duration.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
     }
     
     
     //MARKL - Validates form
     public func validateform() -> Int{
-        f_kmrange = txt_km_range.text
-        if(f_kmrange == nil){
-            f_kmrange = ""
-        }        
-      
         f_other_cer = txt_other_certificates.text
         if(f_other_cer == nil){
             f_other_cer = ""
@@ -656,9 +649,19 @@ class WorkViewController: UIViewController {
             f_pre1_supervisor = ""
         }
         
-        f_emergency_notify = txt_emergency_number.text
-        if(f_emergency_notify == nil){
-            f_emergency_notify = ""
+        f_emergency_name = txt_emergency_name.text
+        if(f_emergency_name == nil){
+            f_emergency_name = ""
+        }
+        
+        f_emergency_phone = txt_emergency_number.text
+        if(f_emergency_phone == nil){
+            f_emergency_phone = ""
+        }
+        
+        f_pre1_duration = txt_pre1_duration.text
+        if(f_pre1_duration == nil){
+            f_pre1_duration = ""
         }
         
         f_other_form = txt_any_other_emp.text
@@ -677,7 +680,7 @@ class WorkViewController: UIViewController {
         }
         
         
-        if(f_kmrange! != "" && f_category != ""){
+        if(f_kmrange != "" && f_category != ""){
             return 1
         }else{
             return 0
@@ -716,7 +719,7 @@ class WorkViewController: UIViewController {
            
             dataString = dataString + "&insertid=\(insertid)"
             dataString = dataString + "&category=\(f_category)"
-            dataString = dataString + "&kmrange=\(f_kmrange!)"
+            dataString = dataString + "&kmrange=\(f_kmrange)"
             dataString = dataString + "&days=\(f_days)"
             dataString = dataString + "&afternoon=\(f_afternoon)"
             dataString = dataString + "&nights=\(f_nights)"
@@ -739,11 +742,11 @@ class WorkViewController: UIViewController {
             dataString = dataString + "&pre1_address=\(f_pre1_address!)"
             dataString = dataString + "&pre1_position=\(f_pre1_position!)"
             dataString = dataString + "&pre1_salary=\(f_pre1_salary!)"
-            dataString = dataString + "&pre1_from=\(f_pre1_from)"
-            dataString = dataString + "&pre1_to=\(f_pre1_to)"
+            dataString = dataString + "&pre1_duration=\(f_pre1_duration!)"
             dataString = dataString + "&pre1_reason=\(f_pre1_reason!)"
             dataString = dataString + "&pre1_supervisor=\(f_pre1_supervisor!)"
-            dataString = dataString + "&emergency_notify=\(f_emergency_notify!)"
+            dataString = dataString + "&emergency_name=\(f_emergency_name!)"
+            dataString = dataString + "&emergency_number=\(f_emergency_phone!)"
             dataString = dataString + "&criminal_pardon=\(f_criminal_pardon)"
             dataString = dataString + "&other_form=\(f_other_form!)"
             dataString = dataString + "&temp_service=\(f_temp_service)"
@@ -1013,22 +1016,45 @@ class WorkViewController: UIViewController {
             }
             f_areas_exp += "WELDING"
         }       
+    }    
+  
+    // MARK: - Get KM range function
+    @IBAction func get_km_range(_ sender: DLRadioButton) {
+        if(sender.tag == 1){
+            f_kmrange = "30"
+        }else if(sender.tag == 2){
+            f_kmrange = "40"
+        }else if(sender.tag == 3){
+            f_kmrange = "50"
+        }else if(sender.tag == 4){
+            f_kmrange = "60"
+        }
     }
     
-    // MARK: - get from function
-    @IBAction func get_from(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let strDate = dateFormatter.string(from: work_from.date)
-        f_pre1_from=strDate
+    
+    // MARK: - Get all days function
+    @IBAction func get_all_days(_ sender: DLRadioButton) {
+        if(btn_all_days.isSelected == true){
+            btn_monday.isSelected = true
+            btn_tuesday.isSelected = true
+            btn_wednesday.isSelected = true
+            btn_thursday.isSelected = true
+            btn_friday.isSelected = true
+            btn_saturday.isSelected = true
+            btn_sunday.isSelected = true
+            f_days_avail = "SUN,MON,TUES,WED,THURS,FRI,SAT";
+        }else{
+            btn_monday.isSelected = false
+            btn_tuesday.isSelected = false
+            btn_wednesday.isSelected = false
+            btn_thursday.isSelected = false
+            btn_friday.isSelected = false
+            btn_saturday.isSelected = false
+            btn_sunday.isSelected = false
+            btn_all_days.isSelected = false
+            f_days_avail = "";
+        }
     }
     
-    // MARK: - get to function
-    @IBAction func get_to(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let strDate = dateFormatter.string(from: work_to.date)
-        f_pre1_to=strDate
-    }
     
 }
