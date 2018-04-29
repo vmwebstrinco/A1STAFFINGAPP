@@ -87,6 +87,7 @@ class WorkViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var lbl_glob_error: UILabel!
     
     // MARK: - VIEW Declarations
     @IBOutlet weak var work_view: UIView!
@@ -228,6 +229,9 @@ class WorkViewController: UIViewController {
     
     var s_work_till : String = ""
     var s_work_from : String = ""
+    
+    var glob_flag: Bool = true
+    var glob_error: String = ""
        
     
     //MARKL - View onload function
@@ -605,87 +609,95 @@ class WorkViewController: UIViewController {
     
     //MARKL - Validates form
     public func validateform() -> Int{
-        f_other_cer = txt_other_certificates.text
-        if(f_other_cer == nil){
-            f_other_cer = ""
-        }
-        
-        f_pre1_name = txt_last_employer.text
-        if(f_pre1_name == nil){
-            f_pre1_name = ""
-        }
-        
-        f_pre1_tel = txt_previous_telephone.text
-        if(f_pre1_tel == nil){
-            f_pre1_tel = ""
-        }
-        
-        
-        f_pre1_address = txt_previous_address.text
-        if(f_pre1_address == nil){
-            f_pre1_address = ""
-        }
-        
-        
-        f_pre1_position = txt_position_held.text
-        if(f_pre1_position == nil){
-            f_pre1_position = ""
-        }
-        
-        f_pre1_salary = txt_salary.text
-        if(f_pre1_salary == nil){
-            f_pre1_salary = ""
-        }
-        
-        f_pre1_reason = txt_reason_for_leaving.text
-        if(f_pre1_reason == nil){
-            f_pre1_reason = ""
-        }
-        
-        f_pre1_salary = txt_salary.text
-        if(f_pre1_salary == nil){
-            f_pre1_salary = ""
-        }
-        
-        f_pre1_supervisor = txt_supervisor.text
-        if(f_pre1_supervisor == nil){
-            f_pre1_supervisor = ""
-        }
-        
-        f_emergency_name = txt_emergency_name.text
-        if(f_emergency_name == nil){
-            f_emergency_name = ""
-        }
-        
-        f_emergency_phone = txt_emergency_number.text
-        if(f_emergency_phone == nil){
-            f_emergency_phone = ""
-        }
-        
-        f_pre1_duration = txt_pre1_duration.text
-        if(f_pre1_duration == nil){
-            f_pre1_duration = ""
-        }
-        
-        f_other_form = txt_any_other_emp.text
-        if(f_other_form == nil){
-            f_other_form = ""
-        }
-        
-        f_name_of_agency = txt_agency_name.text
-        if(f_name_of_agency == nil){
-            f_name_of_agency = ""
-        }
-        
-        f_jobs_sent = txt_list_jobs.text
-        if(f_jobs_sent == nil){
-            f_jobs_sent = ""
-        }
-        
-        
-        if(f_kmrange != "" && f_category != ""){
-            return 1
+        if(glob_flag){
+            f_other_cer = txt_other_certificates.text
+            if(f_other_cer == nil){
+                f_other_cer = ""
+            }
+            
+            f_pre1_name = txt_last_employer.text
+            if(f_pre1_name == nil){
+                f_pre1_name = ""
+            }
+            
+            f_pre1_tel = txt_previous_telephone.text
+            if(f_pre1_tel == nil){
+                f_pre1_tel = ""
+            }
+            
+            
+            f_pre1_address = txt_previous_address.text
+            if(f_pre1_address == nil){
+                f_pre1_address = ""
+            }
+            
+            
+            f_pre1_position = txt_position_held.text
+            if(f_pre1_position == nil){
+                f_pre1_position = ""
+            }
+            
+            f_pre1_salary = txt_salary.text
+            if(f_pre1_salary == nil){
+                f_pre1_salary = ""
+            }
+            
+            f_pre1_reason = txt_reason_for_leaving.text
+            if(f_pre1_reason == nil){
+                f_pre1_reason = ""
+            }
+            
+            f_pre1_salary = txt_salary.text
+            if(f_pre1_salary == nil){
+                f_pre1_salary = ""
+            }
+            
+            f_pre1_supervisor = txt_supervisor.text
+            if(f_pre1_supervisor == nil){
+                f_pre1_supervisor = ""
+            }
+            
+            f_emergency_name = txt_emergency_name.text
+            if(f_emergency_name == nil){
+                f_emergency_name = ""
+            }
+            
+            f_emergency_phone = txt_emergency_number.text
+            if(f_emergency_phone == nil){
+                f_emergency_phone = ""
+            }
+            
+            f_pre1_duration = txt_pre1_duration.text
+            if(f_pre1_duration == nil){
+                f_pre1_duration = ""
+            }
+            
+            f_other_form = txt_any_other_emp.text
+            if(f_other_form == nil){
+                f_other_form = ""
+            }
+            
+            f_name_of_agency = txt_agency_name.text
+            if(f_name_of_agency == nil){
+                f_name_of_agency = ""
+            }
+            
+            f_jobs_sent = txt_list_jobs.text
+            if(f_jobs_sent == nil){
+                f_jobs_sent = ""
+            }
+            
+            if(f_kmrange != "" && f_category != ""){
+                glob_error = ""
+                lbl_glob_error.text = ""
+                return 1
+            }else{
+                glob_error = "Please Fill All Required Fields"
+                lbl_glob_error.text = glob_error
+                return 0
+            }
         }else{
+            lbl_glob_error.text = glob_error
             return 0
         }
     }
@@ -694,7 +706,7 @@ class WorkViewController: UIViewController {
     // MARK: - show sgn function
     @IBAction func showsign(_ sender: Any) {
         if(validateform() == 0){
-            let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -1193,5 +1205,48 @@ class WorkViewController: UIViewController {
             f_kmrange = "60"
         }
     }
+    
+    func testFormat(sourcePhoneNumber: String) -> String {
+        if let formattedPhoneNumber = format(phoneNumber: sourcePhoneNumber) {
+            return formattedPhoneNumber
+        }
+        else {
+            return "nil"
+        }
+    }
+    
+    @IBAction func agencynumberformat(_ sender: Any) {
+        let num = testFormat(sourcePhoneNumber: txt_previous_telephone.text!)
+        if(num != "nil"){
+            txt_previous_telephone.text=num
+        }else{
+            glob_flag = false
+            glob_error = "Invalid Agency Phone Number"
+            txt_previous_telephone.text=""
+            
+            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
+    @IBAction func emenumberformat(_ sender: Any) {
+        let num = testFormat(sourcePhoneNumber: txt_emergency_number.text!)
+        if(num != "nil"){
+            txt_emergency_number.text=num
+        }else{
+            glob_flag = false
+            glob_error = "Invalid Emergency Phone Number"
+            txt_emergency_number.text=""
+            
+            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
     
 }

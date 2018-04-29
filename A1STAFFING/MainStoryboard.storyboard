@@ -308,6 +308,9 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="phonenumberformat:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="ezu-J9-eCP"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Informations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijg-dM-ML5">
                                                         <rect key="frame" x="50" y="50" width="500" height="50"/>
@@ -332,6 +335,9 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mobilenumberformat:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="BFD-69-CnS"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fre-QN-ME2">
                                                         <rect key="frame" x="50" y="405" width="668" height="70"/>
@@ -349,20 +355,6 @@
                                                         <connections>
                                                             <action selector="email_validate:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="g1H-C4-Mg8"/>
                                                         </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbd-fz-l9d">
-                                                        <rect key="frame" x="50" y="525" width="668" height="70"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <viewLayoutGuide key="safeArea" id="nVv-xE-FYm"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="location"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Unit #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dsc-AO-hTS">
                                                         <rect key="frame" x="50" y="645" width="150" height="70"/>
@@ -395,6 +387,20 @@
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbd-fz-l9d">
+                                                        <rect key="frame" x="50" y="524" width="668" height="70"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <viewLayoutGuide key="safeArea" id="nVv-xE-FYm"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="location"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1943,7 +1949,7 @@
                                                         <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <viewLayoutGuide key="safeArea" id="GCP-BN-JPE"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="tel"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                                 <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1952,6 +1958,9 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="agencynumberformat:" destination="xCH-Ne-Nta" eventType="editingDidEnd" id="bZ4-5n-xK5"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Do you have any other form of employment?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3z-Zu-Arf">
                                                         <rect key="frame" x="50" y="1309" width="668" height="70"/>
@@ -2125,7 +2134,7 @@
                                                         <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <viewLayoutGuide key="safeArea" id="YHe-Ts-Pff"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="tel"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                                 <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2134,7 +2143,17 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="emenumberformat:" destination="xCH-Ne-Nta" eventType="editingDidEnd" id="CTz-kf-rvw"/>
+                                                        </connections>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzY-gd-nrh">
+                                                        <rect key="frame" x="50" y="1753" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -2232,6 +2251,7 @@
                         <outlet property="btn_week_yes" destination="cyh-oI-t6o" id="ngK-ZD-JWB"/>
                         <outlet property="btn_welding" destination="3jk-uH-XF8" id="F13-JM-XLB"/>
                         <outlet property="btn_whms" destination="hPs-UQ-5gU" id="gc7-6G-LGK"/>
+                        <outlet property="lbl_glob_error" destination="AzY-gd-nrh" id="SjW-cC-Tk8"/>
                         <outlet property="previous_view" destination="RtO-6Q-cTp" id="Lks-jb-xQt"/>
                         <outlet property="txt_agency_name" destination="HHA-4x-Ea3" id="oUV-r4-s4f"/>
                         <outlet property="txt_any_other_emp" destination="A3z-Zu-Arf" id="pG3-i7-gfu"/>
@@ -3256,6 +3276,9 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="phonenumberformat:" destination="E8c-cb-BRG" eventType="editingDidEnd" id="ayJ-aY-hC1"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Informations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91s-Gf-QtQ">
                                                         <rect key="frame" x="50" y="50" width="500" height="50"/>
@@ -3280,6 +3303,9 @@
                                                                 <integer key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mobilenumberformat:" destination="E8c-cb-BRG" eventType="editingDidEnd" id="HH8-Ut-0Xz"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6D5-bA-zth">
                                                         <rect key="frame" x="50" y="405" width="668" height="70"/>
@@ -3732,7 +3758,6 @@ I also certify that I have read and understood the Terms and Conditions and real
         <image name="button_bg" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QrC-V1-jga"/>
         <segue reference="jWX-ao-27w"/>
         <segue reference="csI-eV-QFE"/>
     </inferredMetricsTieBreakers>

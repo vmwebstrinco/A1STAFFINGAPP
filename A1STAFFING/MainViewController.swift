@@ -507,4 +507,43 @@ class MainViewController: UIViewController {
         }
     }
     
+    func testFormat(sourcePhoneNumber: String) -> String {
+        if let formattedPhoneNumber = format(phoneNumber: sourcePhoneNumber) {
+            return formattedPhoneNumber
+        }
+        else {
+            return "nil"
+        }
+    }
+
+    @IBAction func phonenumberformat(_ sender: Any) {
+        let num = testFormat(sourcePhoneNumber: txt_main_phone.text!)
+        if(num != "nil"){
+            txt_main_phone.text=num
+        }else{
+            glob_flag = false
+            glob_error = "Invalid Main Phone Number"
+            txt_main_phone.text=""
+            
+            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+   
+    @IBAction func mobilenumberformat(_ sender: Any) {
+    let num = testFormat(sourcePhoneNumber: txt_mobile.text!)
+        if(num != "nil"){
+            txt_mobile.text=num
+        }else{
+            glob_flag = false
+            glob_error = "Invalid Mobile Number"
+            txt_mobile.text=""
+            
+            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
