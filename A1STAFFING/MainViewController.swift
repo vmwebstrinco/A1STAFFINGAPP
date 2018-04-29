@@ -561,8 +561,12 @@ class MainViewController: UIViewController {
     @IBAction func email_validate(_ sender: Any) {
         if(!validateEmail(enteredEmail: txt_email.text!)){
             lbl_email_error.text="Enter Valid Email Address"
+            glob_flag = false
+            glob_error = "Enter Valid Email Address"
         }else{
             lbl_email_error.text=""
+            glob_flag = true
+            glob_error = ""
         }
     }
     
@@ -591,6 +595,9 @@ class MainViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+        }else{
+            glob_flag = true
+            glob_error = ""
         }
     }
     
@@ -611,6 +618,9 @@ class MainViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+        }else{
+            glob_flag = true
+            glob_error = ""
         }
     }
     
@@ -639,6 +649,9 @@ class MainViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+        }else{
+            glob_flag = true
+            glob_error = ""
         }
     }
     
