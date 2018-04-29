@@ -21,7 +21,16 @@ class MainViewController: UIViewController {
         }
       
     }
-        
+    
+    
+    //MARK: - ERROR LABELS
+    
+    @IBOutlet weak var lbl_email_error: UILabel!
+    @IBOutlet weak var lbl_dob_error: UILabel!
+    @IBOutlet weak var lbl_valid_till_error: UILabel!
+    @IBOutlet weak var lbl_global_error: UILabel!
+    
+    
     // MARK: - VIEW Declarations
     @IBOutlet weak var personal_view: UIView!
     @IBOutlet weak var contact_view: UIView!
@@ -91,7 +100,9 @@ class MainViewController: UIViewController {
     var f_valid_until : String = ""
     var f_legal_right : String = ""
     var f_hear_from : String?
-
+    
+    var glob_flag: Bool = true
+    var glob_error: String = ""
     
     
     //MARK: - ON load
@@ -229,74 +240,89 @@ class MainViewController: UIViewController {
 
     //MARKL - Validates form
     public func validateform() -> Int{
-        f_first_name = txt_first_name.text
-        if(f_first_name == nil){
-            f_first_name = ""
-        }
-        
-        f_middle_name = txt_middle_name.text
-        if(f_middle_name == nil){
-            f_middle_name = ""
-        }
-        
-        f_last_name = txt_last_name.text
-        if(f_last_name == nil){
-            f_last_name = ""
-        }
-        
-        f_main_phone = txt_main_phone.text
-        if(f_main_phone == nil){
-            f_main_phone = ""
-        }
-        
-        f_mobile = txt_mobile.text
-        if(f_mobile == nil){
-            f_mobile = ""
-        }
-        
-        f_main_email = txt_email.text
-        if(f_main_email == nil){
-            f_main_email = ""
-        }
-        
-        f_address = txt_address.text
-        if(f_address == nil){
-            f_address = ""
-        }
-        
-        f_unit = txt_unit.text
-        if(f_unit == nil){
-            f_unit = ""
-        }
-        
-        f_city = txt_city.text
-        if(f_city == nil){
-            f_city = ""
-        }
-        
-        f_postalcode = txt_postal_code.text
-        if(f_postalcode == nil){
-            f_postalcode = ""
-        }
-        
-        f_work_permit_number = txt_work_permit_number.text
-        if(f_work_permit_number == nil){
-            f_work_permit_number = ""
-        }
-        
-        f_social_insurance = txt_social_insurance.text
-        if(f_social_insurance == nil){
-            f_social_insurance = ""
-        }
-        
-        f_hear_from = txt_hear_from.text
-        if(f_hear_from == nil){
-            f_hear_from = ""
-        }
-        
-        if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != ""){
-            return 1
+        if(glob_flag){
+            f_first_name = txt_first_name.text
+            if(f_first_name == nil){
+                f_first_name = ""
+            }
+            
+            f_middle_name = txt_middle_name.text
+            if(f_middle_name == nil){
+                f_middle_name = ""
+            }
+            
+            f_last_name = txt_last_name.text
+            if(f_last_name == nil){
+                f_last_name = ""
+            }
+            
+            f_main_phone = txt_main_phone.text
+            if(f_main_phone == nil){
+                f_main_phone = ""
+            }
+            
+            f_mobile = txt_mobile.text
+            if(f_mobile == nil){
+                f_mobile = ""
+            }
+            
+            f_main_email = txt_email.text
+            if(f_main_email == nil){
+                f_main_email = ""
+            }
+            
+            f_address = txt_address.text
+            if(f_address == nil){
+                f_address = ""
+            }
+            
+            f_unit = txt_unit.text
+            if(f_unit == nil){
+                f_unit = ""
+            }
+            
+            f_city = txt_city.text
+            if(f_city == nil){
+                f_city = ""
+            }
+            
+            f_postalcode = txt_postal_code.text
+            if(f_postalcode == nil){
+                f_postalcode = ""
+            }
+            
+            f_work_permit_number = txt_work_permit_number.text
+            if(f_work_permit_number == nil){
+                f_work_permit_number = ""
+            }
+            
+            f_social_insurance = txt_social_insurance.text
+            if(f_social_insurance == nil){
+                f_social_insurance = ""
+            }
+            
+            f_hear_from = txt_hear_from.text
+            if(f_hear_from == nil){
+                f_hear_from = ""
+            }
+            
+            if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != ""){
+                if(!validateEmail(enteredEmail: txt_email.text!)){
+                    glob_error = "Enter Valid Email Address"
+                    lbl_global_error.text = glob_error
+                    return 0
+                }else{
+                    glob_error = ""
+                    lbl_global_error.text = ""
+                    return 1
+                }
+            }else{
+                glob_error = "Please Fill All Required Fields"
+                lbl_global_error.text = glob_error
+                return 0
+            }
         }else{
+            lbl_global_error.text = glob_error
             return 0
         }
     }
@@ -304,7 +330,7 @@ class MainViewController: UIViewController {
     // MARK: - show sgn function
     @IBAction func showsign(_ sender: Any) {
         if(validateform() == 0){
-            let alert = UIAlertController(title: "Alert", message: "Please fill all required fields", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -407,16 +433,41 @@ class MainViewController: UIViewController {
     @IBAction func get_dob(_ sender: Any) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let cdate = dateFormatter.string(from: Date())
         let strDate = dateFormatter.string(from: dob.date)
+        
         f_dob=strDate
+        
+        if(f_dob > cdate){
+            lbl_dob_error.text="Select Valid Date"
+            glob_flag = false
+            glob_error = "Select Valid DOB"
+        }else{
+            glob_flag = true
+            glob_error = ""
+            lbl_dob_error.text=""
+        }
     }
     
     // MARK: - get valid till function
     @IBAction func get_valid_till(_ sender: Any) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let cdate = dateFormatter.string(from: Date())
         let strDate = dateFormatter.string(from: valid_till.date)
+        
         f_valid_until=strDate
+        if(f_valid_until < cdate){
+            lbl_valid_till_error.text="Select Valid Date"
+            glob_flag = false
+            glob_error = "Select Valid Date"
+        }else{
+            lbl_valid_till_error.text=""
+            glob_flag = true
+            glob_error = ""
+        }
     }
     
     // MARK: - get own car function
@@ -436,5 +487,24 @@ class MainViewController: UIViewController {
             f_legal_right = "NO"
         }
     }
-   
+    
+    //EMAIL VALIDATION
+    func validateEmail(enteredEmail:String) -> Bool {
+        if(enteredEmail != ""){
+            let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+            return emailPredicate.evaluate(with: enteredEmail)
+        }else{
+            return true
+        }
+    }
+    
+    @IBAction func email_validate(_ sender: Any) {
+        if(!validateEmail(enteredEmail: txt_email.text!)){
+            lbl_email_error.text="Enter Valid Email Address"
+        }else{
+            lbl_email_error.text=""
+        }
+    }
+    
 }

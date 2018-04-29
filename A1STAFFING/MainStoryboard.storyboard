@@ -276,6 +276,13 @@
                                                             <segue destination="mWj-zL-nkP" kind="show" id="kHF-6s-kZk"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPj-4C-FB0">
+                                                        <rect key="frame" x="50" y="860" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -333,6 +340,9 @@
                                                                 <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="email_validate:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="g1H-C4-Mg8"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbd-fz-l9d">
                                                         <rect key="frame" x="50" y="525" width="668" height="70"/>
@@ -372,6 +382,13 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-level2"/>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-DZ-pX3">
+                                                        <rect key="frame" x="50" y="483" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -551,6 +568,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q91-nJ-gnJ">
+                                                        <rect key="frame" x="50" y="537" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcK-FV-CNa">
+                                                        <rect key="frame" x="50" y="749" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -617,6 +648,10 @@
                         <outlet property="dob" destination="vh0-UN-KxV" id="rP2-du-Q39"/>
                         <outlet property="gender_btn_female" destination="OmY-Mu-vSf" id="tX6-sU-1HK"/>
                         <outlet property="gender_btn_male" destination="fjK-db-99x" id="GMe-NW-DFB"/>
+                        <outlet property="lbl_dob_error" destination="HPj-4C-FB0" id="pyE-vc-US2"/>
+                        <outlet property="lbl_email_error" destination="3aA-DZ-pX3" id="hyQ-yN-Yg7"/>
+                        <outlet property="lbl_global_error" destination="QcK-FV-CNa" id="nFY-sH-M8K"/>
+                        <outlet property="lbl_valid_till_error" destination="q91-nJ-gnJ" id="wgR-GP-rTs"/>
                         <outlet property="no_btn_legal_right" destination="DcJ-Hb-p9C" id="Lws-Ol-iV1"/>
                         <outlet property="no_btn_own_car" destination="F93-Y2-2wh" id="Zux-sL-P5n"/>
                         <outlet property="other_view" destination="IN7-Cu-yjQ" id="fvU-05-x2u"/>
@@ -638,6 +673,7 @@
                         <outlet property="txt_unit" destination="Dsc-AO-hTS" id="CgJ-h7-he3"/>
                         <outlet property="txt_work_permit_number" destination="Uou-i1-coS" id="42x-hv-9ce"/>
                         <outlet property="valid_till" destination="urh-Dd-Xav" id="DLH-dz-QgU"/>
+                        <outlet property="yes_btn_legal_right" destination="Olt-uy-ZH9" id="j3i-if-ly6"/>
                         <outlet property="yes_btn_own_car" destination="AXp-7w-Qj5" id="Fkj-5k-h7f"/>
                         <segue destination="xCH-Ne-Nta" kind="show" identifier="segue_to_work_from_main" id="ptw-JV-52k"/>
                     </connections>
@@ -1137,6 +1173,7 @@
                                                             <outletCollection property="otherButtons" destination="e8g-hl-zhq" id="GAM-QD-J8D"/>
                                                             <outletCollection property="otherButtons" destination="kzX-xa-gLi" id="thd-B9-IFP"/>
                                                             <outletCollection property="otherButtons" destination="EtG-r3-5O9" id="OM4-Rp-gcI"/>
+                                                            <outletCollection property="otherButtons" destination="xah-o1-AsV" id="olI-3K-3Nc"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can you work weekends?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYM-lD-og9">
@@ -1765,7 +1802,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="get_all_days:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="Uhi-qR-GwW"/>
+                                                            <action selector="get_days_available:" destination="xCH-Ne-Nta" eventType="touchUpInside" id="e37-xu-xNw"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3172,6 +3209,13 @@
                                                             <segue destination="mWj-zL-nkP" kind="show" id="csI-eV-QFE"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXH-kN-jpQ">
+                                                        <rect key="frame" x="50" y="860" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -3229,6 +3273,9 @@
                                                                 <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="email_validate:" destination="E8c-cb-BRG" eventType="editingDidEnd" id="UzN-Fa-jNk"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yQ-jp-YVy">
                                                         <rect key="frame" x="50" y="525" width="668" height="70"/>
@@ -3268,6 +3315,13 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-level2"/>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0i-GM-krw">
+                                                        <rect key="frame" x="50" y="483" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -3446,6 +3500,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1c-wD-coq">
+                                                        <rect key="frame" x="50" y="537" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBc-ln-C20">
+                                                        <rect key="frame" x="50" y="749" width="668" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -3512,6 +3580,10 @@
                         <outlet property="dob" destination="wgh-LC-T2f" id="m70-sc-wxp"/>
                         <outlet property="gender_btn_female" destination="iS7-9T-KSf" id="K59-ze-o8J"/>
                         <outlet property="gender_btn_male" destination="9jl-ZK-dQF" id="1Ne-EQ-nB9"/>
+                        <outlet property="lbl_dob_error" destination="cXH-kN-jpQ" id="0H9-Vi-ZcD"/>
+                        <outlet property="lbl_email_error" destination="F0i-GM-krw" id="d6M-1W-lwC"/>
+                        <outlet property="lbl_global_error" destination="PBc-ln-C20" id="vbr-z0-3b4"/>
+                        <outlet property="lbl_valid_till_error" destination="c1c-wD-coq" id="DTA-1r-tn8"/>
                         <outlet property="no_btn_legal_right" destination="Onb-o4-VbH" id="Gk8-45-Nhd"/>
                         <outlet property="no_btn_own_car" destination="G71-Ia-UnM" id="AE1-mH-Ofr"/>
                         <outlet property="other_view" destination="rWs-TU-xa6" id="VAZ-G3-Txc"/>
@@ -3636,8 +3708,7 @@ I also certify that I have read and understood the Terms and Conditions and real
         <image name="button_bg" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CkO-yW-daG"/>
-        <segue reference="NJ8-FQ-we5"/>
-        <segue reference="sp2-T1-0GY"/>
+        <segue reference="jWX-ao-27w"/>
+        <segue reference="csI-eV-QFE"/>
     </inferredMetricsTieBreakers>
 </document>

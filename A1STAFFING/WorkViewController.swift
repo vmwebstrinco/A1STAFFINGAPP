@@ -461,6 +461,9 @@ class WorkViewController: UIViewController {
                                 self.btn_sunday.isSelected = true
                             }
                         }
+                        if(days_availarr.count == 7){
+                            self.btn_all_days.isSelected = true
+                        }
                     }
                     
                     
@@ -925,42 +928,202 @@ class WorkViewController: UIViewController {
     
     // MARK: - Get days function
     @IBAction func get_days_available(_ sender: DLRadioButton) {
-        if(sender.tag == 1){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "MON"
-        }else if(sender.tag == 2){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "TUES"
-        }else if(sender.tag == 3){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "WED"
-        }else if(sender.tag == 4){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "THURS"
-        }else if(sender.tag == 5){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "FRI"
-        }else if(sender.tag == 6){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "SAT"
-        }else if(sender.tag == 7){
-            if(f_days_avail != ""){
-                f_days_avail+=",";
-            }
-            f_days_avail += "SUN"
+        var days_availarr = [String]()
+        if(f_days_avail != ""){
+            days_availarr = f_days_avail.components(separatedBy: ",")
         }
+        
+        if(sender.tag == 0){
+            if(days_availarr.count == 7){
+                if(btn_monday.isSelected==true){
+                    btn_monday.isSelected = true
+                }
+                if(btn_tuesday.isSelected==true){
+                    btn_tuesday.isSelected = false
+                }
+                if(btn_wednesday.isSelected==true){
+                    btn_wednesday.isSelected = false
+                }
+                if(btn_thursday.isSelected==true){
+                    btn_thursday.isSelected = false
+                }
+                if(btn_friday.isSelected==true){
+                    btn_friday.isSelected = false
+                }
+                if(btn_saturday.isSelected==true){
+                    btn_saturday.isSelected = false
+                }
+                if(btn_sunday.isSelected==true){
+                    btn_sunday.isSelected = false
+                }
+                days_availarr = [];
+            }else{
+                if(btn_monday.isSelected==false){
+                    btn_monday.isSelected = true
+                }
+                if(btn_tuesday.isSelected==false){
+                    btn_tuesday.isSelected = true
+                }
+                if(btn_wednesday.isSelected==false){
+                    btn_wednesday.isSelected = true
+                }
+                if(btn_thursday.isSelected==false){
+                    btn_thursday.isSelected = true
+                }
+                if(btn_friday.isSelected==false){
+                    btn_friday.isSelected = true
+                }
+                if(btn_saturday.isSelected==false){
+                    btn_saturday.isSelected = true
+                }
+                if(btn_sunday.isSelected==false){
+                    btn_sunday.isSelected = true
+                }
+                days_availarr = ["SUN","MON","TUES","WED","THURS","FRI","SAT"]
+            }
+        }
+        else if(sender.tag == 1){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "MON")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("MON")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("MON")
+            }
+        }
+        else if(sender.tag == 2){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "TUES")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("TUES")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("TUES")
+            }
+        }
+        else if(sender.tag == 3){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "WED")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("WED")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("WED")
+            }
+        }
+        else if(sender.tag == 4){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "THURS")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("THURS")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("THURS")
+            }
+        }
+        else if(sender.tag == 5){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "FRI")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("FRI")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("FRI")
+            }
+        }
+        else if(sender.tag == 6){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "SAT")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("SAT")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("SAT")
+            }
+        }
+        else if(sender.tag == 7){
+            if(days_availarr.count > 0){
+                let index = days_availarr.index(of: "SUN")
+                if(index != nil){
+                    days_availarr.remove(at: index!)
+                    if(btn_all_days.isSelected==true){
+                        btn_all_days.isSelected=false
+                    }
+                }else{
+                    days_availarr.append("SUN")
+                    if(days_availarr.count == 7){
+                        if(btn_all_days.isSelected==false){
+                            btn_all_days.isSelected=true
+                        }
+                    }
+                }
+            }else{
+                days_availarr.append("SUN")
+            }
+        }
+        
+        f_days_avail = days_availarr.joined(separator: ",")
     }
     
     // MARK: - Get areas function
@@ -1030,31 +1193,5 @@ class WorkViewController: UIViewController {
             f_kmrange = "60"
         }
     }
-    
-    
-    // MARK: - Get all days function
-    @IBAction func get_all_days(_ sender: DLRadioButton) {
-        if(btn_all_days.isSelected == true){
-            btn_monday.isSelected = true
-            btn_tuesday.isSelected = true
-            btn_wednesday.isSelected = true
-            btn_thursday.isSelected = true
-            btn_friday.isSelected = true
-            btn_saturday.isSelected = true
-            btn_sunday.isSelected = true
-            f_days_avail = "SUN,MON,TUES,WED,THURS,FRI,SAT";
-        }else{
-            btn_monday.isSelected = false
-            btn_tuesday.isSelected = false
-            btn_wednesday.isSelected = false
-            btn_thursday.isSelected = false
-            btn_friday.isSelected = false
-            btn_saturday.isSelected = false
-            btn_sunday.isSelected = false
-            btn_all_days.isSelected = false
-            f_days_avail = "";
-        }
-    }
-    
     
 }
