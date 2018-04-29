@@ -237,6 +237,7 @@ class WorkViewController: UIViewController {
     //MARKL - View onload function
     
     override func viewDidLoad() {
+        
         btn_day.isMultipleSelectionEnabled = true
         btn_areas.isMultipleSelectionEnabled = true
         btn_shifts_del.isMultipleSelectionEnabled = true
@@ -481,6 +482,7 @@ class WorkViewController: UIViewController {
         group.wait()
         
         super.viewDidLoad()
+        self.hideKeyboard()
         
         //MARK: - View Declaration
         
@@ -687,12 +689,21 @@ class WorkViewController: UIViewController {
                 f_jobs_sent = ""
             }
             
-            if(f_kmrange != "" && f_category != ""){
+            var in_flag:Bool=true
+            if(f_kmrange == ""){
+                in_flag = false
+                glob_error = "KM Range is Required"
+            }
+            if(f_category == ""){
+                in_flag = false
+                glob_error = "Select Work Type"
+            }
+            
+            if(in_flag){
                 glob_error = ""
                 lbl_glob_error.text = ""
                 return 1
             }else{
-                glob_error = "Please Fill All Required Fields"
                 lbl_glob_error.text = glob_error
                 return 0
             }
@@ -761,7 +772,7 @@ class WorkViewController: UIViewController {
             dataString = dataString + "&pre1_reason=\(f_pre1_reason!)"
             dataString = dataString + "&pre1_supervisor=\(f_pre1_supervisor!)"
             dataString = dataString + "&emergency_name=\(f_emergency_name!)"
-            dataString = dataString + "&emergency_number=\(f_emergency_phone!)"
+            dataString = dataString + "&emergency_phone=\(f_emergency_phone!)"
             dataString = dataString + "&criminal_pardon=\(f_criminal_pardon)"
             dataString = dataString + "&other_form=\(f_other_form!)"
             dataString = dataString + "&temp_service=\(f_temp_service)"
@@ -1216,36 +1227,42 @@ class WorkViewController: UIViewController {
     }
     
     @IBAction func agencynumberformat(_ sender: Any) {
-        let num = testFormat(sourcePhoneNumber: txt_previous_telephone.text!)
-        if(num != "nil"){
-            txt_previous_telephone.text=num
-        }else{
-            glob_flag = false
-            glob_error = "Invalid Agency Phone Number"
-            txt_previous_telephone.text=""
-            
-            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if(txt_previous_telephone.text != ""){
+            let num = testFormat(sourcePhoneNumber: txt_previous_telephone.text!)
+            if(num != "nil"){
+                txt_previous_telephone.text=num
+                glob_flag = true
+                glob_error = ""
+            }else{
+                glob_flag = false
+                glob_error = "Invalid Agency Phone Number"
+                txt_previous_telephone.text=""
+                
+                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
-        
     }
     
     
     @IBAction func emenumberformat(_ sender: Any) {
-        let num = testFormat(sourcePhoneNumber: txt_emergency_number.text!)
-        if(num != "nil"){
-            txt_emergency_number.text=num
-        }else{
-            glob_flag = false
-            glob_error = "Invalid Emergency Phone Number"
-            txt_emergency_number.text=""
-            
-            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if(txt_emergency_number.text != ""){
+            let num = testFormat(sourcePhoneNumber: txt_emergency_number.text!)
+            if(num != "nil"){
+                txt_emergency_number.text=num
+                glob_flag = true
+                glob_error = ""
+            }else{
+                glob_flag = false
+                glob_error = "Invalid Emergency Phone Number"
+                txt_emergency_number.text=""
+                
+                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
-        
     }
     
     

@@ -108,6 +108,7 @@ class MainViewController: UIViewController {
     //MARK: - ON load
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboard()
         
         personal_view.layer.borderWidth = 0.5
         personal_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
@@ -241,83 +242,141 @@ class MainViewController: UIViewController {
     //MARKL - Validates form
     public func validateform() -> Int{
         if(glob_flag){
-            f_first_name = txt_first_name.text
-            if(f_first_name == nil){
-                f_first_name = ""
+            var in_flag = true
+            let myColor = UIColor.red
+            
+            if(f_title == ""){
+                glob_error = "Select Title"
+                title_btn_mr.becomeFirstResponder()
+                in_flag = false
+            }
+            else if(txt_first_name.text == ""){
+                txt_first_name.layer.shadowOpacity = 1.0;
+                txt_first_name.layer.shadowRadius = 0.0;
+                txt_first_name.layer.shadowColor = UIColor(red:1.0, green:0.0, blue:0.0, alpha:1.0).cgColor;
+                txt_first_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+                txt_first_name.layer.borderColor = myColor.cgColor
+                txt_first_name.layer.borderWidth = 1.0
+                
+                glob_error = "First Name is Required"
+                txt_first_name.becomeFirstResponder()
+                in_flag = false
+            }
+            else if(txt_last_name.text == ""){
+                txt_last_name.layer.shadowOpacity = 1.0;
+                txt_last_name.layer.shadowRadius = 0.0;
+                txt_last_name.layer.shadowColor = UIColor(red:1.0, green:0.0, blue:0.0, alpha:1.0).cgColor;
+                txt_last_name.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+                txt_last_name.layer.borderColor = myColor.cgColor
+                txt_last_name.layer.borderWidth = 1.0
+                glob_error = "Last Name is Required"
+                txt_last_name.becomeFirstResponder()
+                in_flag = false
+            }
+            else if(txt_main_phone.text == ""){
+                txt_main_phone.layer.shadowOpacity = 1.0;
+                txt_main_phone.layer.shadowRadius = 0.0;
+                txt_main_phone.layer.shadowColor = UIColor(red:1.0, green:0.0, blue:0.0, alpha:1.0).cgColor;
+                txt_main_phone.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+                txt_main_phone.layer.borderColor = myColor.cgColor
+                txt_main_phone.layer.borderWidth = 1.0
+                glob_error = "Main Phone Number is Required"
+                txt_main_phone.becomeFirstResponder()
+                in_flag = false
+            }
+            else if(txt_address.text == ""){
+                txt_address.layer.shadowOpacity = 1.0;
+                txt_address.layer.shadowRadius = 0.0;
+                txt_address.layer.shadowColor = UIColor(red:1.0, green:0.0, blue:0.0, alpha:1.0).cgColor;
+                txt_address.layer.shadowOffset = CGSize(width: -5.0, height: 0.0);
+                txt_address.layer.borderColor = myColor.cgColor
+                txt_address.layer.borderWidth = 1.0
+                glob_error = "Address is Required"
+                txt_address.becomeFirstResponder()
+                in_flag = false
             }
             
-            f_middle_name = txt_middle_name.text
-            if(f_middle_name == nil){
-                f_middle_name = ""
-            }
-            
-            f_last_name = txt_last_name.text
-            if(f_last_name == nil){
-                f_last_name = ""
-            }
-            
-            f_main_phone = txt_main_phone.text
-            if(f_main_phone == nil){
-                f_main_phone = ""
-            }
-            
-            f_mobile = txt_mobile.text
-            if(f_mobile == nil){
-                f_mobile = ""
-            }
-            
-            f_main_email = txt_email.text
-            if(f_main_email == nil){
-                f_main_email = ""
-            }
-            
-            f_address = txt_address.text
-            if(f_address == nil){
-                f_address = ""
-            }
-            
-            f_unit = txt_unit.text
-            if(f_unit == nil){
-                f_unit = ""
-            }
-            
-            f_city = txt_city.text
-            if(f_city == nil){
-                f_city = ""
-            }
-            
-            f_postalcode = txt_postal_code.text
-            if(f_postalcode == nil){
-                f_postalcode = ""
-            }
-            
-            f_work_permit_number = txt_work_permit_number.text
-            if(f_work_permit_number == nil){
-                f_work_permit_number = ""
-            }
-            
-            f_social_insurance = txt_social_insurance.text
-            if(f_social_insurance == nil){
-                f_social_insurance = ""
-            }
-            
-            f_hear_from = txt_hear_from.text
-            if(f_hear_from == nil){
-                f_hear_from = ""
-            }
-            
-            if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != ""){
-                if(!validateEmail(enteredEmail: txt_email.text!)){
-                    glob_error = "Enter Valid Email Address"
+            if(in_flag){
+                f_first_name = txt_first_name.text
+                if(f_first_name == nil){
+                    f_first_name = ""
+                }
+                
+                f_middle_name = txt_middle_name.text
+                if(f_middle_name == nil){
+                    f_middle_name = ""
+                }
+                
+                f_last_name = txt_last_name.text
+                if(f_last_name == nil){
+                    f_last_name = ""
+                }
+                
+                f_main_phone = txt_main_phone.text
+                if(f_main_phone == nil){
+                    f_main_phone = ""
+                }
+                
+                f_mobile = txt_mobile.text
+                if(f_mobile == nil){
+                    f_mobile = ""
+                }
+                
+                f_main_email = txt_email.text
+                if(f_main_email == nil){
+                    f_main_email = ""
+                }
+                
+                f_address = txt_address.text
+                if(f_address == nil){
+                    f_address = ""
+                }
+                
+                f_unit = txt_unit.text
+                if(f_unit == nil){
+                    f_unit = ""
+                }
+                
+                f_city = txt_city.text
+                if(f_city == nil){
+                    f_city = ""
+                }
+                
+                f_postalcode = txt_postal_code.text
+                if(f_postalcode == nil){
+                    f_postalcode = ""
+                }
+                
+                f_work_permit_number = txt_work_permit_number.text
+                if(f_work_permit_number == nil){
+                    f_work_permit_number = ""
+                }
+                
+                f_social_insurance = txt_social_insurance.text
+                if(f_social_insurance == nil){
+                    f_social_insurance = ""
+                }
+                
+                f_hear_from = txt_hear_from.text
+                if(f_hear_from == nil){
+                    f_hear_from = ""
+                }
+                
+                if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != ""){
+                    if(!validateEmail(enteredEmail: txt_email.text!)){
+                        glob_error = "Enter Valid Email Address"
+                        lbl_global_error.text = glob_error
+                        return 0
+                    }else{
+                        glob_error = ""
+                        lbl_global_error.text = ""
+                        return 1
+                    }
+                }else{
                     lbl_global_error.text = glob_error
                     return 0
-                }else{
-                    glob_error = ""
-                    lbl_global_error.text = ""
-                    return 1
                 }
             }else{
-                glob_error = "Please Fill All Required Fields"
                 lbl_global_error.text = glob_error
                 return 0
             }
@@ -517,33 +576,70 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func phonenumberformat(_ sender: Any) {
-        let num = testFormat(sourcePhoneNumber: txt_main_phone.text!)
-        if(num != "nil"){
-            txt_main_phone.text=num
-        }else{
-            glob_flag = false
-            glob_error = "Invalid Main Phone Number"
-            txt_main_phone.text=""
-            
-            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if(txt_main_phone.text != ""){
+            let num = testFormat(sourcePhoneNumber: txt_main_phone.text!)
+            if(num != "nil"){
+                txt_main_phone.text=num
+                glob_flag = true
+                glob_error = ""
+            }else{
+                glob_flag = false
+                glob_error = "Invalid Main Phone Number"
+                txt_main_phone.text=""
+                
+                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
    
     @IBAction func mobilenumberformat(_ sender: Any) {
-    let num = testFormat(sourcePhoneNumber: txt_mobile.text!)
-        if(num != "nil"){
-            txt_mobile.text=num
-        }else{
-            glob_flag = false
-            glob_error = "Invalid Mobile Number"
-            txt_mobile.text=""
-            
-            let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if(txt_mobile.text != ""){
+            let num = testFormat(sourcePhoneNumber: txt_mobile.text!)
+            if(num != "nil"){
+                txt_mobile.text=num
+                glob_flag = true
+                glob_error = ""
+            }else{
+                glob_flag = false
+                glob_error = "Invalid Mobile Number"
+                txt_mobile.text=""
+                
+                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
+    
+    func testsinFormat(sourceSinNumber: String) -> String {
+        if let formattedSinNumber = sinformat(sinNumber: sourceSinNumber) {
+            return formattedSinNumber
+        }
+        else {
+            return "nil"
+        }
+    }    
+    
+    @IBAction func sinnumberformat(_ sender: Any) {
+        if(txt_social_insurance.text != ""){
+            let num = testsinFormat(sourceSinNumber: txt_social_insurance.text!)
+            if(num != "nil"){
+                txt_social_insurance.text=num
+                glob_flag = true
+                glob_error = ""
+            }else{
+                glob_flag = false
+                glob_error = "Invalid SIN Number"
+                txt_social_insurance.text=""
+                
+                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
 }

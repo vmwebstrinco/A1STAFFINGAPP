@@ -26,6 +26,20 @@ extension UIViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }
 
 //MARK: - UIColor Extensions
@@ -113,6 +127,44 @@ func format(phoneNumber sourcePhoneNumber: String) -> String? {
     }
     
     return leadingOne + areaCode + prefix + "-" + suffix
+}
+
+func sinformat(sinNumber sourceSinNumber: String) -> String? {
+    // Remove any character that is not a number
+    let numbersOnly = sourceSinNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    let length = numbersOnly.count
+    
+    // Check for supported phone number length
+    guard length == 9 else {
+        return nil
+    }
+    
+    var sourceIndex = 0
+    
+    // Area code
+    var areaCode = ""
+    let areaCodeLength = 3
+    guard let areaCodeSubstring = numbersOnly.substring(start: sourceIndex, offsetBy: areaCodeLength) else {
+        return nil
+    }
+    areaCode = String(format: "%@ ", areaCodeSubstring)
+    sourceIndex += areaCodeLength
+    
+    
+    // Prefix, 3 characters
+    let prefixLength = 3
+    guard let prefix = numbersOnly.substring(start: sourceIndex, offsetBy: prefixLength) else {
+        return nil
+    }
+    sourceIndex += prefixLength
+    
+    // Suffix, 3 characters
+    let suffixLength = 3
+    guard let suffix = numbersOnly.substring(start: sourceIndex, offsetBy: suffixLength) else {
+        return nil
+    }
+    
+    return areaCode + prefix + " " + suffix
 }
 
 extension String {

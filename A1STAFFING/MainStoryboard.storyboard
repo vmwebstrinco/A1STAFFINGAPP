@@ -309,7 +309,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="phonenumberformat:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="ezu-J9-eCP"/>
+                                                            <action selector="phonenumberformat:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="Psg-pj-EQ9"/>
                                                         </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Informations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijg-dM-ML5">
@@ -467,7 +467,7 @@
                                                             <outletCollection property="otherButtons" destination="F93-Y2-2wh" id="77S-OH-BCY"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Socila Insurance No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUB-EA-txK">
+                                                    <textField opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Social Insurance No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUB-EA-txK">
                                                         <rect key="frame" x="50" y="226" width="310" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -483,6 +483,9 @@
                                                                 <integer key="value" value="11"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="sinnumberformat:" destination="hw9-gS-9eu" eventType="editingDidEnd" id="E3V-6G-7Va"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Work Permit Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uou-i1-coS">
                                                         <rect key="frame" x="408" y="226" width="310" height="70"/>
@@ -3451,6 +3454,9 @@
                                                                 <integer key="value" value="11"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="sinnumberformat:" destination="E8c-cb-BRG" eventType="editingDidEnd" id="3nH-MT-UOI"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Work Permit Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9h-4f-Qxp">
                                                         <rect key="frame" x="408" y="226" width="310" height="70"/>
@@ -3758,7 +3764,6 @@ I also certify that I have read and understood the Terms and Conditions and real
         <image name="button_bg" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QrC-V1-jga"/>
         <segue reference="jWX-ao-27w"/>
         <segue reference="csI-eV-QFE"/>
     </inferredMetricsTieBreakers>
