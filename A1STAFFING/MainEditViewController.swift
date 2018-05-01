@@ -7,9 +7,23 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import GooglePlacesSearchController
 
-class MainEditViewController: UIViewController {
 
+class MainEditViewController: UIViewController ,UITextFieldDelegate {
+    
+    let GoogleMapsAPIServerKey = "AIzaSyDnWXEoM_64N78xUsprOZUJsrC_Os-iRhU"
+    
+    lazy var placesSearchController: GooglePlacesSearchController = {
+        let controller = GooglePlacesSearchController(delegate: self as! GooglePlacesAutocompleteViewControllerDelegate,
+              apiKey: GoogleMapsAPIServerKey,
+              placeType: .address
+        )
+        return controller
+    }()
+    
     // MARK: - Variable Declarations
     var insertid : Int = 0
     
@@ -25,6 +39,9 @@ class MainEditViewController: UIViewController {
         let mobile: String
         let main_email: String
         let address: String
+        let unit: String
+        let city: String
+        let postalcode: String
         let social_insurance: String
         let own_car: String
         let work_permit_number: String
@@ -43,6 +60,9 @@ class MainEditViewController: UIViewController {
             case mobile
             case main_email
             case address
+            case unit
+            case city
+            case postalcode
             case social_insurance
             case own_car
             case work_permit_number
@@ -139,6 +159,7 @@ class MainEditViewController: UIViewController {
     
     //MARK: - ON load
     override func viewDidLoad() {
+        self.txt_address.delegate = self
         let inserviceUrl = "http://a1staffing.ca/app/services.php"
         let inurl = URL(string: inserviceUrl)
         
@@ -221,6 +242,15 @@ class MainEditViewController: UIViewController {
                     
                     self.txt_address.text = emp.address
                     self.f_address=emp.address
+                    
+                    self.txt_unit.text = emp.unit
+                    self.f_unit=emp.unit
+                    
+                    self.txt_city.text = emp.city
+                    self.f_city=emp.city
+                    
+                    self.txt_postal_code.text = emp.postalcode
+                    self.f_postalcode=emp.postalcode
                     
                     self.txt_social_insurance.text = emp.social_insurance
                     self.f_social_insurance=emp.social_insurance
@@ -801,5 +831,17 @@ class MainEditViewController: UIViewController {
             glob_error = ""
         }
     }
+    
+    @IBAction func getaddressplaces(_ sender: UITextField) {
+        self.present(placesSearchController, animated: true, completion: nil)
+    }
+}
 
+extension MainEditViewController: GooglePlacesAutocompleteViewControllerDelegate {
+    public func viewController(didAutocompleteWith place: PlaceDetails) {
+        txt_address.text=place.formattedAddress
+        txt_city.text = place.locality
+        txt_postal_code.text = place.postalCode
+        placesSearchController.isActive = false
+    }
 }

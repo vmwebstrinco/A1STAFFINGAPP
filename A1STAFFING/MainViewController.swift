@@ -7,8 +7,23 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import GooglePlacesSearchController
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController,UITextFieldDelegate {
+    
+    let GoogleMapsAPIServerKey = "AIzaSyDnWXEoM_64N78xUsprOZUJsrC_Os-iRhU"
+    
+    lazy var placesSearchController: GooglePlacesSearchController = {
+        let controller = GooglePlacesSearchController(delegate: self as! GooglePlacesAutocompleteViewControllerDelegate,
+            apiKey: GoogleMapsAPIServerKey,
+            placeType: .address
+        )
+        return controller
+    }()
+    
+    
     // MARK: - Variable Declarations
     var insertid : Int = 0
     
@@ -109,6 +124,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboard()
+        self.txt_address.delegate = self
         
         personal_view.layer.borderWidth = 0.5
         personal_view.layer.borderColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0).cgColor
@@ -659,4 +675,16 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func getaddressplaces(_ sender: UITextField) {
+        self.present(placesSearchController, animated: true, completion: nil)
+    }
+}
+
+extension MainViewController: GooglePlacesAutocompleteViewControllerDelegate {
+    public func viewController(didAutocompleteWith place: PlaceDetails) {
+        txt_address.text=place.formattedAddress
+        txt_city.text = place.locality
+        txt_postal_code.text = place.postalCode
+        placesSearchController.isActive = false
+    }
 }

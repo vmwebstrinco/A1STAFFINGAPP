@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import GooglePlacesSearchController
 
-class WorkViewController: UIViewController {
+class WorkViewController: UIViewController ,UITextFieldDelegate {
+    
+    let GoogleMapsAPIServerKey = "AIzaSyDnWXEoM_64N78xUsprOZUJsrC_Os-iRhU"
+    
+    lazy var placesSearchController: GooglePlacesSearchController = {
+        let controller = GooglePlacesSearchController(delegate: self as! GooglePlacesAutocompleteViewControllerDelegate,
+          apiKey: GoogleMapsAPIServerKey,
+          placeType: .address
+        )
+        return controller
+    }()
     // MARK: - Variable Declarations
     var insertid : Int = 0
     
@@ -237,7 +250,7 @@ class WorkViewController: UIViewController {
     //MARKL - View onload function
     
     override func viewDidLoad() {
-        
+        self.txt_previous_address.delegate = self
         btn_day.isMultipleSelectionEnabled = true
         btn_areas.isMultipleSelectionEnabled = true
         btn_shifts_del.isMultipleSelectionEnabled = true
@@ -1271,5 +1284,14 @@ class WorkViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func getaddressplaces(_ sender: UITextField) {
+        self.present(placesSearchController, animated: true, completion: nil)
+    }
+}
+
+extension WorkViewController: GooglePlacesAutocompleteViewControllerDelegate {
+    public func viewController(didAutocompleteWith place: PlaceDetails) {
+        txt_previous_address.text=place.formattedAddress
+        placesSearchController.isActive = false
+    }
 }
