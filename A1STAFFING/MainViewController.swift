@@ -261,12 +261,7 @@ class MainViewController: UIViewController,UITextFieldDelegate {
             var in_flag = true
             let myColor = UIColor.red
             
-            if(f_title == ""){
-                glob_error = "Select Title"
-                title_btn_mr.becomeFirstResponder()
-                in_flag = false
-            }
-            else if(txt_first_name.text == ""){
+           if(txt_first_name.text == ""){
                 txt_first_name.layer.shadowOpacity = 1.0;
                 txt_first_name.layer.shadowRadius = 0.0;
                 txt_first_name.layer.shadowColor = UIColor(red:1.0, green:0.0, blue:0.0, alpha:1.0).cgColor;
@@ -378,7 +373,7 @@ class MainViewController: UIViewController,UITextFieldDelegate {
                     f_hear_from = ""
                 }
                 
-                if(f_first_name! != "" && f_last_name! != "" && f_title != "" && f_main_phone! != "" && f_address! != ""){
+                if(f_first_name! != "" && f_last_name! != "" && f_main_phone! != "" && f_address! != ""){
                     if(!validateEmail(enteredEmail: txt_email.text!)){
                         glob_error = "Enter Valid Email Address"
                         lbl_global_error.text = glob_error
