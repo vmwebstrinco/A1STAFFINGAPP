@@ -543,6 +543,9 @@ class MainEditViewController: UIViewController {
     // MARK: - show sgn function
     @IBAction func showsign(_ sender: Any) {
         if(validateform() == 0){
+            if(glob_error == ""){
+                glob_error = "Please Fill All Required Fields"
+            }
             let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -736,7 +739,7 @@ class MainEditViewController: UIViewController {
                 glob_error = "Invalid Main Phone Number"
                 txt_main_phone.text=""
                 
-                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -758,7 +761,7 @@ class MainEditViewController: UIViewController {
                 glob_error = "Invalid Mobile Number"
                 txt_mobile.text=""
                 
-                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -789,7 +792,7 @@ class MainEditViewController: UIViewController {
                 glob_error = "Invalid SIN Number"
                 txt_social_insurance.text=""
                 
-                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }

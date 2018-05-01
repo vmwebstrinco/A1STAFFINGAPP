@@ -1238,7 +1238,7 @@ class WorkViewController: UIViewController {
                 glob_error = "Invalid Agency Phone Number"
                 txt_previous_telephone.text=""
                 
-                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -1261,7 +1261,7 @@ class WorkViewController: UIViewController {
                 glob_error = "Invalid Emergency Phone Number"
                 txt_emergency_number.text=""
                 
-                let alert = UIAlertController(title: "Please Try Again", message: glob_error, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Alert", message: glob_error, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
