@@ -101,7 +101,7 @@ open class SignatureViewController: UIViewController {
                     {
                         DispatchQueue.main.async
                             {
-                                let alert = UIAlertController(title: "Registered Successfully", message: "Thank you for joining", preferredStyle: .alert)
+                                let alert = UIAlertController(title: "Registered Successfully", message: "Thank you for registering with A1 Staffing Solutions INC. We will conatct you shortly or reach us by 416 638-030 / Email : info@a1staffingsolution.com", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                                     self.performSegue(withIdentifier: "segue_to_view_from_signature", sender: self)
                                 }))

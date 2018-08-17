@@ -470,7 +470,6 @@ class MainEditViewController: UIViewController ,UITextFieldDelegate {
                 txt_address.layer.borderColor = myColor.cgColor
                 txt_address.layer.borderWidth = 1.0
                 glob_error = "Address is Required"
-                txt_address.becomeFirstResponder()
                 in_flag = false
             }
             

@@ -16,7 +16,7 @@ class MainViewController: UIViewController,UITextFieldDelegate {
     let GoogleMapsAPIServerKey = "AIzaSyDnWXEoM_64N78xUsprOZUJsrC_Os-iRhU"
     
     lazy var placesSearchController: GooglePlacesSearchController = {
-        let controller = GooglePlacesSearchController(delegate: self as! GooglePlacesAutocompleteViewControllerDelegate,
+        let controller = GooglePlacesSearchController(delegate: self as GooglePlacesAutocompleteViewControllerDelegate,
             apiKey: GoogleMapsAPIServerKey,
             placeType: .address
         )
@@ -303,7 +303,6 @@ class MainViewController: UIViewController,UITextFieldDelegate {
                 txt_address.layer.borderColor = myColor.cgColor
                 txt_address.layer.borderWidth = 1.0
                 glob_error = "Address is Required"
-                txt_address.becomeFirstResponder()
                 in_flag = false
             }
             

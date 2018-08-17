@@ -21,6 +21,9 @@ open class SignViewController: UIViewController {
         let mobile: String
         let main_email: String
         let address: String
+        let unit: String
+        let city: String
+        let postalcode: String
         let social_insurance: String
         let own_car: String
         let work_permit_number: String
@@ -73,6 +76,9 @@ open class SignViewController: UIViewController {
             case mobile
             case main_email
             case address
+            case unit
+            case city
+            case postalcode
             case social_insurance
             case own_car
             case work_permit_number
@@ -158,6 +164,8 @@ open class SignViewController: UIViewController {
     @IBOutlet weak var lbl_temp_service: UILabel!
     @IBOutlet weak var lbl_name_of_agency: UILabel!
     @IBOutlet weak var lbl_jobs_sent: UILabel!
+    
+    @IBOutlet weak var lbl_city_postal: UILabel!
     
     // MARK: - Variable declarations
     var insertid : Int = 162
@@ -285,17 +293,33 @@ open class SignViewController: UIViewController {
                     }
                     
                     var emed : String = emp.emergency_name
-                    var empphone : String = emp.emergency_phone
+                    let empphone : String = emp.emergency_phone
                     if(empphone != ""){
                         emed += " / " + empphone
                     }
+                    
+                    var cityname: String = emp.city
+                    let postal : String = emp.postalcode
+                    if(postal != ""){
+                        cityname += ", " + postal
+                    }
+                    
+                    var address : String = ""
+                    if(emp.unit != ""){
+                        address += "#"+emp.unit
+                    }
+                    if(address != ""){
+                        address += ", "
+                    }
+                    address += emp.address.components(separatedBy: ",")[0]
                     
                     self.lbl_name.text = emp.title+" "+emp.first_name+" "+emp.middle_name+" "+emp.last_name
                     self.lbl_gender.text = emp.gender
                     self.lbl_dob.text = emp.dob
                     self.lbl_mobile.text = phone
                     self.lbl_email.text = emp.main_email
-                    self.lbl_address.text = emp.address
+                    self.lbl_address.text = address
+                    self.lbl_city_postal.text = cityname
                     self.lbl_sin.text = emp.social_insurance
                     self.lbl_category.text = emp.category
                     self.lbl_kmrange.text = emp.kmrange
